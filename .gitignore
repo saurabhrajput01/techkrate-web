@@ -1,0 +1,96 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output and Vite
+dist/
+dist-ssr/
+*.local
+
+# Vercel deployment
+.vercel/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment and configuration files
+*.env
+*.env.*
+!.env.example
+
+# Logs and caches
+logs
+*.log
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+coverage/
+.nyc_output/
+
+# Testing
+junit.xml
+test-results/
+
+# Python (if used in the project)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Firebase (if used)
+.firebase/
+firebase-debug.log
+
+# Misc
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Lock files (optional - some prefer to keep these)
+# package-lock.json
+# yarn.lock
+
+# dependencies
+node_modules/
+
+# build
+dist/
+
+# vite cache
+.vite/
