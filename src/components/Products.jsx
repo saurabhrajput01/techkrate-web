@@ -73,7 +73,7 @@ const Solutions = () => {
   return (
     <section id="solutions" className="bg-black py-14">
       {/* Wider container for larger cards */}
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-6">
+<div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
         
         {/* Header */}
         <motion.div

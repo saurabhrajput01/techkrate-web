@@ -1,142 +1,127 @@
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import bgVideo from "../assets/video/vid1.mp4";
-import logo from "../assets/image/logo.svg";
+import { ArrowRight } from "lucide-react";
 
-const HeroSection = () => {
-  const heroRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+const slides = [
+  {
+    title: "Turning Complexity Into Clarity",
+    description:
+      "We distill complex challenges into clear solutions, empowering organizations to advance precisely and purposefully.",
+    button: "Discover More",
+  },
+  {
+    title: "Redefining Motor Claims Processing",
+    description:
+      "Moval revolutionizes motor claims handling by integrating advanced technology with industry-specific workflows.",
+    button: "Explore Platform",
+  },
+  {
+    title: "AI-Driven Assessment Intelligence",
+    description:
+      "Moval's AI goes beyond damage detection, instantly extracting complex data from assessment sheets.",
+    button: "See AI in Action",
+  },
+  {
+    title: "Regulatory-Compliant Survey Reports",
+    description:
+      "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
+    button: "View Compliance",
+  },
+  {
+    title: "Centralized Control & Mobile Approvals",
+    description:
+      "Moval offers robust tools for multi-office management and automated estimate imports.",
+    button: "Request Demo",
+  },
+];
+
+export default function HeroSection() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 120);
-    return () => clearTimeout(timer);
+    const interval = setInterval(() => {
+      setDirection(1); // forward
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative h-screen w-full overflow-hidden bg-black"
-      style={{
-        fontFamily: "Inter, sans-serif",
-        letterSpacing: "-0.01em",
-      }}
-    >
-      {/* Right Side Video - Full width on mobile, right side on desktop */}
-      <div className="absolute inset-0 lg:left-auto lg:w-2/3 lg:right-0 overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          src={bgVideo}
-        />
-      </div>
+    <section className="relative h-screen w-full overflow-hidden bg-black">
 
-      {/* Gradient Overlay - Stronger on mobile for better text readability */}
-<div
-  className="
-    absolute inset-0 z-10
-    bg-gradient-to-r
-    from-black/80
-    via-black/60
-    to-transparent
-    sm:from-black
-    sm:via-black/55
-    lg:via-black/80
-  "
-/>
+      {/* FULL WIDTH VIDEO */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover scale-105 animate-[slowZoom_20s_linear_infinite]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        src={bgVideo}
+      />
 
+      {/* BLUE SHADE LEFT */}
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(110deg,#0B1220_0%,#1E3A8A_35%,rgba(37,99,235,0.65)_55%,rgba(0,0,0,0.2)_75%,transparent_100%)]" />
 
-      {/* Noise Overlay */}
-      <div className="absolute inset-0 z-10 opacity-[0.035] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      {/* DARK LAYER FOR TEXT READABILITY */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
-      {/* Content */}
-      <div
-        className="relative z-20 h-full flex items-start justify-start
-                   pt-60 sm:pt-28 md:pt-32 lg:pt-40"
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transition: "opacity 1.2s ease",
-        }}
-      >
-        <div className="w-full max-w-7xl px-8 sm:px-5 md:px-8 lg:pl-60 text-left">
+      {/* CONTENT */}
+      <div className="relative z-20 h-full flex items-center">
+        <div className="w-full px-6 lg:px-16">
+          <div className="max-w-3xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: direction === 1 ? 100 : -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction === 1 ? -100 : 100 }}
+                transition={{ duration: 1.1, ease: "easeInOut" }}
+              >
+                <h1 className="text-[38px] sm:text-[50px] md:text-[62px] lg:text-[70px] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
+                  {slides[current].title}
+                </h1>
 
-          {/* Badge */}
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block px-3 py-1.5 mb-4 sm:mb-5 rounded-full"
-          >
-            <img src={logo} alt="Techkrate" className="h-28 sm:h-32 md:h-40 w-auto" />
-          </motion.span>
+                <p className="mt-6 text-lg text-white/80 leading-relaxed">
+                  {slides[current].description}
+                </p>
 
-          {/* Heading - Responsive sizing for better readability */}
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-[30px] sm:text-[38px] md:text-[48px] lg:text-[60px] 
-            font-light tracking-[-0.02em] sm:tracking-[-0.03em]
-            leading-[1.1] sm:leading-[1.08] text-white"
-          >
-            Transforming Motor Claims
-          </motion.h1>
-
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="block mt-1.5 sm:mt-2 text-[34px] sm:text-[40px] md:text-[52px] lg:text-[64px]
-            font-medium tracking-[-0.02em] sm:tracking-[-0.03em]
-            bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-300
-            bg-clip-text text-transparent"
-          >
-            With AI Intelligence
-          </motion.span>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-5 sm:mt-6 text-[15px] sm:text-[17px] md:text-[19px]
-            font-light leading-[1.7] sm:leading-[1.8] md:leading-[1.9]
-            text-gray-400 max-w-lg"
-          >
-            Accelerate claims assessment, reduce operational costs,
-            and deliver faster, fairer payouts using our intelligent
-            AI-driven insurance platform.
-          </motion.p>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 sm:mt-10 md:mt-12"
-          >
-            <Link
-              to="/request-demo"
-              className="
-                inline-flex items-center gap-2
-                px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 rounded-full
-                bg-white text-black font-medium text-[14px] sm:text-[15px]
-                hover:scale-[1.04]
-                transition-all duration-300
-              "
-            >
-              Request a demo
-            </Link>
-          </motion.div>
-
+                <div className="mt-10">
+                  <Link
+                    to="/request-demo"
+                    className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-medium text-sm transition-all duration-300 hover:bg-blue-600 hover:text-white"
+                  >
+                    {slides[current].button}
+                    <ArrowRight
+                      size={18}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
+
+      {/* DOT NAVIGATION */}
+      <div className="absolute bottom-10 left-10 flex gap-3 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              current === index
+                ? "w-8 bg-white"
+                : "w-2 bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+
     </section>
   );
-};
-
-export default HeroSection;
+}
