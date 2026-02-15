@@ -10,6 +10,7 @@ export default function PremiumCTA() {
                         w-[1000px] h-[380px]
                         bg-[#2563EB] opacity-20 blur-[220px]" />
       </div>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-4">
 
       <motion.div
   initial={{ opacity: 0, y: 30 }}
@@ -58,6 +59,7 @@ export default function PremiumCTA() {
           </a>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

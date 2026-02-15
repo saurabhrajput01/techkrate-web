@@ -93,8 +93,10 @@ export default function Testimonials() {
 
   return (
     <section className="w-full px-6 lg:px-4 py-6 lg:py-12" style={{ fontFamily: 'Inter, sans-serif' }}>
-      <div className="max-w-6xl mx-auto grid gap-8 lg:gap-16 lg:grid-cols-2 items-center">
-        {/* Left Column - Text Content */}
+
+     <div className="max-w-[1400px] mx-auto px-6 lg:px-4">
+
+    <div className="grid gap-8 lg:gap-16 lg:grid-cols-2 items-center">
         <div>
           <span className="inline-block text-[17px] font-normal tracking-wider text-gray-400 uppercase mb-6 font-['Neue']">
             Testimonials
@@ -219,6 +221,7 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
