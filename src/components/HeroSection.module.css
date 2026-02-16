@@ -10,19 +10,25 @@
 /* ===== TITLE (EXACT 2 LINES) ===== */
 .title {
   font-weight: 800;
-font-size: clamp(84px, 8vw, 128px);
+  font-size: clamp(40px, 8vw, 128px);
 
   /* Marble style spacing */
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.02em;
 
   /* IMPORTANT — remove compression */
   /* max-width: 860px;  ❌ REMOVE THIS */
 
-  margin-top: 78px;
+  margin-top: clamp(40px, 12vh, 120px);
 
   /* Premium typography rendering */
   text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 768px) {
+  .title {
+    line-height: 1.1;
+  }
 }
 
 /* ===== PARAGRAPH ===== */
@@ -60,6 +66,37 @@ font-size: clamp(84px, 8vw, 128px);
 /* ===== SLIDER ===== */
 .slider {
   display: flex;
-  width: 300%;
+  width: 500%;
   height: 100%;
+}
+
+.scrollBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.scrollBtn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+@media (max-width: 640px) {
+  .para {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .button {
+    margin-top: 24px;
+  }
 }
