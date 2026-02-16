@@ -27,7 +27,7 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
 
       {/* Content */}
       <div className="relative h-full flex flex-col p-5 md:p-8 text-white">
-        
+
         {/* Top Section */}
         <div className="flex items-center justify-between">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight">
@@ -73,8 +73,8 @@ const Solutions = () => {
   return (
     <section id="solutions" className="bg-black py-14">
       {/* Wider container for larger cards */}
-<div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
-        
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -86,7 +86,7 @@ const Solutions = () => {
           <span className="inline-block px-4 py-1.5 bg-blue-600/20 text-blue-400 text-sm font-medium rounded-full mb-4">
             Our Solutions
           </span>
-          <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-normal tracking-[-0.01em] leading-[1.15] text-white mb-6">
+          <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6">
             Intelligent Solutions for Modern Insurance
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
@@ -97,7 +97,7 @@ const Solutions = () => {
         {/* Grid */}
         <div
           ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6"
         >
           <SolutionCard
             name="Moval"

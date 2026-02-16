@@ -101,9 +101,16 @@ export default function FeaturesSection() {
                             </div>
                             <ul className="relative space-y-5">
                                 {feature.points.map((point, i) => (
-                                    <li key={i} className="flex gap-4 items-start">
-                                        <span className="mt-6 w-2 h-2 rounded-full bg-[#2563EB] shrink-0" />
-                                        <p className="text-gray-300 leading-relaxed text-sm mt-5">
+                                    <li key={i} className="flex gap-4 items-start relative">
+                                        {/* Vertical Timeline Line */}
+                                        {i < feature.points.length - 1 && (
+                                            <div
+                                                className="absolute left-[3.5px] top-[28px] w-[1px] h-[calc(100%+20px)] bg-[#2563EB]/20"
+                                                aria-hidden="true"
+                                            />
+                                        )}
+                                        <span className="mt-6 w-2 h-2 rounded-full bg-[#2563EB] shrink-0 relative z-10 shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
+                                        <p className="text-gray-300 leading-relaxed text-sm mt-5 relative z-10">
                                             {point}
                                         </p>
                                     </li>

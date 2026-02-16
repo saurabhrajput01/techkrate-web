@@ -1,175 +1,104 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Youtube, Twitter, Globe, ArrowRight } from "lucide-react";
+import { Linkedin, Youtube, Twitter, Globe } from "lucide-react";
 import logo from "../assets/image/logo.svg";
 
 export default function Footer() {
   return (
     <footer className="text-white border-t border-white/5 bg-gradient-to-b from-[#0B0F19] to-[#0f172a]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-4 pt-12 lg:pt-16 pb-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-4 pt-14 lg:pt-20 pb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14">
 
-          {/* LEFT COLUMN - Brand, Headline & Social */}
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-1 mb-6">
-              <img
-                src={logo}
-                alt="Techkrate Logo"
-                className="w-14 h-auto"
-              />
+              <img src={logo} alt="Techkrate Logo" className="w-14 h-auto" />
               <span className="text-4xl font-normal tracking-[-0.02rem] font-['Neue']">Techkrate</span>
             </Link>
 
             {/* Headline */}
-            <h2 className="text-[32px] md:text-[48px] font-normal tracking-[-0.01em] leading-[1.15] text-white mb-6 font-['Neue']">
-              The speed and accuracy of AI
+            <h2 className="text-[30px] md:text-[44px] lg:text-[40px] font-semibold leading-[1.15] mb-4">
+              Turning Complexity Into Clarity
             </h2>
 
-            <p className="text-gray-400 mb-8 max-w-md font-['Neue'] tracking-[-0.01em] leading-relaxed">
+            <p className="text-gray-400 mb-10 max-w-md font-['Neue'] tracking-[-0.01em] leading-relaxed">
               Transform your insurance claims processing with advanced AI technology.
               Faster assessments, better accuracy, happier customers.
             </p>
 
-            {/* CTA Button */}
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-white text-black rounded-full hover:bg-gray-100 transition-all duration-300 group font-['Neue'] font-medium tracking-[-0.01em]"
-            >
-              <span>Get Started</span>
-            </Link>
-
-            {/* Social Icons */}
-            <div className="flex items-center space-x-4 mt-10">
-              <a
-                href="https://www.linkedin.com/company/techkrate/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.youtube.com/@techkrate4281"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
+            {/* ✅ PREMIUM SOCIAL ICONS */}
+            <div className="flex items-center space-x-4 mt-6">
+              {[
+                { Icon: Linkedin, link: "https://www.linkedin.com/company/techkrate/" },
+                { Icon: Twitter, link: "https://twitter.com" },
+                { Icon: Youtube, link: "https://www.youtube.com/@techkrate4281" },
+              ].map(({ Icon, link }, i) => (
+                <a
+                  key={i}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-11 h-11 flex items-center justify-center
+                  rounded-xl bg-white/5 border border-white/10
+                  hover:bg-white hover:text-black hover:scale-105
+                  transition-all duration-300"
+                >
+                  <Icon className="w-5 h-5 text-gray-300 group-hover:text-black" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Right Side Columns - 3 columns on desktop */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-12">
-            {/* COLUMN 1 - Solutions */}
+          {/* RIGHT COLUMNS */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-14">
+            {/* Solutions */}
             <div>
               <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Solutions</h3>
               <ul className="space-y-4">
-                <li>
-                  <Link to="/moval" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue'] tracking-[-0.01em]">
-                    Moval
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/cars" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue'] tracking-[-0.01em]">
-                    CARS
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/solutions" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue'] tracking-[-0.01em]">
-                    All Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Request Demo
-                  </Link>
-                </li>
+                <li><Link to="/moval" className="text-gray-400 hover:text-white text-sm">Moval</Link></li>
+                <li><Link to="/cars" className="text-gray-400 hover:text-white text-sm">CARS</Link></li>
+                <li><Link to="/solutions" className="text-gray-400 hover:text-white text-sm">All Solutions</Link></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Request Demo</Link></li>
               </ul>
             </div>
 
-            {/* COLUMN 2 - Company */}
+            {/* Company */}
             <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Company</h3>
+              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Company</h3>
               <ul className="space-y-4">
-                <li>
-                  <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue'] tracking-[-0.01em]">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/blogs" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    News
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Contact
-                  </Link>
-                </li>
+                <li><Link to="/about" className="text-gray-400 hover:text-white text-sm">About Us</Link></li>
+                <li><Link to="/blogs" className="text-gray-400 hover:text-white text-sm">News</Link></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Careers</Link></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Contact</Link></li>
               </ul>
             </div>
 
-            {/* COLUMN 3 - Partnership */}
+            {/* Partnership */}
             <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Partnership</h3>
+              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Partnership</h3>
               <ul className="space-y-4">
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Become a Partner
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/blogs" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Press
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-['Neue']">
-                    Support
-                  </Link>
-                </li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Become a Partner</Link></li>
+                <li><Link to="/blogs" className="text-gray-400 hover:text-white text-sm">Press</Link></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Support</Link></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* ✅ Bottom Bar (More spacing & clean alignment) */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <p className="text-gray-500 text-sm font-['Neue'] tracking-[-0.01em]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+            <p className="text-gray-500 text-sm">
               © {new Date().getFullYear()} Techkrate. All Rights Reserved
             </p>
 
-            {/* Links */}
             <div className="flex items-center space-x-6">
-              <Link to="/privacypolicy" className="text-gray-500 hover:text-white text-sm transition-colors duration-200 font-['Neue'] tracking-[-0.01em]">
-                Privacy Policy
-              </Link>
-              <Link to="/termsandconditions" className="text-gray-500 hover:text-white text-sm transition-colors duration-200 font-['Neue'] tracking-[-0.01em]">
-                Terms of Service
-              </Link>
-              <button className="flex items-center space-x-1 text-gray-500 hover:text-white text-sm transition-colors duration-200 font-['Neue'] tracking-[-0.01em]">
+              <Link to="/privacypolicy" className="text-gray-500 hover:text-white text-sm">Privacy Policy</Link>
+              <Link to="/termsandconditions" className="text-gray-500 hover:text-white text-sm">Terms of Service</Link>
+              <button className="flex items-center space-x-1 text-gray-500 hover:text-white text-sm">
                 <Globe className="w-4 h-4" />
                 <span>EN</span>
               </button>
@@ -180,3 +109,4 @@ export default function Footer() {
     </footer>
   );
 }
+

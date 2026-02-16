@@ -118,107 +118,107 @@ export default function Testimonials() {
                   className={`block w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
                       ? "bg-white scale-110"
                       : "bg-gray-600 hover:bg-gray-400"
-                    }`}
-                />
-                {/* Active indicator ring */}
-                {index === currentIndex && (
-                  <span className="absolute inset-0 w-3 h-3 rounded-full border border-white/30 animate-pulse" />
-                )}
-              </button>
-            ))}
+                      }`}
+                  />
+                  {/* Active indicator ring */}
+                  {index === currentIndex && (
+                    <span className="absolute inset-0 w-3 h-3 rounded-full border border-white/30 animate-pulse" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Right Column - Testimonial Card */}
-        <div className="relative">
-          {/* Decorative glow effect */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 rounded-[28px] blur-xl" />
+          {/* Right Column - Testimonial Card */}
+          <div className="relative">
+            {/* Decorative glow effect */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 rounded-[28px] blur-xl" />
 
-          {/* Glass-style card */}
-          <div
-            className="relative premium-card p-8 md:p-10 lg:p-12 shadow-2xl"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Quote Icon */}
-            <Quote className="absolute top-6 right-6 w-8 h-8 md:w-10 md:h-10 text-white/10" />
+            {/* Glass-style card */}
+            <div
+              className="relative premium-card p-8 md:p-10 lg:p-12 shadow-2xl"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Quote Icon */}
+              <Quote className="absolute top-6 right-6 w-8 h-8 md:w-10 md:h-10 text-white/10" />
 
-            {/* Testimonial Content */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 15 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -15 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="relative z-10 min-h-[240px] md:min-h-[220px]"
-              >
-                <p className="text-[17px] text-gray-300 italic leading-[1.6] mb-8 font-['Neue'] tracking-[-0.01em]">
-                  "{testimonials[currentIndex].quote}"
-                </p>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-medium text-[17px] font-['Neue']">
-                    {testimonials[currentIndex].author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-white font-medium text-[17px] font-['Neue'] tracking-[-0.01em]">
-                      {testimonials[currentIndex].author}
-                    </p>
-                    <p className="text-gray-400 text-[16px] font-['Neue'] tracking-[-0.01em]">
-                      {testimonials[currentIndex].company}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation arrows */}
-            <div className="flex gap-3 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
-                aria-label="Previous testimonial"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {/* Testimonial Content */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="relative z-10 min-h-[240px] md:min-h-[220px]"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
-                aria-label="Next testimonial"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  <p className="text-[17px] text-gray-300 italic leading-[1.6] mb-8 font-['Neue'] tracking-[-0.01em]">
+                    "{testimonials[currentIndex].quote}"
+                  </p>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-medium text-[17px] font-['Neue']">
+                      {testimonials[currentIndex].author.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-white font-medium text-[17px] font-['Neue'] tracking-[-0.01em]">
+                        {testimonials[currentIndex].author}
+                      </p>
+                      <p className="text-gray-400 text-[16px] font-['Neue'] tracking-[-0.01em]">
+                        {testimonials[currentIndex].company}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation arrows */}
+              <div className="flex gap-3 mt-8">
+                <button
+                  onClick={prevTestimonial}
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  aria-label="Previous testimonial"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  aria-label="Next testimonial"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

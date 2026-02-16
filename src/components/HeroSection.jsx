@@ -12,12 +12,14 @@ const slides = [
     description:
       "Moval revolutionizes motor claims handling by integrating advanced technology with industry-specific workflows.",
     button: "Explore Platform",
+    link: "/solutions",
   },
   {
     title: ["Redefining Motor", "Claims Processing"],
     description:
       "Moval's AI goes beyond damage detection, instantly extracting complex data from assessment sheets.",
     button: "See AI in Action",
+    link: "/request-demo",
   },
   {
     title: ["AI-Driven Assessment", "Intelligence"],
@@ -30,12 +32,14 @@ const slides = [
     description:
       "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
     button: "View Compliance",
+    link: "/about",
   },
   {
     title: ["Centralized Control &", "Mobile Approvals"],
     description:
       "Moval offers robust tools for multi-office management and automated estimate imports.",
     button: "Request Demo",
+    link: "/request-demo",
   },
 ];
 
@@ -129,6 +133,11 @@ videoRef.current.playbackRate = 1.45;
         </div>
       </div>
 
+      <div className="absolute bottom-10 right-10 z-20">
+        <button onClick={scrollToNext} className={styles.scrollBtn}>
+          <ChevronDown size={22} />
+        </button>
+      </div>
     </section>
   );
 }

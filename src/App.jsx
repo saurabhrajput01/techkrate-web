@@ -27,7 +27,7 @@ function AppContent({ isAuthenticated, setIsAuthenticated }) {
 
   return (
     <div className="bg-black min-h-screen">
-      {!isRequestDemo && <Header />}
+      <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -52,7 +52,7 @@ function AppContent({ isAuthenticated, setIsAuthenticated }) {
         />
       </Routes>
       {!isRequestDemo && <PremiumCTA />}
-      {!isRequestDemo && <Footer />}
+      <Footer />
     </div>
   );
 }
