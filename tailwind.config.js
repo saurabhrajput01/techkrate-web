@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Almarai", "sans-serif"],
+        Helix: ['Helix', 'sans-serif'],
       },
       colors: {
         primary: {
