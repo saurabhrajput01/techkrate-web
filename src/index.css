@@ -1,3 +1,4 @@
+/* ================= GOOGLE FONT (MARBLE) ================= */
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap");
 
 /* ================= TAILWIND ================= */
@@ -35,12 +36,10 @@ body {
 h1.heading-xl {
   font-family: "Inter Tight", Inter, sans-serif;
   font-weight: 800;
-  font-size: clamp(64px, 7vw, 104px);
-  /* Marble range */
+  font-size: clamp(64px, 7vw, 104px); /* Marble range */
   line-height: 0.95;
   letter-spacing: -0.03em;
-  max-width: 900px;
-  /* forces 2 lines */
+  max-width: 900px; /* forces 2 lines */
 }
 
 /* SECTION HEADINGS */
@@ -138,24 +137,15 @@ h3.heading-md {
 /* ================= ANIMATIONS (OPTIONAL, CLEAN) ================= */
 
 @keyframes slowZoom {
-  0% {
-    transform: scale(1.05);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1.05);
-  }
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
 }
 
 @keyframes fastSpin {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
@@ -169,19 +159,15 @@ h3.heading-md {
   from {
     background-position: 0 0, 0 0;
   }
-
   to {
     background-position: 200px 0, 0 200px;
   }
 }
 
 @keyframes gridGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.4;
   }
-
   50% {
     opacity: 0.7;
   }
