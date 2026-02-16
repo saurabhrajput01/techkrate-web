@@ -14,34 +14,39 @@ import {
 const FeatureCard = ({ icon: Icon, title, description, index }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      className="relative group rounded-2xl pt-20 pb-8 px-6 lg:px-8 min-h-[220px] bg-black/20 hover:bg-black/30 transition-all duration-300"
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ scale: 1.03 }}
+      className="
+        flex items-center gap-6
+        px-6 py-6
+        bg-gradient-to-r from-[#0B1220] via-[#0F1C3F] to-[#2563EB]
+        rounded-2xl
+        border border-white/10
+        hover:border-[#2563EB]
+        transition-all duration-300
+        shadow-lg shadow-[#2563EB]/20
+      "
     >
-      {/* ICON */}
-      <div className="absolute top-6 left-6 w-16 h-16 flex items-center justify-center">
-        <Icon className="w-12 h-12 text-blue-400 group-hover:text-white transition-colors duration-300" />
+      {/* ICON LEFT SIDE */}
+      <div className="flex-shrink-0 flex items-center justify-center w-16 h-16">
+        <Icon className="w-14 h-14 text-white transition-colors duration-300 group-hover:text-[#2563EB]" />
       </div>
 
-      {/* CONTENT (SPACING ADDED HERE) */}
-      <div className="mt-6">
-        <h3 className="font-Helix text-white text-xl lg:text-2xl mb-2 group-hover:text-blue-400 transition-colors duration-300">
+      {/* TEXT */}
+      <div>
+        <h3 className="font-Helix text-white text-lg lg:text-xl font-semibold mb-1">
           {title}
         </h3>
-
-        <p className="text-gray-400 text-sm lg:text-base leading-6 group-hover:text-gray-300 transition-colors duration-300">
+        <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
           {description}
         </p>
       </div>
-
-      {/* BORDER */}
-      <div className="absolute inset-0 border border-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </motion.div>
   );
-};
-
+};  
 
 const Features = () => {
   const features = [
@@ -85,18 +90,16 @@ const Features = () => {
 
   return (
     <section className="py-20 bg-black">
-      {/* PROFESSIONAL LEFT RIGHT SPACING (LIKE ENTERPRISE SITES) */}
-  <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
-        
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
         {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 bg-blue-600/20 text-blue-400 text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
             Features & Capabilities
           </span>
 
@@ -110,7 +113,7 @@ const Features = () => {
         </motion.div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

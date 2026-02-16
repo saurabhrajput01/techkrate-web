@@ -1,111 +1,119 @@
-import { Link } from "react-router-dom";
-import { Linkedin, Youtube, Twitter, Globe } from "lucide-react";
-import logo from "../assets/image/logo.svg";
+import React from "react";
+import { motion } from "framer-motion";
 
-export default function Footer() {
-  return (
-    <footer className="text-white border-t border-white/5 bg-gradient-to-b from-[#0B0F19] to-[#0f172a]">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-4 pt-14 lg:pt-20 pb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14">
+const features = [
+    {
+        title: "FNOL Triage",
+        points: [
+            "INSTANT CLAIM CLASSIFICATION — Capture FNOL photos to instantly classify claims as total loss, repairable, or cash settlement.",
+            "FASTER CASH SETTLEMENTS — Offer AI-verified cash settlements for quicker resolutions.",
+            "PERSONALIZED CUSTOMER JOURNEYS — Guide customers with personalized journeys to boost satisfaction."
+        ]
+    },
+    {
+        title: "AI-generated Preliminary Estimate",
+        points: [
+            "AI-VERIFIED ESTIMATES — Automatically pre-fill repair cost estimates with AI-verified accuracy.",
+            "FASTER, EASIER ADJUSTMENTS — Reduce manual effort for adjusters, improving cycle time."
+        ]
+    },
+    {
+        title: "Claim Review",
+        points: [
+            "AI-POWERED FRAUD DETECTION — Detect potential errors or fraud with AI-driven claim review.",
+            "FAIR AND CONSISTENT CLAIMS SETTLEMENTS — Ensure consistency and fairness in claim settlements."
+        ]
+    },
+    {
+        title: "Subrogation",
+        points: [
+            "FASTER RECOVERIES WITH DATA-DRIVEN INSIGHTS — Accelerate subrogation recoveries through precise, data-backed insights.",
+            "AUTOMATED SUBROGATION REVIEWS AND REPORTS — Automate the review of in-bound subrogation packets and reports."
+        ]
+    }
+];
 
-          {/* LEFT COLUMN */}
-          <div className="lg:col-span-4">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-1 mb-6">
-              <img src={logo} alt="Techkrate Logo" className="w-14 h-auto" />
-              <span className="text-4xl font-normal tracking-[-0.02rem] font-['Neue']">Techkrate</span>
-            </Link>
+export default function FeaturesSection() {
+    return (
+        <section className="relative bg-black py-24 overflow-hidden">
 
-            {/* Headline */}
-            <h2 className="text-[32px] md:text-[48px] font-normal tracking-[-0.01em] leading-[1.15] text-white mb-6 font-['Neue']">
-              The speed and accuracy of AI
-            </h2>
+            {/* soft blue glow */}
+            <div className="absolute inset-0 flex justify-center pointer-events-none">
+                <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full" />
+            </div>
 
-            <p className="text-gray-400 mb-10 max-w-md font-['Neue'] tracking-[-0.01em] leading-relaxed">
-              Transform your insurance claims processing with advanced AI technology.
-              Faster assessments, better accuracy, happier customers.
-            </p>
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
 
-            {/* ✅ PREMIUM SOCIAL ICONS */}
-            <div className="flex items-center space-x-4 mt-6">
-              {[
-                { Icon: Linkedin, link: "https://www.linkedin.com/company/techkrate/" },
-                { Icon: Twitter, link: "https://twitter.com" },
-                { Icon: Youtube, link: "https://www.youtube.com/@techkrate4281" },
-              ].map(({ Icon, link }, i) => (
-                <a
-                  key={i}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group w-11 h-11 flex items-center justify-center
-                  rounded-xl bg-white/5 border border-white/10
-                  hover:bg-white hover:text-black hover:scale-105
-                  transition-all duration-300"
+                {/* HEADER */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-20"
                 >
-                  <Icon className="w-5 h-5 text-gray-300 group-hover:text-black" />
-                </a>
-              ))}
-            </div>
-          </div>
+                    <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
+                        Platform Capabilities
+                    </span>
 
-          {/* RIGHT COLUMNS */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-14">
-            {/* Solutions */}
-            <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Solutions</h3>
-              <ul className="space-y-4">
-                <li><Link to="/moval" className="text-gray-400 hover:text-white text-sm">Moval</Link></li>
-                <li><Link to="/cars" className="text-gray-400 hover:text-white text-sm">CARS</Link></li>
-                <li><Link to="/solutions" className="text-gray-400 hover:text-white text-sm">All Solutions</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Request Demo</Link></li>
-              </ul>
-            </div>
+                    <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+                        AI-Driven <span className="text-[#2563EB]">Claims Automation</span>
+                    </h2>
 
-            {/* Company */}
-            <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Company</h3>
-              <ul className="space-y-4">
-                <li><Link to="/about" className="text-gray-400 hover:text-white text-sm">About Us</Link></li>
-                <li><Link to="/blogs" className="text-gray-400 hover:text-white text-sm">News</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Careers</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Contact</Link></li>
-              </ul>
-            </div>
+                    <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+                        End-to-end automation designed for modern insurance operations
+                    </p>
+                </motion.div>
 
-            {/* Partnership */}
-            <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Partnership</h3>
-              <ul className="space-y-4">
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Become a Partner</Link></li>
-                <li><Link to="/blogs" className="text-gray-400 hover:text-white text-sm">Press</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Support</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+                {/* GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-      {/* ✅ Bottom Bar (More spacing & clean alignment) */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Techkrate. All Rights Reserved
-            </p>
+                    {features.map((feature, idx) => (
+                        <motion.div
+                            key={feature.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="
+                relative rounded-2xl border border-white/10
+                bg-white/5 backdrop-blur-xl
+                p-8 hover:border-[#2563EB]/50
+                transition-all duration-300
+              "
+                        >
+                            {/* glow on hover */}
+                            <div className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition">
+                                <div className="absolute inset-0 bg-[#2563EB] opacity-10 blur-2xl rounded-2xl" />
+                            </div>
 
-            <div className="flex items-center space-x-6">
-              <Link to="/privacypolicy" className="text-gray-500 hover:text-white text-sm">Privacy Policy</Link>
-              <Link to="/termsandconditions" className="text-gray-500 hover:text-white text-sm">Terms of Service</Link>
-              <button className="flex items-center space-x-1 text-gray-500 hover:text-white text-sm">
-                <Globe className="w-4 h-4" />
-                <span>EN</span>
-              </button>
+                            <div className="
+                px-6 py-6
+                bg-gradient-to-r
+                from-[#0B1220]
+                via-[#0F1C3F]
+                to-[#2563EB]
+                border-b border-white/10
+                ">
+                                <h3 className="text-white text-xl font-semibold tracking-tight">
+                                    {feature.title}
+                                </h3>
+                            </div>
+                            <ul className="relative space-y-5">
+                                {feature.points.map((point, i) => (
+                                    <li key={i} className="flex gap-4 items-start">
+                                        <span className="mt-6 w-2 h-2 rounded-full bg-[#2563EB] shrink-0" />
+                                        <p className="text-gray-300 leading-relaxed text-sm mt-5">
+                                            {point}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    ))}
+
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+        </section>
+    );
 }

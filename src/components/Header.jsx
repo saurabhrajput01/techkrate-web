@@ -10,7 +10,6 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  // ✅ Scroll hide/show navbar
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -30,7 +29,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
     setActiveDropdown(null);
@@ -38,7 +36,7 @@ const Header = () => {
 
   const navItems = [
     {
-      label: "Industry Solutions",
+      label: "INDUSTRY SOLUTIONS",
       type: "dropdown",
       items: [
         { label: "Motor Claims", path: "/moval" },
@@ -46,19 +44,18 @@ const Header = () => {
       ],
     },
     {
-      label: "Company",
+      label: "COMPANY",
       type: "dropdown",
       items: [
         { label: "About Us", path: "/about" },
         { label: "Careers", path: "/about" },
       ],
     },
-    { label: "Articles", path: "/blogs", type: "link" },
+    { label: "ARTICLES", path: "/blogs", type: "link" },
   ];
 
   return (
     <>
-      {/* ================= HEADER ================= */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 h-[72px] sm:h-[82px] lg:h-[92px] flex items-center
         ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
@@ -72,7 +69,7 @@ const Header = () => {
               alt="Techkrate"
               className="w-12 h-12 sm:w-13 sm:h-13 lg:w-14 lg:h-14 object-contain"
             />
-            <span className="text-white text-[24px] sm:text-[26px] lg:text-[30px] tracking-tight">
+            <span className="text-white text-[24px] sm:text-[26px] lg:text-[30px] tracking-tight font-bold">
               Techkrate
             </span>
           </Link>
@@ -88,7 +85,7 @@ const Header = () => {
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="flex items-center gap-1.5 text-[15px] text-white">
+                    <button className="flex items-center gap-1.5 text-[16px] text-white font-semibold">
                       {item.label}
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform ${activeDropdown === item.label ? "rotate-180" : ""
@@ -108,7 +105,7 @@ const Header = () => {
                             <Link
                               key={sub.label}
                               to={sub.path}
-                              className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition whitespace-nowrap"
+                              className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition whitespace-nowrap font-medium"
                             >
                               {sub.label}
                             </Link>
@@ -118,7 +115,11 @@ const Header = () => {
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <Link key={item.label} to={item.path} className="text-white">
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className="text-white font-semibold"
+                  >
                     {item.label}
                   </Link>
                 )
@@ -128,15 +129,20 @@ const Header = () => {
 
           {/* RIGHT SIDE */}
           <div className="hidden lg:flex items-center gap-5">
-            <button className="text-white">EN</button>
+            <button className="text-white font-semibold">EN</button>
 
+            
             <Link
-              to="/request-demo"
-              className="px-7 py-2.5 rounded-full text-[14px] border border-white text-white hover:bg-white hover:text-black transition"
-            >
-              Request a demo
-            </Link>
+                            to="/request-demo"
+                            className="px-7 py-2.5 rounded-full text-[14px] font-medium tracking-wide 
+                            border border-white text-white bg-transparent 
+                            hover:bg-white hover:text-black 
+                            transition-all duration-300"
+                        >
+                            Request a demo
+                        </Link>
           </div>
+
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -230,7 +236,7 @@ const Header = () => {
                   <Link
                     to="/request-demo"
                     onClick={() => setMobileOpen(false)}
-                    className="w-full block text-center px-6 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition"
+                    className="w-full block text-center px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition shadow-lg"
                   >
                     Request a demo
                   </Link>
@@ -245,4 +251,3 @@ const Header = () => {
 };
 
 export default Header;
-

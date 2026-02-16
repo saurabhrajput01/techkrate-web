@@ -27,7 +27,7 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
 
       {/* Content */}
       <div className="relative h-full flex flex-col p-5 md:p-8 text-white">
-        
+
         {/* Top Section */}
         <div className="flex items-center justify-between">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight">
@@ -73,8 +73,8 @@ const Solutions = () => {
   return (
     <section id="solutions" className="bg-black py-14">
       {/* Wider container for larger cards */}
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-6">
-        
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

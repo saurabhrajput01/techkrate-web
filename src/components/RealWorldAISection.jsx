@@ -24,49 +24,48 @@ const RealWorldAISection = () => {
 
   return (
     <section className="bg-black text-white py-20">
-      <div className="max-w-[1500px] mx-auto px-6">
-        
-        {/* GRID RATIO CHANGED */}
-        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-20 items-start lg:pl-12">
+      {/* SAME CONTAINER AS HERO */}
+      <div className="max-w-[1380px] mx-auto px-10 lg:px-12">
 
-          {/* LEFT */}
+        {/* GRID */}
+        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-32 items-start">
+
+          {/* LEFT SIDE */}
           <div className="flex flex-col space-y-8 lg:sticky lg:top-28 h-fit">
 
-            {/* HEADING WIDER */}
-            <h3 className="text-3xl md:text-4xl lg:text-[2.5rem] leading-tight font-medium max-w-full tracking-tight">
-  Techkrate that works in the real world
-</h3>
+            <h2 className="text-3xl md:text-5xl lg:text-[3rem] leading-tight font-medium max-w-2xl">
+              Techkrate AI that works in the real world
+            </h2>
 
-
-            {/* PARAGRAPH WIDER */}
-            <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+            <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
               At Techkrate, we harness AI’s vast potential to solve real-world
               problems today. Built on applied research and trained with millions
               of data-rich images, our AI delivers fast, accurate assessments for
               vehicles and properties.
             </p>
 
-            {/* IMAGE BIGGER */}
-            <div className="w-full max-w-3xl aspect-[16/9] bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-lg">
+            {/* IMAGE */}
+            <div className="w-full max-w-2xl aspect-[16/9] bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1400&auto=format&fit=crop"
-                alt="AI damage detection"
+                src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1400&auto=format&fit=crop"
+                alt="AI analysis"
                 className="w-full h-full object-cover"
               />
             </div>
 
           </div>
 
-          {/* RIGHT */}
-          <div className="flex flex-col space-y-9">
+          {/* RIGHT SIDE */}
+          <div className="flex flex-col space-y-8 max-w-md">
+
             {features.map((feature, index) => (
-              <div key={index} className="max-w-md space-y-3">
-                
+              <div key={index} className="space-y-4">
+
                 <span className="text-3xl text-indigo-500 font-semibold">
                   {feature.number}
                 </span>
 
-                <h3 className="text-2xl font-medium">
+                <h3 className="text-2xl font-medium leading-snug">
                   {feature.title}
                 </h3>
 
@@ -76,6 +75,7 @@ const RealWorldAISection = () => {
 
               </div>
             ))}
+
           </div>
 
         </div>
@@ -85,6 +85,3 @@ const RealWorldAISection = () => {
 };
 
 export default RealWorldAISection;
-
-
-
