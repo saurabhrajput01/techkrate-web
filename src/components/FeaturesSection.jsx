@@ -56,7 +56,7 @@ export default function FeaturesSection() {
                         Platform Capabilities
                     </span>
 
-                    <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+                    <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
                         AI-Driven <span className="text-[#2563EB]">Claims Automation</span>
                     </h2>
 

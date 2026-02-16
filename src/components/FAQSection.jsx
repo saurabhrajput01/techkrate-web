@@ -51,7 +51,7 @@ export default function FAQSection() {
                     transition={{ duration: 0.7 }}
                     className="mb-12"
                 >
-                    <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+                    <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
                         Do you have <span className="text-[#2563EB]">any questions?</span>
                     </h2>
                 </motion.div>

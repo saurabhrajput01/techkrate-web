@@ -19,7 +19,7 @@ export default function MeasurableImpact() {
                     transition={{ duration: 0.8 }}
                     className="max-w-3xl mb-16"
                 >
-                    <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+                    <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
                         Measurable <span className="text-[#2563EB]">Impact</span>
                         <br />
                         Across Industries

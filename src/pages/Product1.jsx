@@ -79,8 +79,7 @@ const MovalPage = () => {
               <h1
                 className="
             text-[32px] md:text-[44px] lg:text-[48px] 
-            font-semibold tracking-[-0.03em] 
-            leading-[1.05] text-white
+            font-semibold leading-[1.15] text-white
           "
               >
                 Intelligent Motor <br />
@@ -152,7 +151,7 @@ const MovalPage = () => {
               Why Choose Moval
             </span>
 
-            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold tracking-[-0.03em] leading-[1.05] text-white">
+            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
               Built for <span className="text-[#2563EB]">Modern Insurance</span>
             </h2>
 

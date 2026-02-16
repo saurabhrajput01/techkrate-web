@@ -1,89 +1,89 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import styles from "./HeroSection.module.css";
-import { ArrowRight, ChevronDown } from "lucide-react";
 import bgVid from "../assets/video/vid1.mp4";
+import { ArrowRight } from "lucide-react";
 
-const slides = [
-  {
-    title: ["Turning Complexity", "Into Clarity"],
-    description:
-      "Moval revolutionizes motor claims handling by integrating advanced technology with industry-specific workflows.",
-    button: "Request Demo",
-    link: "/request-demo",
-  },
-  {
-    title: ["Redefining Motor", "Claims Processing"],
-    description:
-      "Moval's AI goes beyond damage detection, instantly extracting complex data from assessment sheets.",
-    button: "Request Demo",
-    link: "/request-demo",
-  },
-  {
-    title: ["AI-Driven Assessment", "Intelligence"],
-    description:
-      "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
-    button: "Request Demo",
-    link: "/request-demo",
-  },
-  {
-    title: ["Regulatory-Compliant", "Survey Reports"],
-    description:
-      "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
-    button: "Request Demo",
-    link: "/request-demo",
-  },
-  {
-    title: ["Centralized Control &", "Mobile Approvals"],
-    description:
-      "Moval offers robust tools for multi-office management and automated estimate imports.",
-    button: "Request Demo",
-    link: "/request-demo",
-  },
-];
-
-export default function HeroSection() {
+const HeroSection = () => {
   const sliderRef = useRef(null);
-  const videoRef = useRef(null);
-  const [index, setIndex] = useState(0);
+  const buttonRef = useRef([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const slides = [
+    {
+      title: "Turning Complexity Into Clarity",
+      subHeading:
+        "We distil complex challenges into clear solutions, empowering organizations to advance precisely and purposefully.",
+      link: "/request-demo",
+    },
+    {
+      title: "Redefining Motor Claims Processing",
+      subHeading:
+        "Moval revolutionizes motor claims handling by integrating advanced technology with industry-specific workflows.",
+      link: "/request-demo",
+    },
+    {
+      title: "AI-Driven Assessment Intelligence",
+      subHeading:
+        "Moval excels at extracting complex data from estimate PDF files, while also generating an Initial Loss Assessment through damage detection.",
+      link: "/request-demo",
+    },
+    {
+      title: "Regulatory-Compliant Survey Reports",
+      subHeading:
+        "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
+      link: "/request-demo",
+    },
+    {
+      title: "Centralized Control & Mobile Approvals",
+      subHeading:
+        "Moval provides robust tools for multi-office management, enabling admins to give necessary workflow-related approvals.",
+      link: "/request-demo",
+    },
+  ];
+
+  const totalSlides = slides.length;
+
+  // ✅ Auto Slide — 4 sec
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.45;
-    }
-
     const interval = setInterval(() => {
-      setIndex((prev) => {
-        const next = (prev + 1) % slides.length;
-
-        gsap.to(sliderRef.current, {
-          xPercent: -100 * next,
-          duration: 1.2,
-          ease: "power4.inOut",
-        });
-
-        return next;
-      });
+      setCurrentSlide((prev) => prev + 1);
     }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToNext = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth"
+  // ✅ Smooth animation + reset
+  useEffect(() => {
+    if (currentSlide === totalSlides) {
+      gsap.set(sliderRef.current, { xPercent: 0 });
+      setCurrentSlide(0);
+      return;
+    }
+
+    gsap.to(sliderRef.current, {
+      xPercent: -100 * currentSlide,
+      duration: 0.8,
+      ease: "power2.inOut",
+    });
+  }, [currentSlide, totalSlides]);
+
+  const handleClick = (index) => {
+    gsap.to(buttonRef.current[index], {
+      scale: 0.95,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
     });
   };
 
   return (
-    <section className={`${styles.hero} relative h-screen overflow-hidden`}>
+    <div className="overflow-hidden h-screen relative font-Helix">
+      {/* Background Video */}
       <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute top-0 right-0 w-auto h-full object-cover z-0"
         autoPlay
         loop
         muted
@@ -92,36 +92,61 @@ export default function HeroSection() {
         <source src={bgVid} type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Slider */}
+      <div className="relative z-20 h-full flex">
+        <div ref={sliderRef} className="flex h-full">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="min-w-full h-full flex flex-col justify-center"
+            >
+              <div className="text-left w-full pl-8 md:pl-16 lg:pl-20 pt-12">
 
-      <div ref={sliderRef} className={`${styles.slider} relative z-10 flex h-full`}>
-        {slides.map((slide, i) => {
-          const [line1, line2] = slide.title;
+                {/* ✅ UPDATED HEADING STYLE */}
+                <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none lg:leading-tight mb-4 text-white">
+                  {slide.title}
+                </h2>
 
-          return (
-            <div key={i} className="min-w-full flex items-center px-6 md:px-12 lg:pl-[72px]">
-              <div className="max-w-[1200px]">
-                <h1 className={`${styles.title} tracking-[-0.02em] leading-[0.92]`}>
-                  <span className="block">{line1}</span>
-                  <span className="block">{line2}</span>
-                </h1>
+                {/* Paragraph unchanged */}
+                <p className="text-base sm:text-lg md:text-xl text-[#9C9C9C] max-w-3xl">
+                  {slide.subHeading}
+                </p>
 
-                <p className={styles.para}>{slide.description}</p>
-
-                <Link to={slide.link} className={styles.button}>
-                  {slide.button} <ArrowRight size={16} />
+                {/* Button unchanged */}
+                <Link
+                  to={slide.link}
+                  ref={(el) => (buttonRef.current[index] = el)}
+                  onClick={() => handleClick(index)}
+                  className="connect-btn inline-block bg-white rounded-full text-black transition-all duration-150 hover:bg-black group overflow-hidden hover:border-white hover:text-white border-2 w-[170px] mt-5"
+                >
+                  <div className="flex items-center p-3 justify-center w-full">
+                    <span className="group-hover:text-white transition-all duration-300 inline-block font-medium">
+                      Request a Demo
+                    </span>
+                    
+                  </div>
                 </Link>
+
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
 
-      <div className="absolute bottom-10 right-10 z-20">
-        <button onClick={scrollToNext} className={styles.scrollBtn}>
-          <ChevronDown size={22} />
-        </button>
+      {/* Pagination */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2.5 h-2.5 rounded-full bg-white cursor-pointer transition-all duration-300 ${
+              index === currentSlide ? "opacity-100 scale-125" : "opacity-50"
+            }`}
+          ></div>
+        ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default HeroSection;
