@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useEffect, useRef, Suspense, useLayoutEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -5,21 +6,17 @@ import { useGLTF } from "@react-three/drei";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
+import AIFace from "../components/AIFace";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
-// Import your assets
 import LalitBG from "../assets/image/LalitBG.webp";
 import UtkarshBG from "../assets/image/UtkarshBG.webp";
 
-// Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const bgVid =
-  "https://videos.pexels.com/video-files/857032/857032-hd_1280_720_25fps.mp4";
-
-// The updated SphereModel component with rotation
+// Sphere Model
 const SphereModel = React.forwardRef((props, ref) => {
   const { scene } = useGLTF("/model/Sphere.glb");
 
@@ -27,7 +24,7 @@ const SphereModel = React.forwardRef((props, ref) => {
     scene.traverse((child) => {
       if (child.isMesh) {
         const newMaterial = new THREE.MeshStandardMaterial({
-          color: new THREE.Color("#145CCF"), // Blue tone
+          color: new THREE.Color("#145CCF"),
           metalness: 0.9,
           roughness: 0.3,
         });
@@ -52,28 +49,10 @@ const AboutUs = () => {
   const teamHeaderRef = useRef(null);
   const sphereRef = useRef(null);
   const aboutUsSectionRef = useRef(null);
-const vantaRef = useRef(null);
-const vantaEffect = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-// VANTA NET – Top Header only
-if (window.VANTA && !vantaEffect.current) {
-  vantaEffect.current = window.VANTA.NET({
-    el: vantaRef.current,
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.0,
-    minWidth: 200.0,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color: 0x3f8eff,
-     backgroundColor: 0x08040f
-  });
-}
 
-    // Hero text zoom-in animation along with fade-in
     const heroTextRef = document.querySelector(".hero-text");
     if (heroTextRef) {
       gsap.fromTo(
@@ -84,12 +63,11 @@ if (window.VANTA && !vantaEffect.current) {
           opacity: 1,
           y: 0,
           duration: 1.5,
-          ease: "power3.out"
+          ease: "power3.out",
         }
       );
     }
 
-    // Fade-in animation for the About Us section
     if (aboutUsSectionRef.current) {
       gsap.fromTo(
         aboutUsSectionRef.current,
@@ -163,125 +141,155 @@ if (window.VANTA && !vantaEffect.current) {
         }
       );
     }
+
     return () => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
-  if (vantaEffect.current) {
-    vantaEffect.current.destroy();
-    vantaEffect.current = null;
-  }
-};
-}, []);
+  return (
+    <div className="relative w-full overflow-hidden font-sans">
+      {/* HERO SECTION */}
+{/* HERO SECTION */}
+{/* HERO SECTION */}
+<div className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-black">
 
+  {/* Moving Premium Grid */}
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `
+        linear-gradient(rgba(37,99,235,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.5) 1px, transparent 1px)
+      `,
+      backgroundSize: "90px 90px",
+      animation: "gridMoveX 25s linear infinite, gridGlow 6s ease-in-out infinite",
+    }}
+  />
 
-    
-return (
-<div className="relative w-full overflow-hidden font-sans">
-<div
-  ref={vantaRef}
-  className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden"
-  style={{
-    fontFamily: "Inter, sans-serif",
-    letterSpacing: "-0.01em",
-  }}
->
+  {/* Subtle Radial Dark Fade */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background: "radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 70%)",
+    }}
+  />
 
-  {/* dark overlay for readability */}
-  <div className="absolute inset-0 bg-black/40"></div>
-
+  {/* Content */}
   <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
 
-<h1
-  className="
-    text-[44px] md:text-[60px] 
-    font-light tracking-[-0.03em] 
-    leading-[1.05] text-white
-    mb-6
-  "
-  style={{ textShadow: "0 6px 18px rgba(0,0,0,0.6)" }}
->
+  {/* Heading */}
+  <h1 className="
+  text-[44px]
+  sm:text-[52px]
+  md:text-[68px]
+  lg:text-[76px]
+  font-light
+  leading-[1.05]
+  tracking-[-0.03em]
+  text-white
+  mb-6
+">
   What does <span className="text-[#2563EB]">Techkrate</span> do?
 </h1>
 
-   
-    <p className="
-      text-white/80
-      text-lg
-      sm:text-xl
-      max-w-2xl
-      mx-auto
-      leading-relaxed
-    ">
-      Simplifying complex digital systems through intelligent SaaS
-      solutions designed for clarity, scalability, and innovation.
-    </p>
 
+  {/* Subheading */}
+  <p className="
+    text-gray-400
+    text-[15px] sm:text-[18px] md:text-[20px]
+    leading-relaxed
+    max-w-2xl
+    mx-auto
+  ">
+    Simplifying complex digital systems through intelligent SaaS
+    solutions designed for clarity, scalability, and innovation.
+  </p>
+
+</div>
+
+</div>
+
+
+{/* About Us section */}
+{/* About Us Section */}
+<div
+  ref={aboutUsSectionRef}
+  className="relative z-10 bg-black text-white overflow-hidden"
+>
+
+  <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 sm:py-24">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+      {/* LEFT SIDE — TEXT */}
+      <div className="order-2 lg:order-1 w-full text-center lg:text-left">
+
+        <h1 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white mb-8">
+          About <span className="text-[#2563EB]">Us</span>
+        </h1>
+
+        <div className="text-base sm:text-lg text-gray-300 leading-relaxed space-y-6">
+
+          <p>
+            Your gateway to simplifying the complex. We develop software and
+            SaaS solutions that empower individuals and businesses to navigate
+            and thrive in an increasingly digital world. Our approach
+            transforms intricate problems into clear, actionable tools that
+            work for everyone, regardless of expertise or experience.
+          </p>
+
+          <p>
+            Imagine easily managing your business operations, scaling
+            confidently, or solving daily challenges with absolute clarity.
+            Whether you're a seasoned tech professional or a first-time user,
+            Techkrate ensures that the experience is intuitive, powerful, and
+            adaptable to your needs.
+          </p>
+
+          <p>
+            We don't just build software; we create tools that bridge the gap
+            between complexity and understanding. The future is
+            complex—Techkrate makes it clear.
+          </p>
+
+          <p className="mt-4 text-[#2563EB] font-semibold text-xl">
+            The future is complex — Techkrate makes it clear.
+          </p>
+
+        </div>
+      </div>
+
+      {/* RIGHT SIDE — VISUAL (Desktop Only) */}
+      <div className="order-1 lg:order-2 hidden lg:flex justify-center items-center relative">
+
+        <div className="relative w-[420px] h-[420px] flex items-center justify-center">
+
+          {/* Medium-Speed Rotating Ring */}
+          <div
+            className="absolute w-full h-full rounded-full border-4 
+                       border-t-primary-500 
+                       border-r-transparent 
+                       border-b-transparent 
+                       border-l-transparent"
+            style={{ animation: "spin 4s linear infinite" }}
+          ></div>
+
+          {/* Soft Glow */}
+          <div className="absolute w-[260px] h-[260px] rounded-full bg-primary-600/20 blur-3xl"></div>
+
+          {/* Core Circle */}
+          <div className="absolute w-[200px] h-[200px] rounded-full bg-primary-700"></div>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </div>
 
 
 
-      {/* About Us section */}
-    <div
-      ref={aboutUsSectionRef}
-      className="relative z-10 bg-black text-white"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 sm:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-{/* Text - Full width on mobile/tablet, left side on desktop */}
-          <div className="order-2 lg:order-1 w-full lg:w-auto text-center lg:text-left">
-
-<h1 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white mb-6">
-            About <span className="text-[#2563EB]">Us</span>
-          </h1>
-
-            <div className="text-base sm:text-lg text-gray-300 leading-relaxed space-y-6">
-              <p>
-                Your gateway to simplifying the complex. We develop software and
-                SaaS solutions that empower individuals and businesses to navigate
-                and thrive in an increasingly digital world. Our approach
-                transforms intricate problems into clear, actionable tools that
-                work for everyone, regardless of expertise or experience.
-              </p>
-              <p>
-                Imagine easily managing your business operations, scaling
-                confidently, or solving daily challenges with absolute clarity.
-                Whether you're a seasoned tech professional or a first-time user,
-                Techkrate ensures that the experience is intuitive, powerful, and
-                adaptable to your needs.
-              </p>
-              <p>
-                We don't just build software; we create tools that bridge the gap
-                between complexity and understanding. The future is
-                complex—Techkrate makes it clear.
-              </p>
-              <p className="mt-3 text-blue-400 font-bold text-xl">
-                The future is complex — Techkrate makes it clear.
-              </p>
-            </div>
-          </div>
-
-{/* 3D Sphere - Only visible on desktop/laptop (lg and above) */}
-          <div className="order-1 lg:order-2 h-[400px] lg:h-[500px] rounded-xl hidden lg:block">
-            <Canvas camera={{ position: [0, 0, 5], fov: 70 }}>
-              <ambientLight intensity={0.8} />
-              <directionalLight
-                position={[2, 4, 5]}
-                intensity={2}
-                color={"#1d4ed8"}
-              />
-              <Suspense fallback={null}>
-                <SphereModel
-                  ref={sphereRef}
-                  scale={[2.7, 2.7, 2.7]}
-                  position={[0, 0, 0]}
-                />
-              </Suspense>
-            </Canvas>
-          </div>
-        </div>
-      </div>
-    </div>
 
 {/* Charter Section */}
 <div className="relative z-10 bg-black text-white">
@@ -442,6 +450,52 @@ Leading Techkrate
   </div>
 </div>
    </div> {/* End Charter Section */}
+
+   {/* Testimonial Section */}
+<div className="bg-black py-28 px-6 lg:px-8">
+  <div className="max-w-6xl mx-auto text-center">
+
+    {/* Quote Icon */}
+    <div className="text-[#2563EB] text-5xl mb-8 opacity-80">
+      “
+    </div>
+
+    {/* Main Quote */}
+    <h2 className="
+      text-[40px] md:text-[58px]
+      font-light
+      leading-[1.1]
+      tracking-[-0.02em]
+      text-white
+      mb-12
+    ">
+      Techkrate brings the right advice, network,
+      and support. They make a significant impact
+      on every digital transformation journey.
+    </h2>
+
+    {/* Author */}
+    {/* Author */}
+<div className="flex flex-col items-center justify-center mt-12">
+
+  {/* Small Divider Line */}
+  <div className="w-12 h-[2px] bg-[#2563EB] mb-6"></div>
+
+  {/* Name */}
+  <h4 className="text-white text-xl font-medium tracking-tight">
+    Utkarsh Chauhan
+  </h4>
+
+  {/* Role */}
+  <p className="text-gray-400 text-sm mt-1">
+    Chief Operating Officer
+  </p>
+
+</div>
+
+  </div>
+</div>
+
     </div>
   );
 };

@@ -141,3 +141,34 @@ h3.heading-md {
   50% { transform: scale(1.1); }
   100% { transform: scale(1.05); }
 }
+
+@keyframes fastSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-fast {
+  animation: fastSpin 0.4s linear infinite;
+}
+
+@keyframes gridMoveX {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 200px 0, 0 200px;
+  }
+}
+
+@keyframes gridGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
