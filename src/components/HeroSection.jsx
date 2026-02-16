@@ -12,29 +12,29 @@ const slides = [
     title: ["Turning Complexity", "Into Clarity"],
     description:
       "Moval revolutionizes motor claims handling by integrating advanced technology with industry-specific workflows.",
-    button: "Explore Platform",
-    link: "/solutions",
+    button: "Request Demo",
+    link: "/request-demo",
   },
   {
     title: ["Redefining Motor", "Claims Processing"],
     description:
       "Moval's AI goes beyond damage detection, instantly extracting complex data from assessment sheets.",
-    button: "See AI in Action",
+    button: "Request Demo",
     link: "/request-demo",
   },
   {
     title: ["AI-Driven Assessment", "Intelligence"],
     description:
       "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
-    button: "View Compliance",
-    link: "/about",
+    button: "Request Demo",
+    link: "/request-demo",
   },
   {
     title: ["Regulatory-Compliant", "Survey Reports"],
     description:
       "Moval ensures survey reports strictly adhere to IRDA guidelines, maintaining compliance and professionalism.",
-    button: "View Compliance",
-    link: "/about",
+    button: "Request Demo",
+    link: "/request-demo",
   },
   {
     title: ["Centralized Control &", "Mobile Approvals"],
