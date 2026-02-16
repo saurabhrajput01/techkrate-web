@@ -17,8 +17,8 @@ export default function Footer() {
               <span className="text-4xl font-normal tracking-[-0.02rem] font-['Neue']">Techkrate</span>
             </Link>
 
-           {/* Headline */}
-            <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-4 font-['Neue']">
+            {/* Headline */}
+            <h2 className="text-[30px] md:text-[44px] lg:text-[40px] font-semibold leading-[1.15] mb-4">
               Turning Complexity Into Clarity
             </h2>
 

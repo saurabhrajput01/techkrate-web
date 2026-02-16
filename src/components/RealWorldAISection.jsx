@@ -33,7 +33,7 @@ const RealWorldAISection = () => {
           {/* LEFT SIDE */}
           <div className="flex flex-col space-y-8 lg:sticky lg:top-28 h-fit">
 
-            <h2 className="text-3xl md:text-5xl lg:text-[3rem] leading-tight font-medium max-w-2xl">
+            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] max-w-2xl">
               Techkrate AI that works in the real world
             </h2>
 

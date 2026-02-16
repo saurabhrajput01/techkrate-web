@@ -46,7 +46,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }) => {
       </div>
     </motion.div>
   );
-};  
+};
 
 const Features = () => {
   const features = [
@@ -103,7 +103,7 @@ const Features = () => {
             Features & Capabilities
           </span>
 
-          <h2 className="font-Helix text-[32px] md:text-[44px] lg:text-[48px] text-white leading-[1.15] mb-3">
+          <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15] mb-3">
             Enterprise-Grade Platform
           </h2>
 

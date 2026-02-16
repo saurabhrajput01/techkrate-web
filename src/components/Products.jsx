@@ -86,7 +86,7 @@ const Solutions = () => {
           <span className="inline-block px-4 py-1.5 bg-blue-600/20 text-blue-400 text-sm font-medium rounded-full mb-4">
             Our Solutions
           </span>
-          <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-normal tracking-[-0.01em] leading-[1.15] text-white mb-6">
+          <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6">
             Intelligent Solutions for Modern Insurance
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
