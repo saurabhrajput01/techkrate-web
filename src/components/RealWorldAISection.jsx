@@ -1,93 +1,90 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
 
 const RealWorldAISection = () => {
-    const features = [
-        {
-            number: "01",
-            title: "Precision & Speed",
-            description: "Our AI delivers ultra-precise damage assessments by analyzing images down to the pixel. Certainty scores accompany every estimate, factoring in visibility, image quality, and damage severity, ensuring accuracy and speed for even the most complex claims."
-        },
-        {
-            number: "02",
-            title: "Efficiency at Scale",
-            description: "Built for high-demand industries, our AI processes thousands of claims daily while also identifying salvaged parts for repair. Scalable across global markets, it transforms workflows to deliver unprecedented efficiency."
-        },
-       
+  const features = [
+    {
+      number: "01",
+      title: "Precision & Speed",
+      description:
+        "Our AI delivers ultra-precise damage assessments by analyzing images down to the pixel. Certainty scores accompany every estimate, ensuring accuracy and speed for even the most complex claims.",
+    },
+    {
+      number: "02",
+      title: "Efficiency at Scale",
+      description:
+        "Built for high-demand industries, our AI processes thousands of claims daily while identifying salvaged parts for repair and transforming workflows for unmatched efficiency.",
+    },
+    {
+      number: "03",
+      title: "Seamless Integration",
+      description:
+        "Our AI integrates effortlessly with your existing systems using open APIs, enabling smooth collaboration between technologies and consistent results across industries.",
+    },
+  ];
+
+  return (
+    <section className="bg-black text-white py-20">
+      <div className="max-w-[1500px] mx-auto px-6">
         
-    ];
+        {/* GRID RATIO CHANGED */}
+        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-20 items-start lg:pl-12">
 
-    return (
-        <section className="text-white py-12 lg:py-20 font-['Neue'] overflow-visible">
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-4">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 relative items-start">
+          {/* LEFT */}
+          <div className="flex flex-col space-y-8 lg:sticky lg:top-28 h-fit">
 
-                    {/* Left Column - Sticky */}
-                    <div className="flex flex-col space-y-8 lg:sticky lg:top-24 lg:h-fit">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="text-[32px] md:text-5xl lg:text-[2.5rem] font-normal leading-tight text-white mb-6 md:mb-0"
-                        >
-                            Techkrate AI that <br className="hidden lg:block" /> works in the real world
-                        </motion.h2>
+            {/* HEADING WIDER */}
+            <h3 className="text-3xl md:text-4xl lg:text-[2.5rem] leading-tight font-medium max-w-full tracking-tight">
+  Techkrate that works in the real world
+</h3>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-[17px] md:text-lg lg:text-1xl text-gray-400 leading-relaxed max-w-xl"
-                        >
-                            At Techkrate, we harness AI's vast potential to solve real-world problems today, not tomorrow. Built on applied research and trained with millions of data-rich images, our AI delivers fast, accurate assessments for vehicles and properties, transforming industries through:
-                        </motion.p>
 
-                        {/* Video Container */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="w-full aspect-video bg-[#111] rounded-lg overflow-hidden mt-4 relative border border-gray-800"
-                        >
-                            {/* Placeholder image/video area */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                {/* Simulating the phone UI in the reference image would go here */}
-                                <div className="w-1/3 h-5/6 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-xl shadow-lg border-4 border-gray-900 transform rotate-3"></div>
-                            </div>
-                        </motion.div>
-                    </div>
+            {/* PARAGRAPH WIDER */}
+            <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+              At Techkrate, we harness AI’s vast potential to solve real-world
+              problems today. Built on applied research and trained with millions
+              of data-rich images, our AI delivers fast, accurate assessments for
+              vehicles and properties.
+            </p>
 
-                    {/* Right Column - Scrollable Features */}
-                    <div className="flex flex-col space-y-12 md:space-y-20 lg:space-y-28 lg:pt-4 pb-12 md:pb-20">
-                        {features.map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: 60 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.5, delay: index * 0.15 }}
-                                className="flex flex-col space-y-3 group max-w-lg"
-                            >
-                                <span className="text-[28px] md:text-4xl lg:text-3xl  text-[#4F46E5] mb-2 block">
-                                    {feature.number}
-                                </span>
-                                <h3 className="text-[24px] md:text-[40px] lg:text-[25px] font-normal tracking-[-0.01em] leading-[1.15] text-white">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-[16px] md:text-lg text-gray-400 leading-relaxed">
-                                    {feature.description}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                </div>
+            {/* IMAGE BIGGER */}
+            <div className="w-full max-w-3xl aspect-[16/9] bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1400&auto=format&fit=crop"
+                alt="AI damage detection"
+                className="w-full h-full object-cover"
+              />
             </div>
-        </section>
-    );
+
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex flex-col space-y-9">
+            {features.map((feature, index) => (
+              <div key={index} className="max-w-md space-y-3">
+                
+                <span className="text-3xl text-indigo-500 font-semibold">
+                  {feature.number}
+                </span>
+
+                <h3 className="text-2xl font-medium">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-400 leading-relaxed">
+                  {feature.description}
+                </p>
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
 };
 
-export default RealWorldAISection;   
+export default RealWorldAISection;
+
+
+

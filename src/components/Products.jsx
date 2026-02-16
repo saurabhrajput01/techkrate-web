@@ -73,7 +73,7 @@ const Solutions = () => {
   return (
     <section id="solutions" className="bg-black py-14">
       {/* Wider container for larger cards */}
-<div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 lg:px-6">
         
         {/* Header */}
         <motion.div
@@ -97,7 +97,7 @@ const Solutions = () => {
         {/* Grid */}
         <div
           ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6"
         >
           <SolutionCard
             name="Moval"
