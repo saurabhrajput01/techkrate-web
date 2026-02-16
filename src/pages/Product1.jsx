@@ -38,7 +38,7 @@ const MovalPage = () => {
       <section
         className="relative bg-black overflow-hidden pt-28 pb-24 min-h-[90vh]"
         style={{
-          fontFamily: "Inter, sans-serif",
+          fontFamily: '"Inter Tight", Inter, sans-serif',
           letterSpacing: "-0.01em",
         }}
       >
@@ -78,20 +78,20 @@ const MovalPage = () => {
               {/* HEADING */}
               <h1
                 className="
-            text-[44px] md:text-[60px] 
-            font-light tracking-[-0.03em] 
+            text-[32px] md:text-[44px] lg:text-[48px] 
+            font-semibold tracking-[-0.03em] 
             leading-[1.05] text-white
           "
               >
                 Intelligent Motor <br />
-                <span className="block mt-2 text-[46px] md:text-[64px]
-            font-medium tracking-[-0.03em]
+                <span className="block mt-2 text-[34px] md:text-[50px]
+            font-semibold tracking-[-0.03em]
             bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-300
             bg-clip-text text-transparent">Claims Platform</span>
               </h1>
 
               {/* DESCRIPTION */}
-              <p className="mt-6 text-[18px] md:text-[19px]
+              <p className="mt-6 text-lg
             font-light leading-[1.9]
             text-gray-400 max-w-lg">
                 Automated damage assessment, smart PDF extraction, IRDA compliance,
@@ -152,11 +152,11 @@ const MovalPage = () => {
               Why Choose Moval
             </span>
 
-            <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold tracking-[-0.03em] leading-[1.05] text-white">
               Built for <span className="text-[#2563EB]">Modern Insurance</span>
             </h2>
 
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
               Transform claims workflows with automation, intelligence and speed — designed for next-generation insurance platforms.
             </p>
 

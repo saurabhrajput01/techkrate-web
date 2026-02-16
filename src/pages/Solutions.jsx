@@ -84,10 +84,10 @@ const Solutions = () => {
     ];
 
     return (
-        <div 
+        <div
             className="min-h-screen bg-[#0A0A0A] overflow-hidden text-white"
             style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: '"Inter Tight", Inter, sans-serif',
                 letterSpacing: "-0.01em",
             }}
         >
@@ -101,7 +101,7 @@ const Solutions = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
-                            className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white mb-6"
+                            className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6"
                         >
                             Smart AI solutions to industry challenges
                         </motion.h1>
@@ -110,7 +110,7 @@ const Solutions = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-lg md:text-xl text-gray-300"
+                            className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto"
                         >
                             Find the right solutions for your business
                         </motion.p>
@@ -128,10 +128,10 @@ const Solutions = () => {
                                 className="group h-full"
                             >
                                 <div className={`relative h-[550px] rounded-[30px] ${item.bgColor} overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col p-8`}>
-                                    <h3 className={`text-2xl font-medium mb-4 ${item.textColor}`}>
+                                    <h3 className={`text-2xl font-semibold mb-4 ${item.textColor}`}>
                                         {item.title}
                                     </h3>
-                                    <p className={`text-sm mb-8 opacity-80 leading-relaxed ${item.textColor}`}>
+                                    <p className={`text-sm md:text-base mb-8 opacity-80 leading-relaxed ${item.textColor}`}>
                                         {item.description}
                                     </p>
 
@@ -160,7 +160,7 @@ const Solutions = () => {
             <section className="py-24 px-6 lg:px-12 bg-[#0A0A0A] overflow-visible">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     {/* Left: Image/Visual */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -173,7 +173,7 @@ const Solutions = () => {
                     </motion.div>
 
                     {/* Right: Content */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -181,17 +181,17 @@ const Solutions = () => {
                         className="w-full lg:w-1/2 space-y-12"
                     >
                         <div className="space-y-6">
-                            <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white">
+                            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
                                 Techkrate AI that works in the real world
                             </h2>
-                            <p className="text-lg text-gray-300 leading-relaxed">
+                            <p className="text-lg text-gray-400 leading-relaxed">
                                 At Techkrate, we harness AI's vast potential to solve real-world problems today, not tomorrow. Our AI delivers fast, accurate assessments, transforming industries through precision engineering.
                             </p>
                         </div>
 
                         <div className="space-y-10">
                             {realWorldPoints.map((point, index) => (
-                                <motion.div 
+                                <motion.div
                                     key={point.num}
                                     initial={{ opacity: 0, x: 20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -201,8 +201,8 @@ const Solutions = () => {
                                 >
                                     <span className="text-2xl font-bold text-blue-400">{point.num}</span>
                                     <div>
-                                        <h4 className="text-xl font-medium text-white mb-2">{point.title}</h4>
-                                        <p className="text-gray-300 leading-relaxed text-sm md:text-base">{point.desc}</p>
+                                        <h4 className="text-xl font-semibold text-white mb-2">{point.title}</h4>
+                                        <p className="text-gray-400 leading-relaxed text-sm md:text-base">{point.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -227,7 +227,7 @@ const Solutions = () => {
                         <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 blur-[100px] rounded-full"></div>
                         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 opacity-5 blur-[100px] rounded-full"></div>
 
-                        <h2 className="text-[44px] md:text-[60px] font-light tracking-[-0.03em] leading-[1.05] text-white mb-8 z-10">
+                        <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-8 z-10">
                             Our solutions will transform your business. <br /> Get in touch to see how.
                         </h2>
 
