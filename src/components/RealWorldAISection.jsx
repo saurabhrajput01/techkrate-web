@@ -44,11 +44,14 @@ const RealWorldAISection = () => {
               vehicles and properties.
             </p>
 
-            {/* IMAGE */}
+            {/* VIDEO */}
             <div className="w-full max-w-2xl aspect-[16/9] bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-lg">
-              <img
-                src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1400&auto=format&fit=crop"
-                alt="AI analysis"
+              <video
+                src="https://tractable.ai/wp-content/uploads/2024/12/Tractable-Home-Our-Technology.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover"
               />
             </div>
