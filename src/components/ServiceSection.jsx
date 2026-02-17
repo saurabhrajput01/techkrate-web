@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const features = [
+const desktopFeatures = [
   { title: "AI-Driven Automation", angle: -90 },
   { title: "Data Analytics & Insights", angle: -30 },
   { title: "System Integration", angle: 30 },
@@ -12,88 +12,99 @@ const features = [
 ];
 
 export default function Features() {
-  const size = 650;
+  const [size, setSize] = useState(650);
+
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 480) setSize(320); // mobile ultra compact
+      else if (window.innerWidth < 768) setSize(480); // tablet
+      else setSize(650); // desktop
+    };
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   const center = size / 2;
-  const radius = 260;
+  const radius = size * 0.4;
+  const nodeRadius = size * 0.04;
+  const centerCircleRadius = size * 0.34 / 2; // center circle radius
+
+  // adaptive angles for mobile
+  const features =
+    size < 480
+      ? desktopFeatures.map((f, i) => ({ ...f, angle: -90 + i * 60 }))
+      : desktopFeatures;
 
   return (
     <section className="relative bg-black py-24 overflow-hidden">
-      {/* Ambient Glow */}
+
+      {/* Glow background */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[240px] rounded-full" />
       </div>
 
-      {/* Subtle Radial Depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.08),transparent_60%)]" />
-
       {/* Header */}
-      <div className="relative z-10 text-center mb-28">
+      <div className="relative z-10 text-center mb-20 px-4">
+        {/* BUTTON */}
         <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
           Features & Capabilities
         </span>
 
+        {/* HEADING */}
         <h2 className="text-[32px] md:text-[44px] lg:text-[48px] text-white font-semibold leading-[1.15] mb-3">
           Enterprise-Grade Platform
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
+        {/* SUBHEADING */}
+        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg lg:text-xl">
           Everything you need to transform your claims processing workflow
         </p>
       </div>
 
-      {/* Ring System */}
-      <div className="relative mx-auto w-[650px] h-[650px]">
-        {/* Rings */}
-        <div
-          className="absolute inset-1/2 w-[520px] h-[520px] rounded-full 
-          border border-dashed border-white/10"
-          style={{
-            animation: "slow-rotate 60s linear infinite",
-            transform: "translate(-50%, -50%)",
-          }}
-        />
+      {/* Radial container */}
+      <div className="relative mx-auto" style={{ width: size, height: size }}>
 
-        <div
-          className="absolute inset-1/2 w-[380px] h-[380px] rounded-full 
-          border border-dashed border-white/10"
-          style={{
-            animation: "slow-rotate 90s linear infinite reverse",
-            transform: "translate(-50%, -50%)",
-          }}
-        />
+        {/* Rotated dotted rings */}
+        {[0.8, 0.58, 0.4].map((factor, idx) => (
+          <div
+            key={idx}
+            className="absolute inset-1/2 rounded-full border border-dashed border-white/20"
+            style={{
+              width: size * factor,
+              height: size * factor,
+              transform: "translate(-50%,-50%)",
+              animation: `slow-rotate ${60 + idx * 30}s linear infinite ${idx % 2 ? "reverse" : ""}`,
+              boxShadow: "0 0 30px rgba(37,99,235,0.3)",
+            }}
+          />
+        ))}
 
+        {/* Center circle */}
         <div
-          className="absolute inset-1/2 w-[260px] h-[260px] rounded-full 
-          border border-dashed border-white/10"
+          className="absolute flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl z-10"
           style={{
-            animation: "slow-rotate 120s linear infinite",
-            transform: "translate(-50%, -50%)",
+            width: size * 0.34,
+            height: size * 0.34,
+            borderRadius: "50%",
+            left: center,
+            top: center,
+            transform: "translate(-50%,-50%)",
           }}
-        />
-
-        {/* Center Core */}
-        <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 
-          w-[220px] h-[220px] rounded-full 
-          bg-white/5 border border-white/10 backdrop-blur-xl 
-          flex items-center justify-center 
-          shadow-[0_0_60px_rgba(37,99,235,0.15)]
-          animate-pulse"
         >
-          <p className="text-white font-extrabold text-center px-6 text-[22px] leading-snug tracking-wide">
-        Enterprise Claims Platform
-      </p>
-
+          <p className="text-[#2563EB] font-bold text-center px-4 text-lg md:text-xl lg:text-2xl">
+            Enterprise Claims Platform
+          </p>
         </div>
 
-        {/* Connector Lines */}
-        <svg
-          className="absolute inset-0 pointer-events-none"
-          width={size}
-          height={size}
-        >
+        {/* SVG lines (connect center circle edge → nodes) */}
+        <svg className="absolute inset-0 pointer-events-none z-0" width={size} height={size}>
           {features.map((item, index) => {
             const rad = (item.angle * Math.PI) / 180;
-            const nodeRadius = 20;
+
+            const startX = center + centerCircleRadius * Math.cos(rad);
+            const startY = center + centerCircleRadius * Math.sin(rad);
 
             const endX = center + (radius - nodeRadius) * Math.cos(rad);
             const endY = center + (radius - nodeRadius) * Math.sin(rad);
@@ -101,12 +112,13 @@ export default function Features() {
             return (
               <line
                 key={index}
-                x1={center}
-                y1={center}
+                x1={startX}
+                y1={startY}
                 x2={endX}
                 y2={endY}
-                stroke="rgba(255,255,255,0.25)"
-                strokeWidth="1"
+                stroke="rgba(37,99,235,0.8)"
+                strokeWidth="2"
+                style={{ filter: "drop-shadow(0 0 4px rgba(37,99,235,0.5))" }}
               />
             );
           })}
@@ -121,42 +133,32 @@ export default function Features() {
           return (
             <div
               key={index}
-              className="absolute left-1/2 top-1/2 group"
+              className="absolute group"
               style={{
-                transform: `translate(${x}px, ${y}px) translate(-50%, -50%)`,
+                left: center + x,
+                top: center + y,
+                transform: "translate(-50%,-50%)",
               }}
             >
-              {/* Title */}
-            <div
-            className="absolute -top-9 left-1/2 -translate-x-1/2
-                      text-center
-                      text-white text-[18px] font-semibold tracking-wide
-                      whitespace-nowrap opacity-90
-                      transition-all duration-300
-                      group-hover:opacity-100 group-hover:text-[#60A5FA]"
-          >
-            {item.title}
-          </div>
+              {/* Feature title */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-white text-[11px] md:text-sm lg:text-base whitespace-nowrap font-medium">
+                {item.title}
+              </div>
 
-
-              {/* Number */}
+              {/* Feature node */}
               <div
-                className="w-10 h-10 rounded-full 
-                border border-[#2563EB] 
-                bg-[#2563EB]/20
-                flex items-center justify-center 
-                text-[#2563EB] 
-                text-sm font-semibold 
-                shadow-[0_0_14px_rgba(37,99,235,0.35)]
-                transition-all duration-300
-                group-hover:scale-110
-                group-hover:shadow-[0_0_24px_rgba(37,99,235,0.6)]"
+                className="rounded-full border border-[#2563EB] bg-[#2563EB]/20 flex items-center justify-center text-[#2563EB] font-semibold transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.6)]"
+                style={{
+                  width: nodeRadius * 2,
+                  height: nodeRadius * 2,
+                }}
               >
                 {String(index + 1).padStart(2, "0")}
               </div>
             </div>
           );
         })}
+
       </div>
     </section>
   );
