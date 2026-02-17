@@ -185,7 +185,6 @@ function Contact() {
     <div 
       className="relative min-h-screen text-white overflow-hidden pt-20 lg:pt-24"
       style={{
-        fontFamily: "Inter, sans-serif",
         letterSpacing: "-0.01em",
       }}
     >

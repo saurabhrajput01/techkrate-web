@@ -1,5 +1,3 @@
-/* ================= GOOGLE FONT (MARBLE) ================= */
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap");
 
 /* Custom Font Configuration */
 @font-face {
@@ -24,7 +22,7 @@ html {
 }
 
 body {
-  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-family: 'Helix', sans-serif;
   background-color: #000;
   color: #fff;
   letter-spacing: -0.01em;
@@ -42,7 +40,7 @@ body {
 /* HERO TITLE (Solve Hard Climate Problems) */
 .heading-xl,
 h1.heading-xl {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-weight: 800;
   font-size: clamp(64px, 7vw, 104px);
   /* Marble range */
@@ -55,7 +53,7 @@ h1.heading-xl {
 /* SECTION HEADINGS */
 .heading-lg,
 h2.heading-lg {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-weight: 700;
   font-size: clamp(40px, 4vw, 64px);
   line-height: 1.05;
@@ -65,7 +63,7 @@ h2.heading-lg {
 /* SUB HEADINGS */
 .heading-md,
 h3.heading-md {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-weight: 600;
   font-size: clamp(24px, 2.5vw, 36px);
   line-height: 1.15;
@@ -74,7 +72,7 @@ h3.heading-md {
 
 /* PARAGRAPH — MATCH MARBLE EXACTLY */
 .body-lg {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -83,7 +81,7 @@ h3.heading-md {
 }
 
 .body-md {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
@@ -92,7 +90,7 @@ h3.heading-md {
 
 /* SMALL LABEL / NAV TEXT */
 .label-text {
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -105,7 +103,7 @@ h3.heading-md {
   height: 44px;
   padding: 0 24px;
   border-radius: 9999px;
-  font-family: "Inter Tight", Inter, sans-serif;
+  font-family: 'Helix', sans-serif;
   font-size: 14px;
   font-weight: 500;
   background: #ffffff;

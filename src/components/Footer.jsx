@@ -14,7 +14,7 @@ export default function Footer() {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-1 mb-6">
               <img src={logo} alt="Techkrate Logo" className="w-14 h-auto" />
-              <span className="text-4xl font-normal tracking-[-0.02rem] font-['Neue']">Techkrate</span>
+              <span className="text-4xl font-normal tracking-[-0.02rem] ">Techkrate</span>
             </Link>
 
             {/* Headline */}
@@ -22,7 +22,7 @@ export default function Footer() {
               Turning Complexity Into Clarity
             </h2>
 
-            <p className="text-gray-400 mb-10 max-w-md font-['Neue'] tracking-[-0.01em] leading-relaxed">
+            <p className="text-gray-400 mb-10 max-w-md  tracking-[-0.01em] leading-relaxed">
               Transform your insurance claims processing with advanced AI technology.
               Faster assessments, better accuracy, happier customers.
             </p>
@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-14">
             {/* Solutions */}
             <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Solutions</h3>
+              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Solutions</h3>
               <ul className="space-y-4">
                 <li><Link to="/moval" className="text-gray-400 hover:text-white text-sm">Moval</Link></li>
                 <li><Link to="/cars" className="text-gray-400 hover:text-white text-sm">CARS</Link></li>

@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Building2, Users, FileCheck, BarChart3, Globe,
 import CARSLogo from "../assets/image/CARSLogo.jpg";
 import CarsBG from "../assets/image/Cars-bg.jpg";
 import UseCaseBG from "../assets/image/use-case.jpg";
+import logo from "../assets/image/logo.svg";
 
 const CARSPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,328 +57,332 @@ const CARSPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen bg-black text-white">
 
-      {/* CARS HERO SECTION — MOVAL STYLE */}
-      {/* CARS HERO SECTION — DESIGN RULE FIXED */}
-      <section
-        className="relative bg-black overflow-hidden pt-28 pb-24"
-        style={{
-          fontFamily: '"Inter Tight", Inter, sans-serif',
-          letterSpacing: "-0.01em",
-        }}
-      >
+      {/* CARS Hero Section */}
+<section className="relative min-h-screen bg-black overflow-hidden flex items-center">
 
-        {/* Soft Blue Glow */}
-        <div className="absolute right-[-200px] top-1/2 -translate-y-1/2 
-                  w-[800px] h-[800px] bg-[#1F86C7] opacity-10 blur-[200px] rounded-full"></div>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center opacity-40"
+    style={{ backgroundImage: `url(${CarsBG})` }}
+  />
 
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${CarsBG})` }}
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/70" />
+
+  {/* CONTENT WRAPPER */}
+  <div className="relative z-10 w-full">
+
+    {/* MAIN CONTAINER (same alignment as Moval) */}
+    <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-28 lg:pt-32">
+
+      {/* Logo */}
+      <div className="mb-7">
+        <img
+          src={CARSLogo}
+          alt="CARS Logo"
+          className="h-12 lg:h-14 w-auto"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+      </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Heading */}
+      <h1
+        className="
+          text-white
+          font-semibold
+          tracking-[-0.03em]
+          leading-[1.02]
+          text-[48px]
+          sm:text-[64px]
+          md:text-[80px]
+          lg:text-[96px]
+          max-w-5xl
+        "
+      >
+        Unified Assessment <br />
+        Reporting System
+      </h1>
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-20">
+      {/* Subheading */}
+      <p
+        className="
+          mt-8
+          text-neutral-400
+          text-[16px]
+          leading-[1.6]
+          max-w-xl
+        "
+      >
+        Streamlined workflows, real-time quality control, and comprehensive
+        analytics designed for efficient multi-office assessment management.
+      </p>
 
-            {/* LEFT CONTENT */}
-            <div className="flex-1 max-w-2xl text-center lg:text-left">
+      {/* Button */}
+      <div className="mt-10">
+        <a
+          href="/request-demo"
+          className="
+            inline-flex items-center gap-3
+            rounded-full
+            bg-white text-black
+            px-8 py-3
+            text-[15px]
+            font-medium
+            transition-all duration-300
+            hover:scale-[1.03]
+            hover:bg-neutral-100
+          "
+        >
+          Request a Demo
+          <ArrowRight size={16} />
+        </a>
+      </div>
 
-              {/* LOGO + BRAND */}
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-8">
+    </div>
+  </div>
+</section>
 
-                <img
-                  src={CARSLogo}
-                  alt="CARS Logo"
-                  className="h-12 w-auto opacity-90"
-                />
+{/* Key Features Section – CARS (Moval-style) */}
+<section className="bg-black py-16 lg:py-24 relative overflow-hidden">
+
+  {/* soft glow background */}
+  <div className="absolute inset-0 flex justify-center pointer-events-none">
+    <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+
+    {/* Section Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-14"
+    >
+
+      <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
+        Key Features
+      </span>
+
+      <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15]">
+        Enterprise Assessment Platform
+      </h2>
+
+      <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Everything you need for centralized assessment and reporting management.
+      </p>
+
+    </motion.div>
 
 
+    {/* Feature Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+      {features.map((feature, index) => {
 
-              </div>
+        const Icon = feature.icon;
 
-              {/* Heading */}
-              <h1 className="
-          text-[32px] md:text-[44px] lg:text-[48px] 
-          font-semibold tracking-[-0.03em] 
-          leading-[1.05] text-white
-          ">
-                Unified Assessment <br />
-                <span className="block mt-2 text-[34px] md:text-[50px]
-            font-semibold tracking-[-0.03em]
-            bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-300
-            bg-clip-text text-transparent">
-                  & Reporting System
-                </span>
-              </h1>
-
-              <p className="mt-6 text-lg
-            font-light leading-[1.9]
-            text-gray-400 max-w-lg">
-                Streamlined workflows, real-time quality control, and comprehensive
-                analytics designed for efficient multi-office assessment management.
-              </p>
-
-              {/* Buttons */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-
-                <a
-                  href="/request-demo"
-                  className="
-              inline-flex items-center gap-2 justify-center
-              px-10 py-4 rounded-full
-              bg-white text-black font-medium text-[15px]
-              hover:scale-[1.04]
-              transition-all duration-300
-            "
-                >
-                  Request a demo
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* Key Features Section – CARS (Moval-style) */}
-      {/* Features Section — CARS PREMIUM (Moval Style) */}
-      <section className="bg-black py-16 lg:py-24 relative overflow-hidden">
-
-        {/* soft glow background */}
-        <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-[900px] h-[900px] bg-[#1F86C7] opacity-10 blur-[220px] rounded-full"></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-
-          {/* Section Header */}
+        return (
           <motion.div
+            key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-14"
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="
+              group
+              flex flex-col items-center text-center
+              p-6
+              border border-white/10
+              rounded-2xl
+              bg-white/5
+              hover:bg-white/10
+              hover:shadow-lg
+              transition-all duration-300
+              h-full
+            "
           >
 
-            <span className="inline-block px-4 py-1.5 bg-[#1F86C7]/20 text-[#1F86C7] text-sm font-medium rounded-full mb-4">
-              Key Features
-            </span>
+            {/* Icon Circle — SAME AS MOVAL */}
+            <div className="
+              w-16 h-16
+              rounded-xl
+              bg-[#2563EB]/20
+              flex items-center justify-center
+              mb-4
+              group-hover:bg-[#2563EB]
+              transition-colors duration-300
+            ">
+              <Icon className="w-8 h-8 text-[#2563EB] group-hover:text-white transition" />
+            </div>
 
-            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15]">
-              Enterprise Assessment Platform
-            </h2>
+            {/* Title */}
+            <h3 className="
+              text-lg md:text-xl font-semibold text-white mb-2
+              group-hover:text-[#2563EB]
+              transition-colors duration-300
+            ">
+              {feature.title}
+            </h3>
 
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              Everything you need for centralized assessment and reporting management.
+            {/* Description */}
+            <p className="
+              text-gray-400 text-sm md:text-base leading-relaxed
+              group-hover:text-gray-300
+              transition-colors duration-300
+            ">
+              {feature.description}
             </p>
 
           </motion.div>
 
+        );
+      })}
 
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
 
-            {features.map((feature, index) => {
-
-              const Icon = feature.icon;
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="
-    group
-    flex flex-col items-center text-center
-    p-6
-    border border-white/10
-    rounded-2xl
-    bg-white/5
-    hover:bg-white/10
-    hover:shadow-lg
-    transition-all duration-300
-    h-full
-  "
-                >
-
-                  {/* Icon Circle — SAME AS MOVAL */}
-                  <div className="
-    w-16 h-16
-    rounded-xl
-    bg-[#1F86C7]/20
-    flex items-center justify-center
-    mb-4
-    group-hover:bg-[#1F86C7]
-    transition-colors duration-300
-  ">
-                    <Icon className="w-8 h-8 text-[#1F86C7] group-hover:text-white transition" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="
- text-lg md:text-xl font-semibold text-white mb-2
- group-hover:text-[#1F86C7]
- transition-colors duration-300
-">
-                    {feature.title}
-                  </h3>
-                  {/* Description */}
-                  <p className="
- text-gray-400 text-sm md:text-base leading-relaxed
- group-hover:text-gray-300
- transition-colors duration-300
-">
-                    {feature.description}
-                  </p>
-
-                </motion.div>
-
-              );
-            })}
-
-          </div>
-
-        </div>
-      </section>
-
+  </div>
+</section>
 
 
       {/* Why Choose CARS Section */}
 
       {/* WHY CHOOSE CARS — PREMIUM SECTION */}
-      <section className="bg-black py-16 lg:py-24 relative overflow-hidden">
+<section className="bg-black py-16 lg:py-24 relative overflow-hidden">
 
-        {/* soft blue glow background */}
-        <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-[900px] h-[900px] bg-[#1F86C7] opacity-10 blur-[220px] rounded-full"></div>
-        </div>
+  {/* soft blue glow background */}
+  <div className="absolute inset-0 flex justify-center pointer-events-none">
+    <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
+  </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
 
-          {/* SECTION HEADER */}
+    {/* SECTION HEADER */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-16 lg:mb-20"
+    >
+
+      <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
+        Why Choose CARS
+      </span>
+
+      <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15]">
+        Built for <span className="text-[#2563EB]">Enterprise Assessment Teams</span>
+      </h2>
+
+      <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Designed to simplify multi-office operations, improve reporting workflows
+        and deliver real-time operational visibility.
+      </p>
+
+    </motion.div>
+
+
+    {/* PREMIUM FLOW LAYOUT */}
+    <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+
+      {/* LEFT BENEFITS */}
+      <div className="space-y-10 text-right">
+
+        {benefits.slice(0, 3).map((item, index) => (
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 lg:mb-20"
+            key={index}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="flex items-start justify-end gap-4 group"
           >
 
-            <span className="inline-block px-4 py-1.5 bg-[#1F86C7]/20 text-[#1F86C7] text-sm font-medium rounded-full mb-4">
-              Why Choose CARS
-            </span>
+            <p className="text-gray-300 group-hover:text-white transition">
+              {item}
+            </p>
 
-            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15]">
-              Built for <span className="text-[#1F86C7]">Enterprise Assessment Teams</span>
-            </h2>
+            <CheckCircle className="w-6 h-6 text-[#2563EB] shrink-0 mt-1" />
 
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              Designed to simplify multi-office operations, improve reporting workflows
-              and deliver real-time operational visibility.
+          </motion.div>
+
+        ))}
+
+      </div>
+
+
+      {/* CENTER FEATURE (FOCUS VISUAL) */}
+      <div className="flex justify-center relative">
+
+        {/* glowing center */}
+        <div className="absolute w-[350px] h-[350px] bg-[#2563EB] opacity-20 blur-[120px] rounded-full"></div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative text-center"
+        >
+
+          {/* ICON CIRCLE WITH LOGO */}
+          {/* ICON CIRCLE WITH LOGO */}
+            <div className="w-28 h-28 rounded-full border border-[#2563EB]/40 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm bg-white/5 overflow-hidden">
+
+              {/* your logo — INCREASED SIZE */}
+              <img
+                src={logo}
+                alt="CARS Logo"
+                className="w-20 h-20 object-contain"
+              />
+
+            </div>
+
+
+          <h3 className="text-2xl font-semibold text-white">
+            Smart Operations Platform
+          </h3>
+
+          <p className="text-gray-400 mt-3 max-w-xs mx-auto">
+            Centralized dashboards, secure workflows and scalable infrastructure
+            built for enterprise-level assessment management.
+          </p>
+
+        </motion.div>
+
+      </div>
+
+
+      {/* RIGHT BENEFITS */}
+      <div className="space-y-10 text-left">
+
+        {benefits.slice(3, 6).map((item, index) => (
+
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="flex items-start gap-4 group"
+          >
+
+            <CheckCircle className="w-6 h-6 text-[#2563EB] shrink-0 mt-1" />
+
+            <p className="text-gray-300 group-hover:text-white transition">
+              {item}
             </p>
 
           </motion.div>
 
+        ))}
 
-          {/* PREMIUM FLOW LAYOUT */}
-          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+      </div>
 
-            {/* LEFT BENEFITS */}
-            <div className="space-y-10 text-right">
+    </div>
 
-              {benefits.slice(0, 3).map((item, index) => (
-
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start justify-end gap-4 group"
-                >
-
-                  <p className="text-gray-300 group-hover:text-white transition">
-                    {item}
-                  </p>
-
-                  <CheckCircle className="w-6 h-6 text-[#1F86C7] shrink-0 mt-1" />
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-
-            {/* CENTER FEATURE (FOCUS VISUAL) */}
-            <div className="flex justify-center relative">
-
-              {/* glowing center */}
-              <div className="absolute w-[350px] h-[350px] bg-[#1F86C7] opacity-20 blur-[120px] rounded-full"></div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="relative text-center"
-              >
-
-                <div className="w-28 h-28 rounded-full border border-[#1F86C7]/40 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm bg-white/5">
-                  <Building2 className="w-12 h-12 text-[#1F86C7]" />
-                </div>
-
-                <h3 className="text-2xl font-semibold text-white">
-                  Smart Operations Platform
-                </h3>
-
-                <p className="text-gray-400 mt-3 max-w-xs mx-auto">
-                  Centralized dashboards, secure workflows and scalable infrastructure
-                  built for enterprise-level assessment management.
-                </p>
-
-              </motion.div>
-
-            </div>
-
-
-            {/* RIGHT BENEFITS */}
-            <div className="space-y-10 text-left">
-
-              {benefits.slice(3, 6).map((item, index) => (
-
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4 group"
-                >
-
-                  <CheckCircle className="w-6 h-6 text-[#1F86C7] shrink-0 mt-1" />
-
-                  <p className="text-gray-300 group-hover:text-white transition">
-                    {item}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+  </div>
+</section>
 
 
       {/* USE CASES — MOVAL PREMIUM STYLE */}

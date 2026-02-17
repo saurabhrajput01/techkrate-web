@@ -13,7 +13,6 @@ const TermsAndCondition = () => {
     <div 
         className="my-20 text-white bg-black min-h-screen px-6 md:px-16 py-20 space-y-8"
         style={{
-            fontFamily: "Inter, sans-serif",
             letterSpacing: "-0.01em",
         }}
     >

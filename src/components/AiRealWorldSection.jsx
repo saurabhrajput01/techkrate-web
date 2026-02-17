@@ -26,7 +26,7 @@ const RealWorldAISection = () => {
     ];
 
     return (
-        <section className="text-white py-12 lg:py-20 font-['Neue'] overflow-visible">
+        <section className="text-white py-12 lg:py-20  overflow-visible">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-4">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 relative items-start">
 

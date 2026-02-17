@@ -147,10 +147,9 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden font-sans">
+    <div className="relative w-full overflow-hidden">
       {/* HERO SECTION */}
-{/* HERO SECTION */}
-{/* HERO SECTION */}
+
 <div className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-black">
 
   {/* Moving Premium Grid */}
@@ -302,7 +301,7 @@ const AboutUs = () => {
       Our <span className="text-[#2563EB]">Charter</span>
     </h2>
 
-      <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mt-6 max-w-3xl mx-auto">
+      <p className="text-lg sm:text-xl text-gray-400 leading-relaxed mt-6 max-w-2xl mx-auto">
         At Techkrate, we don’t just build software — we architect scalable,
         intelligent SaaS systems designed to simplify complexity and
         accelerate business growth.

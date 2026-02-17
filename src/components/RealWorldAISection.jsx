@@ -25,7 +25,7 @@ const RealWorldAISection = () => {
   return (
     <section className="bg-black text-white py-20">
       {/* SAME CONTAINER AS HERO */}
-      <div className="max-w-[1380px] mx-auto px-10 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
 
         {/* GRID */}
         <div className="grid lg:grid-cols-[1.35fr_1fr] gap-32 items-start">

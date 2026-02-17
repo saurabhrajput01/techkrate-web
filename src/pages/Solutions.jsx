@@ -87,7 +87,6 @@ const Solutions = () => {
         <div
             className="min-h-screen bg-[#0A0A0A] overflow-hidden text-white"
             style={{
-                fontFamily: '"Inter Tight", Inter, sans-serif',
                 letterSpacing: "-0.01em",
             }}
         >
