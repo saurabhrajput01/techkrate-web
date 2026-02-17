@@ -104,7 +104,7 @@ const HeroSection = () => {
 
   const scrollToThirdSection = () => {
     document
-      .getElementById("next-section")
+      .getElementById("solutions")
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
