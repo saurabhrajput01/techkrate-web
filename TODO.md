@@ -1,22 +1,22 @@
-# About Page Updates - TODO
+# Scroll to Top Fix - Implementation Plan
 
-## Completed:
-1. ✅ Removed Vanta.NET animation from hero
-2. ✅ Added video background with autoplay, muted, loop, object-cover
-3. ✅ Kept dark overlay for text readability
+## Task: Fix navigation scroll behavior across the React website
 
-## Current Task:
-### Framer Motion Animation Improvements
+### Steps to Complete:
 
-**Sections to animate with Framer Motion:**
-1. Hero section - fade-in with upward motion
-2. About Us text section - fade-in with upward motion  
-3. Charter cards - staggered fade-in animation
-4. Team member sections - staggered fade-in with hover effects on images
+1. [x] Create ScrollToTop component in `src/components/ScrollToTop.jsx`
+   - Use useLocation from react-router-dom
+   - Trigger window.scrollTo(0, 0) on every pathname change
 
-**Implementation:**
-- Import `{ motion }` from framer-motion
-- Add `initial`, `whileInView`, `viewport` props for scroll-triggered animations
-- Add hover scale effects on team member images
-- Stagger children animations for cards and team members
+2. [x] Integrate ScrollToTop into App.jsx
+   - Add the component inside the Router (inside App function)
+
+3. [x] Update index.css
+   - Adjust scroll-padding-top to match header height (100px)
+
+4. [x] Test the implementation
+   - Navigate through menu items
+   - Verify page scrolls to top on each route change
+
+## Implementation Complete ✅
 

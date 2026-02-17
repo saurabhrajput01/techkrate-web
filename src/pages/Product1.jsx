@@ -13,11 +13,6 @@ import WhyChoosePremium from "../components/WhyChoosePremium";
 const MovalPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setIsVisible(true);
-  }, []);
-
   // Professional, logo-matching colors for icons
 
 

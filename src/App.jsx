@@ -19,6 +19,7 @@ import LoadingScreen from './pages/LoadingScreen';
 import RequestDemo from "./pages/RequestDemo";
 import Footer from "./components/Footer";
 import PremiumCTA from "./components/PremiumCTA";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function AppContent({ isAuthenticated, setIsAuthenticated }) {
@@ -71,6 +72,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       {loading && <LoadingScreen />}
       {!loading && (
         <AppContent isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
