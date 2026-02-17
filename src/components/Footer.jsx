@@ -14,7 +14,7 @@ export default function Footer() {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-1 mb-6">
               <img src={logo} alt="Techkrate Logo" className="w-14 h-auto" />
-              <span className="text-4xl font-normal tracking-[-0.02rem] font-['Neue']">Techkrate</span>
+              <span className="text-4xl font-medium tracking-[-0.02rem] ">Techkrate</span>
             </Link>
 
             {/* Headline */}
@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-14">
             {/* Solutions */}
             <div>
-              <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-['Neue'] font-medium">Solutions</h3>
+             <h3 className="text-sm text-white/70 mb-6 uppercase tracking-wider font-medium">Solutions</h3>
               <ul className="space-y-4">
                 <li><Link to="/moval" className="text-gray-400 hover:text-white text-sm">Moval</Link></li>
                 <li><Link to="/cars" className="text-gray-400 hover:text-white text-sm">CARS</Link></li>
