@@ -82,7 +82,7 @@ const CustomDropdown = ({
             <div
               key={index}
               onClick={() => handleSelect(option)}
-              className="px-5 py-3 cursor-pointer text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+         className="px-5 py-3 cursor-pointer text-gray-300 hover:bg-[#2563EB] hover:text-white transition-colors"
             >
               {option.label}
             </div>

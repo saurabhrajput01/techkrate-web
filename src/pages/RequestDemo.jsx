@@ -121,7 +121,7 @@ const RequestDemo = () => {
 
             {/* Right Form Section */}
             <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center">
-                <h2 className="text-3xl text-[#2563EB] font-semibold mb-2">Request a Demo</h2>
+                <h2 className="text-3xl text-[#2563EB] font-semibold mb-2 mt-6">Request a Demo</h2>
                 <p className="text-gray-400 mb-6 text-sm">Fill the form and our team will reach out to schedule a session.</p>
 
                 <motion.form
