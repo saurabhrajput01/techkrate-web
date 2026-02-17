@@ -9,7 +9,7 @@ const Blogs = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white font-sans flex flex-col pt-20">
+        <div className="min-h-screen bg-black text-white flex flex-col pt-20">
             {/* Header Section */}
             <section className="text-center py-20 px-6 bg-black relative overflow-hidden">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white mb-4">

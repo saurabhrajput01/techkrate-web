@@ -100,7 +100,7 @@ const RequestDemo = () => {
     }
 
     return (
-        <div className="min-h-screen w-full bg-black flex flex-col lg:flex-row font-sans">
+        <div className="min-h-screen w-full bg-black flex flex-col lg:flex-row">
             {/* Left Image Section */}
             <div className="lg:w-1/2 relative w-full h-96 lg:h-auto">
                 <img

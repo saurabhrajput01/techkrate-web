@@ -15,10 +15,10 @@ const PreFooterCTA = () => {
 
             {/* Content */}
             <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-normal text-white mb-6 tracking-tight leading-tight font-['Neue']">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-normal text-white mb-6 tracking-tight leading-tight ">
                     Our solutions will transform your business.
                 </h2>
-                <p className="text-lg sm:text-2xl md:text-4xl text-white/90 font-normal font-['Neue'] leading-snug">
+                <p className="text-lg sm:text-2xl md:text-4xl text-white/90 font-normal leading-snug">
                     Get in touch to see how.
                 </p>
             </div>

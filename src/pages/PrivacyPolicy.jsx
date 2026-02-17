@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="my-20 text-white bg-black min-h-screen px-6 md:px-16 py-20 space-y-8 font-sans">
+    <div className="my-20 text-white bg-black min-h-screen px-6 md:px-16 py-20 space-y-8">
       <h1 className="text-4xl font-extrabold mb-6 font-helix">Welcome to Techkrate's Privacy Policy</h1>
       <p className="text-lg">
        At Techkrate, we believe that simplifying the complex extends to how we handle your privacy. This Privacy Policy explains how we collect, use, protect, and share your personal information when you use our software and SaaS solutions.
