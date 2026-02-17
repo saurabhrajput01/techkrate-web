@@ -49,7 +49,7 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = slides.length;
 
-  // ✅ AUTO SLIDE (Infinite loop)
+  // ✅ AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => prev + 1);
@@ -57,7 +57,7 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ SLIDE ANIMATION (Horizontal GSAP)
+  // ✅ SLIDE ANIMATION
   useEffect(() => {
     if (currentSlide === totalSlides) {
       gsap.set(sliderRef.current, { xPercent: 0 });
@@ -72,7 +72,7 @@ const HeroSection = () => {
     });
   }, [currentSlide]);
 
-  // ✅ Text animation (unchanged)
+  // ✅ TEXT ANIMATION (FIXED)
   useEffect(() => {
     const heroTextRef = heroTextRefs.current[currentSlide];
     const subHeadingRef = subHeadingRefs.current[currentSlide];
@@ -80,10 +80,11 @@ const HeroSection = () => {
     if (!heroTextRef) return;
 
     const words = heroTextRef.innerText.split(" ");
+
     heroTextRef.innerHTML = words
       .map(
         (word) =>
-          `<span class="inline-block overflow-hidden"><span class="inline-block">${word}</span></span>`
+          `<span class="inline-block overflow-hidden pb-2"><span class="inline-block">${word}</span></span>`
       )
       .join(" ");
 
@@ -124,7 +125,7 @@ const HeroSection = () => {
 
         <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* ✅ SLIDER WRAPPER */}
+        {/* SLIDER */}
         <div className="relative z-20 h-full overflow-hidden">
           <div ref={sliderRef} className="flex h-full">
             {slides.map((slide, index) => (
@@ -133,9 +134,10 @@ const HeroSection = () => {
                 className="min-w-full h-full flex flex-col justify-center"
               >
                 <div className="text-left w-full pl-8 pr-4 md:pl-16 md:pr-8 lg:pl-20 pt-12">
+                  {/* ✅ HEADING FIXED */}
                   <h2
                     ref={(el) => (heroTextRefs.current[index] = el)}
-                    className="text-5xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-4"
+                    className="text-5xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-4 leading-[1.15]"
                   >
                     {slide.title}
                   </h2>
@@ -163,7 +165,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Dots */}
+        {/* DOTS */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
           {slides.map((_, index) => (
             <div
@@ -176,7 +178,7 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* Scroll Down Button */}
+        {/* SCROLL BUTTON */}
         <button
           onClick={scrollToThirdSection}
           className="absolute bottom-10 right-8 z-30 bg-white/90 text-black p-3 rounded-full shadow-lg hover:bg-black hover:text-white transition duration-300"
