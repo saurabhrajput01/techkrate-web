@@ -17,11 +17,6 @@ export default function WhyChooseMoval() {
   return (
     <section className="bg-black py-24 relative overflow-hidden">
 
-      {/* Soft Blue Glow Background */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
-        <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* SECTION HEADER */}
@@ -69,48 +64,30 @@ export default function WhyChooseMoval() {
           {/* CENTER FEATURE CARD */}
           <div className="flex justify-center relative">
 
-            {/* glowing circles */}
-            <div className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-[#2563EB] opacity-20 blur-[80px] rounded-full animate-pulse"></div>
-            <div className="absolute w-[150px] h-[150px] sm:w-[220px] sm:h-[220px] bg-[#3b82f6] opacity-30 blur-[60px] rounded-full animate-pulse"></div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               className="relative z-10 text-center w-[260px] sm:w-[280px] h-[320px] sm:h-[360px]
-                         rounded-[40px]
-                         bg-gradient-to-b from-white/5 to-white/10
-                         border border-white/10
-                         backdrop-blur-xl
-                         shadow-[0_0_80px_rgba(37,99,235,0.3)]
-                         flex flex-col justify-center items-center px-6
-                         hover:scale-105 transition duration-300"
+              rounded-[40px]
+              border border-[#2563EB]
+              flex flex-col justify-center items-center px-6
+              hover:scale-105 transition duration-300
+              shadow-[0_0_35px_rgba(37,99,235,0.6)]"
             >
 
               {/* ICON CIRCLE */}
-             {/* ICON CIRCLE */}
-{/* ICON CIRCLE */}
-<div
-  className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full
-  border border-[#2563EB]/40
-  flex items-center justify-center mb-6
-  bg-gradient-to-tr from-white/10 to-white/5
-  shadow-[0_0_50px_rgba(37,99,235,0.6)]
-  backdrop-blur-lg overflow-hidden"
->
-
-  {/* glow layer */}
-  <div className="absolute inset-0 rounded-full blur-xl bg-[#2563EB]/30"></div>
-
-  {/* BIGGER LOGO */}
-  <img
-    src={logo}
-    alt="Moval Logo"
-    className="relative w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-xl"
-  />
-
-</div>
-
+              <div
+                className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full
+                border border-[#2563EB]/50
+                flex items-center justify-center mb-6"
+              >
+                <img
+                  src={logo}
+                  alt="Moval Logo"
+                  className="relative w-24 h-24 sm:w-28 sm:h-28 object-contain"
+                />
+              </div>
 
               <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-2">
                 Smart Claims AI

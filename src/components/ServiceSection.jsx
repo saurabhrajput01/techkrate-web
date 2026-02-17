@@ -16,9 +16,9 @@ export default function Features() {
 
   useEffect(() => {
     const update = () => {
-      if (window.innerWidth < 480) setSize(320); // mobile ultra compact
-      else if (window.innerWidth < 768) setSize(480); // tablet
-      else setSize(650); // desktop
+      if (window.innerWidth < 480) setSize(320);
+      else if (window.innerWidth < 768) setSize(480);
+      else setSize(650);
     };
 
     update();
@@ -29,9 +29,8 @@ export default function Features() {
   const center = size / 2;
   const radius = size * 0.4;
   const nodeRadius = size * 0.04;
-  const centerCircleRadius = size * 0.34 / 2; // center circle radius
+  const centerCircleRadius = size * 0.36 / 2;
 
-  // adaptive angles for mobile
   const features =
     size < 480
       ? desktopFeatures.map((f, i) => ({ ...f, angle: -90 + i * 60 }))
@@ -47,17 +46,14 @@ export default function Features() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-20 px-4">
-        {/* BUTTON */}
         <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
           Features & Capabilities
         </span>
 
-        {/* HEADING */}
         <h2 className="text-[32px] md:text-[44px] lg:text-[48px] text-white font-semibold leading-[1.15] mb-3">
           Enterprise-Grade Platform
         </h2>
 
-        {/* SUBHEADING */}
         <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg lg:text-xl">
           Everything you need to transform your claims processing workflow
         </p>
@@ -66,7 +62,7 @@ export default function Features() {
       {/* Radial container */}
       <div className="relative mx-auto" style={{ width: size, height: size }}>
 
-        {/* Rotated dotted rings */}
+        {/* Rotating rings */}
         {[0.8, 0.58, 0.4].map((factor, idx) => (
           <div
             key={idx}
@@ -75,39 +71,75 @@ export default function Features() {
               width: size * factor,
               height: size * factor,
               transform: "translate(-50%,-50%)",
-              animation: `slow-rotate ${60 + idx * 30}s linear infinite ${idx % 2 ? "reverse" : ""}`,
+              animation: `slow-rotate ${60 + idx * 30}s linear infinite ${
+                idx % 2 ? "reverse" : ""
+              }`,
               boxShadow: "0 0 30px rgba(37,99,235,0.3)",
             }}
           />
         ))}
 
-        {/* Center circle */}
+        {/* ✨ Premium Center Circle */}
         <div
-          className="absolute flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl z-10"
+          className="absolute flex items-center justify-center z-10"
           style={{
-            width: size * 0.34,
-            height: size * 0.34,
+            width: size * 0.36,
+            height: size * 0.36,
             borderRadius: "50%",
             left: center,
             top: center,
             transform: "translate(-50%,-50%)",
+            background:
+              "radial-gradient(circle at 30% 30%, rgba(37,99,235,0.25), rgba(255,255,255,0.05))",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(37,99,235,0.4)",
+            boxShadow: `
+              0 0 40px rgba(37,99,235,0.35),
+              inset 0 0 30px rgba(37,99,235,0.2)
+            `,
           }}
         >
-          <p className="text-[#2563EB] font-bold text-center px-4 text-lg md:text-xl lg:text-2xl">
-            Enterprise Claims Platform
-          </p>
+          <div className="text-center px-6">
+            <p className="text-[#60A5FA] text-sm tracking-widest uppercase mb-2">
+              Core System
+            </p>
+
+            <p
+              className="text-white font-semibold leading-tight"
+              style={{
+                fontSize:
+                  size >= 650
+                    ? "22px"
+                    : size >= 480
+                    ? "18px"
+                    : "16px",
+              }}
+            >
+              Enterprise Claims
+              <br />
+              Platform
+            </p>
+          </div>
         </div>
 
-        {/* SVG lines (connect center circle edge → nodes) */}
-        <svg className="absolute inset-0 pointer-events-none z-0" width={size} height={size}>
+        {/* SVG lines */}
+        <svg
+          className="absolute inset-0 pointer-events-none z-0"
+          width={size}
+          height={size}
+        >
           {features.map((item, index) => {
             const rad = (item.angle * Math.PI) / 180;
 
-            const startX = center + centerCircleRadius * Math.cos(rad);
-            const startY = center + centerCircleRadius * Math.sin(rad);
+            const startX =
+              center + centerCircleRadius * Math.cos(rad);
+            const startY =
+              center + centerCircleRadius * Math.sin(rad);
 
-            const endX = center + (radius - nodeRadius) * Math.cos(rad);
-            const endY = center + (radius - nodeRadius) * Math.sin(rad);
+            const endX =
+              center + (radius - nodeRadius) * Math.cos(rad);
+            const endY =
+              center + (radius - nodeRadius) * Math.sin(rad);
 
             return (
               <line
@@ -118,7 +150,10 @@ export default function Features() {
                 y2={endY}
                 stroke="rgba(37,99,235,0.8)"
                 strokeWidth="2"
-                style={{ filter: "drop-shadow(0 0 4px rgba(37,99,235,0.5))" }}
+                style={{
+                  filter:
+                    "drop-shadow(0 0 4px rgba(37,99,235,0.5))",
+                }}
               />
             );
           })}
@@ -130,22 +165,44 @@ export default function Features() {
           const x = radius * Math.cos(rad);
           const y = radius * Math.sin(rad);
 
+          const absoluteY = center + y;
+          const isTop = absoluteY < center;
+
           return (
             <div
               key={index}
               className="absolute group"
               style={{
                 left: center + x,
-                top: center + y,
+                top: absoluteY,
                 transform: "translate(-50%,-50%)",
               }}
             >
               {/* Feature title */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-white text-[11px] md:text-sm lg:text-base whitespace-nowrap font-medium">
-                {item.title}
-              </div>
+              {/* Feature title */}
+<div
+  style={{
+    position: "absolute",
+    left: "12%",
+    transform: "translate(-89%, 0)", // slight move to LEFT
+    whiteSpace: "nowrap",
+    textAlign: "center",
+    color: "white",
+    fontWeight: 500,
+    fontSize:
+      size >= 650 // desktop
+        ? "18px"
+        : size >= 480
+        ? "16px"
+        : "12px",
+    top: isTop ? "-44px" : "calc(100% + 16px)",
+  }}
+>
+  {item.title}
+</div>
 
-              {/* Feature node */}
+
+              {/* Node circle */}
               <div
                 className="rounded-full border border-[#2563EB] bg-[#2563EB]/20 flex items-center justify-center text-[#2563EB] font-semibold transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.6)]"
                 style={{
@@ -158,7 +215,6 @@ export default function Features() {
             </div>
           );
         })}
-
       </div>
     </section>
   );
