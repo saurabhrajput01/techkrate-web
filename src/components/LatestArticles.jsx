@@ -56,7 +56,7 @@ const ArticleCard = ({ article, index }) => {
 
 const LatestArticles = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-18 bg-black">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
         {/* HEADER */}
         <motion.div
