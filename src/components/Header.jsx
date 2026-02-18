@@ -42,7 +42,7 @@ const Header = () => {
         <div className="max-w-8xl mx-auto px-3 sm:px-6 lg:px-8 w-full h-full flex items-center justify-between">
 
           {/* ===== LOGO ===== */}
-          <Link to="/" className="flex items-center ">
+          <Link to="/" className="flex items-center hover-scale transition-transform duration-200">
             <img src={logo} alt="Logo" className="w-10 sm:w-12 lg:w-16 h-auto" />
             <span className="text-[20px] sm:text-[24px] lg:text-[30px] font-bold tracking-wide text-white">
               Techkrate
@@ -64,21 +64,22 @@ const Header = () => {
                     <button className="relative flex items-center gap-1.5 text-[16px] text-white font-bold group">
                       {item.label}
                       <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform ${
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
                           activeDropdown === item.label ? "rotate-180" : ""
                         }`}
                       />
 
                       {/* Hover underline */}
-                      <span className="absolute left-0 -bottom-1 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-300" />
+                      <span className="absolute left-0 -bottom-1 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-200" />
                     </button>
 
                     <AnimatePresence>
                       {activeDropdown === item.label && (
                         <motion.div
-                          initial={{ opacity: 0, y: 12 }}
+                          initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 12 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.15, ease: "easeOut" }}
                           className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-black border border-white/10 rounded-xl shadow-xl overflow-hidden py-4 space-y-1"
                         >
                           {item.items.map((sub) => (
@@ -98,11 +99,11 @@ const Header = () => {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className="relative text-white font-semibold group"
+                    className="relative text-white font-semibold group hover-scale inline-block"
                   >
                     {item.label}
                     {/* Hover underline */}
-                    <span className="absolute left-0 -bottom-1 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-300" />
+                    <span className="absolute left-0 -bottom-1 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-200" />
                   </Link>
                 )
               )}
@@ -116,7 +117,7 @@ const Header = () => {
               className="flex items-center gap-2 px-9 py-3 rounded-full text-[15px] font-semibold tracking-wide
                          border border-white text-black bg-white
                          hover:bg-black hover:text-white
-                         transition-all duration-300"
+                         transition-all duration-200 hover:scale-105"
             >
               Request a demo
               <ArrowRight className="w-4 h-4" />
@@ -151,7 +152,7 @@ const Header = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="fixed top-[80px] left-4 right-4 bg-[#0a0a0a] border border-white/10 z-50 rounded-[24px] lg:hidden overflow-hidden shadow-2xl"
             >
               <div className="px-6 py-8">
