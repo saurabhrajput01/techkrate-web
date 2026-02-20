@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         Helix: ['Helix', 'sans-serif'],
+        Neue: ['Neue', 'sans-serif'],
       },
       colors: {
         primary: {

@@ -1,4 +1,3 @@
-
 /* Custom Font Configuration */
 @font-face {
   font-family: 'Helix';
@@ -39,7 +38,8 @@ body {
 /* ================= SMOOTH TRANSITIONS ================= */
 
 /* Fast, elegant transitions for all interactive elements */
-a, button {
+a,
+button {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -293,6 +293,7 @@ h3.heading-md {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }

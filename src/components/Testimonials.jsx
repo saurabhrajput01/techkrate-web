@@ -155,19 +155,19 @@ export default function Testimonials() {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="relative z-10 min-h-[240px] md:min-h-[220px]"
                 >
-                  <p className="text-[17px] text-gray-300 italic leading-[1.6] mb-8 font-['Neue'] tracking-[-0.01em]">
+                  <p className="text-[18px] md:text-[20px] text-gray-300 leading-[1.6] mb-9 font-Neue tracking-tight">
                     "{testimonials[currentIndex].quote}"
                   </p>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-medium text-[17px] font-['Neue']">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-white font-medium text-[16px] font-Neue shadow-lg">
                       {testimonials[currentIndex].author.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-white font-medium text-[17px] font-['Neue'] tracking-[-0.01em]">
+                      <p className="text-white font-semibold text-[17px] font-Neue tracking-tight">
                         {testimonials[currentIndex].author}
                       </p>
-                      <p className="text-gray-400 text-[16px] font-['Neue'] tracking-[-0.01em]">
+                      <p className="text-gray-400 text-[15px] font-Neue tracking-normal">
                         {testimonials[currentIndex].company}
                       </p>
                     </div>
