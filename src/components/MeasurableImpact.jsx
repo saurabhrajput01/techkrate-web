@@ -22,7 +22,8 @@ export default function MeasurableImpact() {
                     <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white">
                         Measurable <span className="text-[#2563EB]">Impact</span>
                         <br />
-                        Across Industries
+                        Across Motor Claims Industry
+
                     </h2>
 
                     <p className="mt-4 text-gray-400 text-lg">
@@ -37,20 +38,20 @@ export default function MeasurableImpact() {
 
                     {[
                         {
-                            value: "8 Days",
-                            label: "Reduction in cycle time with FNOL Triage"
+                            value: "100+",
+                            label: "motor surveyors onboarded on Moval & increased their business efficiency."
                         },
                         {
-                            value: "50%",
-                            label: "Reduction in estimate writing time using AI pre-population"
+                            value: "5000+",
+                            label: "motor claims are processed monthly."
                         },
                         {
-                            value: "70%",
-                            label: "Claims reviewed without human involvement"
+                            value: "60%",
+                            label: "reduction in the assessment of the claim using our data extraction tool."
                         },
                         {
-                            value: "50%",
-                            label: "Reduction in subrogation report creation time"
+                            value: "100%",
+                            label: "reduction in the wastage of time you spent in tracking &  managing your claims."
                         }
                     ].map((item, index) => (
                         <motion.div

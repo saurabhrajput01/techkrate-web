@@ -5,12 +5,12 @@ import { CheckCircle } from "lucide-react";
 import logo from "../assets/image/logo.svg";
 
 const benefits = [
-  "Reduce claims processing time by up to 70%",
-  "Improve assessment accuracy with AI-powered analysis",
-  "Streamline surveyor workflow and coordination",
-  "Generate comprehensive reports in minutes",
-  "Ensure regulatory compliance automatically",
-  "Centralize all claim data in one secure platform",
+  "Complete freedom from office restrictions with work-from-anywhere access, real-time claims database, mobile-first remote management, and no dependency on office workstations.",
+  "Revolutionary integrated survey solutions, including Mobile App Survey, Motor Survey Link, real-time data sync, and instant report readiness without manual errors.",
+  "Advanced automated assessment and calculation tools with error-free engines, automated GST management, smart HSN categorisation, and precise parts and labour loss breakdown.",
+  "Complete 16-type report generation suite covering Liability/DO Letters, Status & Preliminary Reports, Bill Check Reports, Scrutiny Sheets, Motor Analysis Sheets, Work Approval & Settlement Sheets, Final Reports, RI, and Fee Bill.",
+  "Specialised assessment reports including Net of Salvage (Repair Basis), Total Loss, Net of Sal. (TLB) with/without RC, Cash Loss, and Return To Invoice (RTI) with/without RC.",
+  "Integrated GST compliance system generating GSTR-1 and GSTR reports for automated tax filing and regulatory compliance.",
 ];
 
 export default function WhyChooseMoval() {
@@ -32,7 +32,7 @@ export default function WhyChooseMoval() {
           </span>
 
           <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold tracking-[-0.03em] leading-[1.05] text-white">
-            Built for <span className="text-[#2563EB]">Modern Insurance</span>
+           Revolutionising  <span className="text-[#2563EB]">Insurance Operations</span>
           </h2>
 
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">

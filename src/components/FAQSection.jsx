@@ -4,30 +4,36 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "How does Moval AI reduce claim cycle times?",
+        question: "Can I operate Moval without being physically present in my office?",
         answer:
-            "By automating FNOL triage, AI-based damage assessment, and estimate pre-population, Moval significantly accelerates decision-making and settlement workflows."
+            "Yes. Moval provides complete freedom from office restrictions, allowing you to work from home, field locations, or client meetings with instant access to the full claims database and real-time survey data through its mobile-first system.."
     },
     {
-        question: "What types of damage can Moval AI assess?",
+        question: "How does Moval help in conducting vehicle surveys?",
         answer:
-            "Moval AI assesses vehicle exterior and structural damage using image intelligence, document analysis, and historical claims data."
+            "Moval offers a Mobile App Survey for complete vehicle damage assessment via smartphone or tablet, along with a Motor Survey Link that enables web-based surveys on any internet-enabled device.."
     },
     {
-        question: "Is Moval AI compatible with existing insurance systems?",
+        question: "Does survey data update instantly for office staff?",
         answer:
-            "Yes. Moval integrates seamlessly with core insurance platforms, claims management systems, and third-party tools via secure APIs."
+            "Yes. All survey data is synchronised in real time, making it instantly available to office staff and eliminating delays and manual transcription errors.."
     },
     {
-        question: "How does Moval ensure fairness in claim settlements?",
+        question: "How does Moval ensure accurate loss assessment and tax calculation?",
         answer:
-            "AI-driven validations, standardized workflows, and audit-ready decision logs ensure consistent and unbiased claim settlements."
+            "Moval includes automated calculation engines that eliminate human error, smart categorisation of spare parts into the correct HSN codes, automated GST management, and precise breakdowns of parts and labour costs."
     },
     {
-        question: "How does AI impact customer satisfaction?",
+        question: "What types of reports can be generated in Moval?",
         answer:
-            "Faster resolutions, transparent decisions, and reduced manual delays lead to improved customer experience and higher satisfaction scores."
-    }
+            "Moval generates 16 essential report types, including Liability/DO Letters, Status Reports, Preliminary Reports, Bill Check Reports, Scrutiny Sheets, Motor Analysis Sheets, Work Approval Sheets, Settlement Sheets, Final Reports, RI, Fee Bill, and specialised assessments such as Net of Salvage, Total Loss, Cash Loss, and RTI reports."
+    },
+    {
+        question: "Does Moval support GST compliance and tax filing?",
+        answer:
+            "Yes. Moval generates GSTR-1 and other GST reports to support automated tax filing and ensure compliance with current and future tax regulations."
+    },
+    
 ];
 
 export default function FAQSection() {
