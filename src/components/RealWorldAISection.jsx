@@ -41,7 +41,7 @@ const RealWorldAISection = () => {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
 
         {/* GRID */}
-        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-32 items-start">
+        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-12 lg:gap-32 items-start">
 
           {/* LEFT SIDE */}
           <div className="flex flex-col space-y-8 lg:sticky lg:top-28 h-fit">
@@ -72,7 +72,7 @@ const RealWorldAISection = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col space-y-16 max-w-md pb-20">
+          <div className="flex flex-col space-y-12 lg:space-y-24 max-w-md pb-20">
 
             {features.map((feature, index) => (
               <div key={index} className="space-y-4">
