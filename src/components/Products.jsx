@@ -87,7 +87,7 @@ const Solutions = () => {
             Our Solutions
           </span>
           <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6">
-            Intelligent Solutions for Modern Insurance
+            Industry Solutions for Modern Insurance
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             AI platforms designed to transform your claims processing workflow
@@ -104,7 +104,7 @@ const Solutions = () => {
             logo={MovalLogo}
             background={MovalBG}
             to="/moval"
-            description="The intelligent motor claims platform. Automated damage assessment, PDF data extraction, IRDA compliance, and end-to-end claims management."
+            description="A Hybrid platform for chartered engineers enabling consignment assessment, report generation & admin tasks on the move."
           />
 
           <SolutionCard
@@ -112,7 +112,7 @@ const Solutions = () => {
             logo={CARSLogo}
             background={CarsBG}
             to="/cars"
-            description="Unified Assessment & Reporting System. Streamlined workflows, real-time quality control, and comprehensive analytics for multi-office management."
+            description="An Al-powered cloud platform revolutionizing motor surveys through seamless automation & intelligent data analysis."
           />
         </div>
       </div>

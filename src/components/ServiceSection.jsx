@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from "react";
 
 const desktopFeatures = [
-  { title: "AI-Driven Automation", angle: -90 },
-  { title: "Data Analytics & Insights", angle: -30 },
-  { title: "System Integration", angle: 30 },
-  { title: "Cloud Solutions", angle: 90 },
-  { title: "IRDA Compliance", angle: 150 },
-  { title: "Mobile-First Design", angle: 210 },
+  { title: "Strategy & Advisory", angle: -90 },
+  { title: "Enterprise Software Development", angle: -30 },
+  { title: "AI-Driven Automation", angle: 30 },
+  { title: "System Integration", angle: 90 },
+  { title: "Cloud Solutions", angle: 150 },
+  { title: "Data Analytics", angle: 210 },
 ];
 
 export default function Features() {
@@ -51,7 +51,7 @@ export default function Features() {
         </span>
 
         <h2 className="text-[32px] md:text-[44px] lg:text-[48px] text-white font-semibold leading-[1.15] mb-3">
-          Enterprise-Grade Platform
+          Elevate Your Operations
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg lg:text-xl">

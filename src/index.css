@@ -16,8 +16,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  -moz-osx-osx-font-smoothing: grayscale;
+  overflow-x: clip;
   scroll-padding-top: 100px;
 }
 
@@ -26,7 +26,7 @@ body {
   background-color: #000;
   color: #fff;
   letter-spacing: -0.01em;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Prevent horizontal scroll everywhere */

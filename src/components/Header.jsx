@@ -21,7 +21,7 @@ const Header = () => {
       type: "dropdown",
       items: [
         { label: "Motor Claims", path: "/moval" },
-        { label: "Appraisals", path: "/cars" },
+        { label: "Consignment & Appraisals", path: "/cars" },
       ],
     },
     {
@@ -64,9 +64,8 @@ const Header = () => {
                     <button className="relative flex items-center gap-1.5 text-[16px] text-white font-bold group">
                       {item.label}
                       <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.label ? "rotate-180" : ""
+                          }`}
                       />
 
                       {/* Hover underline */}
@@ -80,13 +79,14 @@ const Header = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.15, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[160px] bg-black border border-white/10 rounded-xl shadow-xl overflow-hidden py-4 space-y-1"
+                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${item.label === "INDUSTRY SOLUTIONS" ? "min-w-[260px]" : "min-w-[160px]"
+                            } bg-black border border-white/10 rounded-xl shadow-xl overflow-hidden py-4 space-y-1`}
                         >
                           {item.items.map((sub) => (
                             <Link
                               key={sub.label}
                               to={sub.path}
-                              className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition whitespace-nowrap font-medium"
+                              className="block px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition font-medium leading-tight"
                             >
                               {sub.label}
                             </Link>
@@ -170,9 +170,8 @@ const Header = () => {
                         >
                           {item.label}
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform ${
-                              activeDropdown === item.label ? "rotate-180" : ""
-                            }`}
+                            className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 

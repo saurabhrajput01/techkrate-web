@@ -1,24 +1,37 @@
 import React from "react";
+import carVideo from "../assets/video/car.mp4";
 
 const RealWorldAISection = () => {
   const features = [
     {
       number: "01",
-      title: "Precision & Speed",
+      title: "Capture & Analyse Instantly",
       description:
-        "Our AI delivers ultra-precise damage assessments by analyzing images down to the pixel. Certainty scores accompany every estimate, ensuring accuracy and speed for even the most complex claims.",
+        "Photograph the damaged vehicle using the Moval App — no special equipment required. Images are instantly processed by AI for detailed evaluation.",
     },
     {
       number: "02",
-      title: "Efficiency at Scale",
+      title: "AI-Based Damage Detection",
       description:
-        "Built for high-demand industries, our AI processes thousands of claims daily while identifying salvaged parts for repair and transforming workflows for unmatched efficiency.",
+        "The AI automatically detects scratches, dents, and cracks, marking each damage area with precision using visual indicators.",
     },
     {
       number: "03",
-      title: "Seamless Integration",
+      title: "Intelligent Parts Recognition",
       description:
-        "Our AI integrates effortlessly with your existing systems using open APIs, enabling smooth collaboration between technologies and consistent results across industries.",
+        "The system automatically identifies impacted components, including the bumper, hood, doors, fenders, and other vehicle parts.",
+    },
+    {
+      number: "04",
+      title: "Automated ILA Report Generation",
+      description:
+        "Using Moval’s integrated parts rate charts, the platform calculates part pricing and labour costs and generates a complete Intelligent Loss Assessment (ILA) report within minutes.",
+    },
+    {
+      number: "05",
+      title: "Speed, Accuracy & Operational Efficiency",
+      description:
+        "The end-to-end AI workflow ensures precision, eliminates manual estimation errors, and significantly reduces claim processing time.",
     },
   ];
 
@@ -39,7 +52,7 @@ const RealWorldAISection = () => {
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
               At Techkrate, we harness AI’s vast potential to solve real-world
-              problems today. Built on applied research and trained with millions
+              problems today. Built on applied research and trained
               of data-rich images, our AI delivers fast, accurate assessments for
               vehicles and properties.
             </p>
@@ -47,7 +60,7 @@ const RealWorldAISection = () => {
             {/* VIDEO */}
             <div className="w-full max-w-2xl aspect-[16/9] bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-lg">
               <video
-                src="https://tractable.ai/wp-content/uploads/2024/12/Tractable-Home-Our-Technology.mp4"
+                src={carVideo}
                 autoPlay
                 loop
                 muted
@@ -59,7 +72,7 @@ const RealWorldAISection = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col space-y-8 max-w-md">
+          <div className="flex flex-col space-y-16 max-w-md pb-20">
 
             {features.map((feature, index) => (
               <div key={index} className="space-y-4">
