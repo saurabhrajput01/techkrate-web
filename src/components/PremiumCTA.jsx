@@ -31,7 +31,6 @@ shadow-[0_0_40px_rgba(30,58,138,0.35)]
 hover:shadow-[0_0_60px_rgba(30,58,138,0.4)]
 transition-all duration-500
 "
-
 >
 
           {/* TEXT — SAME SIZE, 2 LINES */}

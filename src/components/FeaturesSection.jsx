@@ -2,35 +2,43 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const features = [
-    {
-        title: "FNOL Triage",
-        points: [
-            "INSTANT CLAIM CLASSIFICATION — Capture FNOL photos to instantly classify claims as total loss, repairable, or cash settlement.",
-            "FASTER CASH SETTLEMENTS — Offer AI-verified cash settlements for quicker resolutions.",
-            "PERSONALIZED CUSTOMER JOURNEYS — Guide customers with personalized journeys to boost satisfaction."
-        ]
-    },
-    {
-        title: "AI-generated Preliminary Estimate",
-        points: [
-            "AI-VERIFIED ESTIMATES — Automatically pre-fill repair cost estimates with AI-verified accuracy.",
-            "FASTER, EASIER ADJUSTMENTS — Reduce manual effort for adjusters, improving cycle time."
-        ]
-    },
-    {
-        title: "Claim Review",
-        points: [
-            "AI-POWERED FRAUD DETECTION — Detect potential errors or fraud with AI-driven claim review.",
-            "FAIR AND CONSISTENT CLAIMS SETTLEMENTS — Ensure consistency and fairness in claim settlements."
-        ]
-    },
-    {
-        title: "Subrogation",
-        points: [
-            "FASTER RECOVERIES WITH DATA-DRIVEN INSIGHTS — Accelerate subrogation recoveries through precise, data-backed insights.",
-            "AUTOMATED SUBROGATION REVIEWS AND REPORTS — Automate the review of in-bound subrogation packets and reports."
-        ]
-    }
+  {
+    title: "AI-Based ILA Generation",
+    points: [
+      "CAPTURE PHOTOS — Photograph the damaged vehicle with your smartphone using the Moval App. No special equipment needed..",
+      "AI DETECTS DAMAGE — AI identifies all scratches, dents, and cracks. Damage marked with colored boxes..",
+      "IDENTIFY PARTS — The system automatically recognises affected components (bumper, hood, door, fender, etc.).",
+      "GENERATE ILA — Creates a complete report using Moval's parts rate charts - part pricing, labour costs, and total estimate ready in minutes."
+    ]
+  },
+   {
+    title: "Game-Changing PDF Data Extraction",
+    points: [
+      "ADVANCED EXTRACTION TECHNOLOGY — that reads and processes estimates and bills from Hyundai, KIA, TATA, Mahindra, and Maruti Suzuki — revolutionising how you handle manufacturer data..",
+      "DIRECT IMPORT — Drop manufacturer estimates and bills directly into your system — no more manual retyping.",
+      "SMART MAPPING — Intelligent recognition automatically identifies part numbers, descriptions, prices, and quantities. Configure once per manufacturer, and the system remembers your preferences forever.",
+      "INSTANT RESULTS — What took 2-3 hours of manual entry now happens in 30 seconds with zero transcription errors."
+    ]
+  },
+  {
+    title: "Built For Damage Service Providers",
+    points: [
+      "GET INSTANT AI-POWERED DAMAGE DETECTION — with visual markers on every scratch, dent, and crack.",
+      "RECEIVE AUTOMATIC PART IDENTIFICATION — for all affected components.",
+      "OFFICE STAFF CAN GENERATE COMPLETE ILA REPORTS — with Moval-standardised pricing",
+      "REDUCE ASSESSMENT TIME FROM HOURS TO MINUTES — enabling same-day claim processing",
+      "ELIMINATE DISPUTES — with clear visual evidence and transparent, standardised pricing"
+    ]
+  },
+ 
+  {
+    title: "Perfect Solution for Every Professional",
+    points: [
+      "CORPORATE SURVEYORS — Complete digital transformation with mobile-first design and team monitoring capabilities.",
+      "INDEPENDENT SURVEYORS — Streamlined workflows with reduced administrative overhead while maintaining professional standards .",
+      "DIGITAL SERVICE PROVIDERS (DSPS) — Robust centralised platform for high-volume claim processing with real-time progress monitoring"
+    ]
+  }
 ];
 
 export default function FeaturesSection() {
@@ -61,7 +69,7 @@ export default function FeaturesSection() {
                     </h2>
 
                     <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-                        End-to-end automation designed for modern insurance operations
+                        End-to-end automation designed for modern claim operations
                     </p>
                 </motion.div>
 
