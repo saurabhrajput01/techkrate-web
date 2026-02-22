@@ -9,7 +9,8 @@ import FeaturesSection from "../components/FeaturesSection";
 import MeasurableImpact from "../components/MeasurableImpact";
 import FAQSection from "../components/FAQSection";
 
-import WhyChoosePremium from "../components/WhyChoosePremium";
+import WhyChooseMoval  from "../components/WhyChooseMoval";
+
 const MovalPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -119,7 +120,7 @@ const MovalPage = () => {
       <MeasurableImpact />
 
 {/* WHY CHOOSE MOVAL - PREMIUM SECTION */}
-<WhyChoosePremium/>
+<WhyChooseMoval/>
 
 <FAQSection />
     </div>
