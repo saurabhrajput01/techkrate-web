@@ -15,13 +15,14 @@ const Header = () => {
   }, [location]);
 
   const navItems = [
-    { label: "HOME", path: "/", type: "link" },
+ 
     {
       label: "INDUSTRY SOLUTIONS",
       type: "dropdown",
       items: [
         { label: "Motor Claims", path: "/moval" },
-        { label: "Consignment & Appraisals", path: "/cars" },
+         { label: "Cars", path: "/cars" },
+        { label: "Consignments & Appraisal", },
       ],
     },
     {
@@ -29,7 +30,7 @@ const Header = () => {
       type: "dropdown",
       items: [
         { label: "About Us", path: "/about" },
-        { label: "Careers", path: "/about" },
+        { label: "Careers"},
       ],
     },
     { label: "ARTICLES", path: "/blogs", type: "link" },
@@ -44,7 +45,7 @@ const Header = () => {
           {/* ===== LOGO ===== */}
           <Link to="/" className="flex items-center hover-scale transition-transform duration-200">
             <img src={logo} alt="Logo" className="w-10 sm:w-12 lg:w-16 h-auto" />
-            <span className="text-[19px] sm:text-[23px] lg:text-[29px] font-bold tracking-wide text-white">
+            <span className="text-[19px] sm:text-[23px] lg:text-[28px] font-bold tracking-wide text-white">
               Techkrate
             </span>
           </Link>

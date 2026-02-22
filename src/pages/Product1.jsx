@@ -104,7 +104,7 @@ const MovalPage = () => {
             hover:bg-neutral-100
           "
         >
-          Request Demo
+          Request a demo
           <ArrowRight size={16} />
         </a>
       </div>
