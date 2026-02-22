@@ -87,10 +87,10 @@ const Solutions = () => {
             Our Solutions
           </span>
           <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6">
-            Industry Solutions for Modern Insurance
+            Intelligent Solutions, Real-World Imapact.
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            AI platforms designed to transform your claims processing workflow
+            Turning complex workflows into seamless execution.
           </p>
         </motion.div>
 
@@ -104,7 +104,7 @@ const Solutions = () => {
             logo={MovalLogo}
             background={MovalBG}
             to="/moval"
-            description="A Hybrid platform for chartered engineers enabling consignment assessment, report generation & admin tasks on the move."
+            description="An Al-powered cloud platform revolutionizing motor surveys through seamless automation & intelligent data analysis."
           />
 
           <SolutionCard
@@ -112,7 +112,7 @@ const Solutions = () => {
             logo={CARSLogo}
             background={CarsBG}
             to="/cars"
-            description="An Al-powered cloud platform revolutionizing motor surveys through seamless automation & intelligent data analysis."
+            description="A Hybrid platform for chartered engineers enabling consignment assessment, report generation & admin tasks on the move."
           />
         </div>
       </div>

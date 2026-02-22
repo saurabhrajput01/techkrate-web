@@ -47,7 +47,7 @@ export default function Features() {
       {/* Header */}
       <div className="relative z-10 text-center mb-20 px-4">
         <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
-          Features & Capabilities
+          Capabilities
         </span>
 
         <h2 className="text-[32px] md:text-[44px] lg:text-[48px] text-white font-semibold leading-[1.15] mb-3">

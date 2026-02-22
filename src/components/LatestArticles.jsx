@@ -67,11 +67,11 @@ const LatestArticles = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
-            Insights & Resources
+            Insights
           </span>
 
           <h2 className="text-[32px] md:text-[44px] lg:text-[48px] text-white font-semibold leading-[1.15] mb-3">
-            Latest Articles & Insights
+            Explore
           </h2>
 
           <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">

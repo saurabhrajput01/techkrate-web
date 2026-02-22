@@ -428,7 +428,7 @@ Leading Techkrate
         <h3 className="text-3xl sm:text-4xl font-semibold text-white mb-2">
           Utkarsh Chauhan
         </h3>
-        <p className="text-[#2563EB] font-medium mb-4">Chief Operating Officer</p>
+        <p className="text-[#2563EB] font-medium mb-4">Head of Operations</p>
         <p className="text-gray-300 leading-relaxed mb-6">
           Utkarsh ensures operational excellence across every platform and solution. He bridges cutting-edge technology with seamless execution for maximum impact.
         </p>
@@ -460,16 +460,16 @@ Leading Techkrate
 
     {/* Main Quote */}
     <h2 className="
-      text-[40px] md:text-[58px]
+      text-[40px] md:text-[40px]
       font-light
       leading-[1.1]
       tracking-[-0.02em]
       text-white
       mb-12
     ">
-      Techkrate brings the right advice, network,
-      and support. They make a significant impact
-      on every digital transformation journey.
+     “Technology should not just automate processes —it should redefine industries.
+      At Techkrate, we build intelligent systems that eliminate inefficiency,enhance 
+      precision, and empower businesses to operate without limits.”
     </h2>
 
     {/* Author */}
@@ -481,12 +481,12 @@ Leading Techkrate
 
   {/* Name */}
   <h4 className="text-white text-xl font-medium tracking-tight">
-    Utkarsh Chauhan
+    Lalit Singh Chauhan
   </h4>
 
   {/* Role */}
   <p className="text-gray-400 text-sm mt-1">
-    Chief Operating Officer
+    Chief Executive Officer
   </p>
 
 </div>
