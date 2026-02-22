@@ -36,7 +36,7 @@ const Blogs = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                className="relative cursor-pointer group rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 p-0 flex flex-col h-full"
+                                className="relative cursor-pointer group rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-b from-white/[0.02] to-transparent backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-0 flex flex-col h-full"
                             >
                                 {/* Blog Image */}
                                 <div className="aspect-[16/9] overflow-hidden relative z-10">
@@ -55,12 +55,12 @@ const Blogs = () => {
                                     </p>
 
                                     {/* Title */}
-                                    <h2 className="text-2xl font-bold text-black mb-2 group-hover:text-[#2563EB] transition-colors duration-300">
+                                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-[#2563EB] transition-colors duration-300">
                                         {post.title}
                                     </h2>
 
                                     {/* Summary */}
-                                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
                                         {post.secondTitle || "Explore the latest insights from Techkrate."}
                                     </p>
 

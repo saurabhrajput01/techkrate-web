@@ -156,7 +156,7 @@ const HeroSection = () => {
                   >
                     <div className="flex items-center p-3 justify-center w-full">
                       Discover More
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-1 px-1" />
                     </div>
                   </Link>
                 </div>

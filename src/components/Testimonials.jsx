@@ -99,10 +99,10 @@ export default function Testimonials() {
           <div>
 
             <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] mb-6 text-white">
-              Trusted by Insurance Leaders
+              Trusted by Industry Leaders
             </h2>
             <p className="text-[17px] font-normal leading-[1.6] text-gray-400 mb-8 max-w-xl  tracking-[-0.01em]">
-              Discover how leading insurance companies transform their claims operations with our AI-powered solutions. Real results from real enterprises.
+             Discover how leading organisations transform their operations with our AI-powered solutions. Real results from real leaders.
             </p>
 
             {/* Dot Navigation */}

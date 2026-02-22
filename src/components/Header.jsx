@@ -44,7 +44,7 @@ const Header = () => {
           {/* ===== LOGO ===== */}
           <Link to="/" className="flex items-center hover-scale transition-transform duration-200">
             <img src={logo} alt="Logo" className="w-10 sm:w-12 lg:w-16 h-auto" />
-            <span className="text-[20px] sm:text-[24px] lg:text-[30px] font-bold tracking-wide text-white">
+            <span className="text-[19px] sm:text-[23px] lg:text-[29px] font-bold tracking-wide text-white">
               Techkrate
             </span>
           </Link>
@@ -61,7 +61,7 @@ const Header = () => {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     {/* Dropdown Button */}
-                    <button className="relative flex items-center gap-1.5 text-[16px] text-white font-bold group">
+                    <button className="relative flex items-center gap-1.5 text-[14px] text-white font-bold group">
                       {item.label}
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.label ? "rotate-180" : ""
@@ -99,7 +99,7 @@ const Header = () => {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className="relative text-white font-semibold group hover-scale inline-block"
+                    className="relative text-white text-[14px] font-semibold group hover-scale inline-block"
                   >
                     {item.label}
                     {/* Hover underline */}
@@ -114,7 +114,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center">
             <Link
               to="/request-demo"
-              className="flex items-center gap-2 px-9 py-3 rounded-full text-[15px] font-semibold tracking-wide
+              className="flex items-center gap-2 px-9 py-3 rounded-full text-[13px] font-semibold tracking-wide
                          border border-white text-black bg-white
                          hover:bg-black hover:text-white
                          transition-all duration-200 hover:scale-105"
@@ -166,7 +166,7 @@ const Header = () => {
                               activeDropdown === item.label ? null : item.label
                             )
                           }
-                          className="w-full flex items-center justify-between text-white text-[16px] py-2"
+                          className="w-full flex items-center justify-between text-white text-[14px] py-2"
                         >
                           {item.label}
                           <ChevronDown
@@ -195,7 +195,7 @@ const Header = () => {
                         key={item.label}
                         to={item.path}
                         onClick={() => setMobileOpen(false)}
-                        className="block text-white py-2 border-b border-white/5"
+                        className="block text-white text-[14px] py-2 border-b border-white/5"
                       >
                         {item.label}
                       </Link>

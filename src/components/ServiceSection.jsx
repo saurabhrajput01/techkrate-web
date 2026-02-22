@@ -54,9 +54,7 @@ export default function Features() {
           Elevate Your Operations
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg lg:text-xl">
-          Everything you need to transform your claims processing workflow
-        </p>
+        
       </div>
 
       {/* Radial container */}

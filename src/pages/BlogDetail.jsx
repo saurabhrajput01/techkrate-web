@@ -69,7 +69,7 @@ const BlogDetail = () => {
             {/* ================= CONTENT SECTION ================= */}
             <section className="bg-black pb-24">
                 <div className="max-w-4xl mx-auto px-4 md:px-8 -mt-24 relative z-10">
-                    <div className="bg-gray-900 rounded-2xl shadow-xl p-8 md:p-12">
+                    <div className="bg-black border border-white/10 rounded-2xl shadow-xl p-8 md:p-12 backdrop-blur-xl bg-gradient-to-b from-white/[0.02] to-transparent">
 
                         {/* Back Button */}
                         <Link
@@ -124,7 +124,7 @@ const BlogDetail = () => {
                         </div>
 
                         {/* Author Card */}
-                        <div className="mt-16 bg-gray-800 rounded-xl p-6 flex items-center gap-4">
+                        <div className="mt-16 bg-white/[0.03] border border-white/10 rounded-xl p-6 flex items-center gap-4">
                             <div className="w-12 h-12 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold">
                                 {blogPost.author?.[0] || "A"}
                             </div>
