@@ -14,8 +14,8 @@ const Home = () => {
         <Solutions />
         <RealWorldAISection />
         <Features />
-        <LatestArticles />
         <Testimonials />
+        <LatestArticles />
       </main>
     </>
   );
