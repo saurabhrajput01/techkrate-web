@@ -2,22 +2,25 @@ import { motion } from "framer-motion";
 
 export default function PremiumCTA() {
   return (
-    <section className="relative bg-black py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden">
+      {/* Smooth entry gradient to eliminate the hard line from previous section */}
+      <div className="absolute inset-0 bg-black" />
+      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black via-transparent to-transparent pointer-events-none z-0" />
 
       {/* background glow — subtle & wide */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                         w-[1000px] h-[380px]
-                        bg-[#2563EB] opacity-20 blur-[220px]" />
+                        bg-[#2563EB] opacity-25 blur-[520px]" />
       </div>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 xl:px-16">
 
-       <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="
 relative max-w-6xl mx-auto
 rounded-2xl
 bg-gradient-to-r
@@ -31,7 +34,7 @@ shadow-[0_0_40px_rgba(30,58,138,0.35)]
 hover:shadow-[0_0_60px_rgba(30,58,138,0.4)]
 transition-all duration-500
 "
->
+        >
 
           {/* TEXT — SAME SIZE, 2 LINES */}
           <h2 className="text-3xl md:text-4xl font-medium text-white leading-snug">
@@ -43,7 +46,7 @@ transition-all duration-500
           </h2>
 
           {/* BUTTON */}
-          
+
         </motion.div>
       </div>
     </section>
