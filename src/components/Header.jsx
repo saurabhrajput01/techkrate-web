@@ -7,6 +7,8 @@ import logo from "../assets/image/logo.svg";
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -14,15 +16,48 @@ const Header = () => {
     setActiveDropdown(null);
   }, [location]);
 
+  useEffect(() => {
+    let requestRunning = false;
+
+    const handleScroll = () => {
+      if (requestRunning) return;
+
+      requestRunning = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        // Only apply behavior on screens wider than 1024px
+        if (window.innerWidth > 1024) {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down
+            setIsVisible(false);
+          } else {
+            // Scrolling up
+            setIsVisible(true);
+          }
+        } else {
+          // Keep mobile/tablet header fixed
+          setIsVisible(true);
+        }
+
+        setLastScrollY(currentScrollY);
+        requestRunning = false;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const navItems = [
- 
+
     {
       label: "INDUSTRY SOLUTIONS",
       type: "dropdown",
       items: [
         { label: "Motor Claims", path: "/moval" },
-         { label: "Cars", path: "/cars" },
-        { label: "Consignments & Appraisal", },
+       
+        { label: "Consignments & Appraisal",  path: "/cars"},
       ],
     },
     {
@@ -30,7 +65,7 @@ const Header = () => {
       type: "dropdown",
       items: [
         { label: "About Us", path: "/about" },
-        { label: "Careers"},
+        { label: "Careers" },
       ],
     },
     { label: "ARTICLES", path: "/blogs", type: "link" },
@@ -39,7 +74,10 @@ const Header = () => {
   return (
     <>
       {/* ===== HEADER ===== */}
-      <header className="fixed top-6 left-4 right-4 z-50 h-[70px] sm:h-[82px] flex items-center">
+      <header
+        className={`fixed top-6 left-4 right-4 z-50 h-[70px] sm:h-[82px] flex items-center transition-transform duration-500 ease-in-out ${!isVisible ? "-translate-y-[150%]" : "translate-y-0"
+          }`}
+      >
         <div className="max-w-8xl mx-auto px-3 sm:px-6 lg:px-8 w-full h-full flex items-center justify-between">
 
           {/* ===== LOGO ===== */}
