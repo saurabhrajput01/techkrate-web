@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <h2 className="text-[30px] md:text-[44px] lg:text-[40px] font-semibold leading-[1.15] mb-4">
+            <h2 className="text-[30px] md:text-[44px] lg:text-[30px] leading-[1.15] mb-4">
               Turning Complexity Into Clarity
             </h2>
 

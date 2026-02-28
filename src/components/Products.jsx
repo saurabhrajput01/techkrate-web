@@ -33,11 +33,11 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight">
             {name}
           </h3>
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full  flex items-center justify-center">
             <img
               src={logo}
               alt={`${name} logo`}
-              className="w-8 h-8 md:w-10 md:h-10 object-contain"
+              className=" md:w-20 md:h-25 object-contain"
             />
           </div>
         </div>
@@ -83,7 +83,7 @@ const Solutions = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <span className="inline-block px-4 py-1.5 bg-blue-600/20 text-blue-400 text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-blue-600/20 text-blue-400 lg:text-[18px]  font-medium rounded-full mb-4">
             Our Solutions
           </span>
           <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold leading-[1.15] text-white mb-6">
@@ -112,7 +112,7 @@ const Solutions = () => {
             logo={CARSLogo}
             background={CarsBG}
             to="/cars"
-            description="A Hybrid platform for chartered engineers enabling consignment assessment, report generation & admin tasks on the move."
+            description="CARS is an internal workflow automation platform designed for Chartered Engineering firms to manage the end-to-end process of generating Chartered Engineer (CE) Certificates for the import of old and used machinery into India, in compliance with the Foreign Trade Policy (FTP) as governed by the DGFT."
           />
         </div>
       </div>

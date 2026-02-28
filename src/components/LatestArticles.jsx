@@ -66,7 +66,7 @@ const LatestArticles = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] lg:text-[15px] font-medium rounded-full mb-4">
             Insights
           </span>
 
