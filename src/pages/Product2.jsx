@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Building2, Users, FileCheck, BarChart3, Globe, Lock } from "lucide-react";
+import { ArrowRight, CheckCircle,  Building2,
+  ShieldCheck,
+  RefreshCw,
+  FileSignature,
+  Cloud,
+  Calculator} from "lucide-react";
 import CARSLogo from "../assets/image/CARSLogo.jpg";
 import CarsBG from "../assets/image/Cars-bg.jpg";
 import UseCaseBG from "../assets/image/use-case.jpg";
 import logo from "../assets/image/logo.svg";
+import CarFAQSection from "../components/CarFAQSection";
 
 const CARSPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,47 +21,54 @@ const CARSPage = () => {
   }, []);
 
   const features = [
-    {
-      icon: Building2,
-      title: "Multi-Office Management",
-      description: "Manage multiple branches and offices from a centralized dashboard with real-time visibility"
-    },
-    {
-      icon: Users,
-      title: "Staff Coordination",
-      description: "Seamless collaboration between team members with task assignments and progress tracking"
-    },
-    {
-      icon: FileCheck,
-      title: "Quality Control",
-      description: "Built-in quality checks and validation to ensure accurate assessments and reports"
-    },
-    {
-      icon: BarChart3,
-      title: "Comprehensive Analytics",
-      description: "Real-time dashboards and reports for performance monitoring and decision making"
-    },
-    {
-      icon: Globe,
-      title: "Pan-India Coverage",
-      description: "Network of surveyors and assessors across India for comprehensive coverage"
-    },
-    {
-      icon: Lock,
-      title: "Enterprise Security",
-      description: "Bank-grade security with encrypted data storage and role-based access controls"
-    }
-  ];
+  {
+    icon: Building2,
+    title: "Multi-Office Access",
+    description:
+      "All branches and remote offices operate on a single centralised platform with no duplication or disconnected spreadsheets."
+  },
+  {
+    icon: ShieldCheck,
+    title: "Role-Based Access Control",
+    description:
+      "Admin, CE, and Office Staff access only the functions and data relevant to their assigned role."
+  },
+  {
+    icon: RefreshCw,
+    title: "Real-Time Status Tracking",
+    description:
+      "Assignments move through defined stages — Data Entry, CE Review, Admin Approval, and Issued — with live status visibility."
+  },
+  {
+    icon: FileSignature,
+    title: "Digital Signature on Certificate",
+    description:
+      "Approved certificates carry the CE’s digital signature, ensuring legal validity for Customs and DGFT submission."
+  },
+  {
+    icon: Cloud,
+    title: "Secure Cloud Access",
+    description:
+      "Hosted on secure cloud infrastructure with encryption and backups, accessible from any office or device."
+  },
+  {
+    icon: Calculator,
+    title: "Auto Depreciation & Market Valuation",
+    description:
+      "Automatically calculates machine value using age-wise depreciation norms, with CE review and confirmation."
+  }
+];
 
   const benefits = [
-    "Centralized platform for multi-location operations",
-    "Real-time visibility into all office activities",
-    "Streamlined administrative workflows",
-    "Improved staff productivity and coordination",
-    "Comprehensive audit trails and reporting",
-    "Scalable architecture for growing organizations"
-  ];
-
+  "Standardised Output: Every certificate from every office follows the same approved format and approval chain",
+  "Zero Unauthorised Issuance: Letterhead lock ensures no certificate is released without Admin approval",
+  "Accurate Master Data: Ports, CHA details, and terms maintained centrally — eliminating errors in legally sensitive fields",
+  "Full Admin Oversight: Real-time visibility across all offices and assignments from a single dashboard",
+  "Faster Turnaround: Structured digital workflow replaces email chains and manual coordination between offices",
+  "Audit-Ready: Complete time stamped records for regulatory compliance and internal governance",
+  "Scalable: On-board new offices or staff without additional process complexity",
+  "Controlled Consignee Access: Auto-generated expiry links let consignees access the assessed value securely — with the Admin setting exactly how long each link remains valid"
+];
   return (
     <div className="min-h-screen bg-black text-white">
 
@@ -97,10 +110,10 @@ const CARSPage = () => {
           sm:text-[64px]
           md:text-[80px]
           lg:text-[96px]
-          max-w-5xl
+          max-w-6xl
         "
       >
-        Unified Assessment <br />
+       Consignment Appraisal &<br />
         Reporting System
       </h1>
 
@@ -290,7 +303,7 @@ const CARSPage = () => {
       {/* LEFT BENEFITS */}
       <div className="space-y-10 text-right">
 
-        {benefits.slice(0, 3).map((item, index) => (
+        {benefits.slice(0, 4).map((item, index) => (
 
           <motion.div
             key={index}
@@ -319,45 +332,41 @@ const CARSPage = () => {
         {/* glowing center */}
         <div className="absolute w-[350px] h-[350px] bg-[#2563EB] opacity-20 blur-[120px] rounded-full"></div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative text-center"
-        >
+       <motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.6 }}
+  className="relative bg-[#0B0F19] border border-white/10 rounded-2xl px-8 py-10 text-center shadow-xl transition duration-500 hover:border-[#2563EB]/40 hover:shadow-[#2563EB]/10"
+>
 
-          {/* ICON CIRCLE WITH LOGO */}
-          {/* ICON CIRCLE WITH LOGO */}
-            <div className="w-28 h-28 rounded-full border border-[#2563EB]/40 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm bg-white/5 overflow-hidden">
+  {/* Icon Circle */}
+  <div className="w-24 h-24 rounded-full border border-[#2563EB]/30 flex items-center justify-center mx-auto mb-6 bg-black">
 
-              {/* your logo — INCREASED SIZE */}
-              <img
-                src={logo}
-                alt="CARS Logo"
-                className="w-20 h-20 object-contain"
-              />
+    <img
+      src={logo}
+      alt="CARS Logo"
+      className="w-16 h-16 object-contain"
+    />
 
-            </div>
+  </div>
 
+  <h3 className="text-2xl font-semibold text-white">
+    Smart Operations Platform
+  </h3>
 
-          <h3 className="text-2xl font-semibold text-white">
-            Smart Operations Platform
-          </h3>
+  <p className="text-gray-400 mt-4 max-w-xs mx-auto">
+    Centralized dashboards, secure workflows and scalable infrastructure
+    built for enterprise-level assessment management.
+  </p>
 
-          <p className="text-gray-400 mt-3 max-w-xs mx-auto">
-            Centralized dashboards, secure workflows and scalable infrastructure
-            built for enterprise-level assessment management.
-          </p>
-
-        </motion.div>
-
+</motion.div>
       </div>
 
 
       {/* RIGHT BENEFITS */}
       <div className="space-y-10 text-left">
 
-        {benefits.slice(3, 6).map((item, index) => (
+        {benefits.slice(4, 8).map((item, index) => (
 
           <motion.div
             key={index}
@@ -584,6 +593,7 @@ const CARSPage = () => {
 
         </div>
       </section>
+      <CarFAQSection/>
     </div>
   );
 };
