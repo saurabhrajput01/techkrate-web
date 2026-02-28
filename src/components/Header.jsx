@@ -56,8 +56,8 @@ const Header = () => {
       type: "dropdown",
       items: [
         { label: "Motor Claims", path: "/moval" },
-       
-        { label: "Chartered Engineering",  path: "/cars"},
+
+        { label: "Chartered Engineering", path: "/cars" },
       ],
     },
     {
@@ -150,18 +150,20 @@ const Header = () => {
           </div>
 
           {/* ===== REQUEST DEMO BUTTON ===== */}
-          <div className="hidden lg:flex items-center">
-            <Link
-              to="/request-demo"
-              className="flex items-center gap-2 px-9 py-3 rounded-full text-[13px] font-semibold tracking-wide
-                         border border-white text-black bg-white
-                         hover:bg-black hover:text-white
-                         transition-all duration-200 hover:scale-105"
-            >
-              Request a demo
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          {location.pathname !== "/request-demo" && (
+            <div className="hidden lg:flex items-center">
+              <Link
+                to="/request-demo"
+                className="flex items-center gap-2 px-9 py-3 rounded-full text-[13px] font-semibold tracking-wide
+                           border border-white text-black bg-white
+                           hover:bg-black hover:text-white
+                           transition-all duration-200 hover:scale-105"
+              >
+                Request a demo
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
 
           {/* ===== MOBILE MENU BUTTON ===== */}
           <button
@@ -243,16 +245,18 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Button */}
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <Link
-                    to="/request-demo"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition shadow-lg"
-                  >
-                    Request a demo
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
+                {location.pathname !== "/request-demo" && (
+                  <div className="mt-8 pt-6 border-t border-white/10">
+                    <Link
+                      to="/request-demo"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition shadow-lg"
+                    >
+                      Request a demo
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                )}
               </div>
             </motion.div>
           </>

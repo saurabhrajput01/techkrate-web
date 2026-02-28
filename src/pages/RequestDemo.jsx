@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import Footer from "../components/Footer";
 import demoIllustration from "../assets/image/requestdemo-bg.avif";
 import CustomDropdown from "../components/CustomDropdown";
+import emailjs from "@emailjs/browser";
 
 const RequestDemo = () => {
     const [formData, setFormData] = useState({
@@ -20,6 +21,13 @@ const RequestDemo = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    // State for OTP verification
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [otp, setOtp] = useState("");
+    const [generatedOtp, setGeneratedOtp] = useState("");
+    const [isEmailVerified, setIsEmailVerified] = useState(false);
+    const [otpError, setOtpError] = useState("");
 
     const validate = () => {
         let newErrors = {};
@@ -48,26 +56,102 @@ const RequestDemo = () => {
         if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
     };
 
+    const handleVerifyClick = async () => {
+        if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email.trim())) {
+            setErrors({ ...errors, email: "Please enter a valid email to verify." });
+            return;
+        }
+
+        const newOtp = Math.floor(100000 + Math.random() * 900000).toString();
+        setGeneratedOtp(newOtp);
+        setOtp("");
+        setOtpError("");
+        setIsPopupVisible(true);
+
+        try {
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OTP;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+            if (serviceId && templateId && publicKey) {
+                await emailjs.send(
+                    serviceId,
+                    templateId,
+                    {
+                        to_email: formData.email,
+                        otp: newOtp,
+                    },
+                    publicKey
+                );
+                alert(`OTP sent to ${formData.email}.`);
+            } else {
+                console.warn("EmailJS is not configured. Please check your environment variables.");
+                console.log("Generated OTP:", newOtp);
+            }
+        } catch (error) {
+            console.error("Error sending OTP email:", error);
+            alert("Failed to send OTP. Please try again.");
+            setIsPopupVisible(false);
+        }
+    };
+
+    const handleOtpSubmit = (e) => {
+        e.preventDefault();
+        if (otp.trim() === generatedOtp.trim()) {
+            setIsEmailVerified(true);
+            setIsPopupVisible(false);
+            setOtpError("");
+            alert("Email verified successfully!");
+        } else {
+            setOtpError("Invalid OTP. Please try again.");
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validate()) {
+            if (!isEmailVerified) {
+                alert("Please verify your email address before submitting the form.");
+                return;
+            }
+
             setIsSubmitting(true);
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-            console.log("Form Submitted:", formData);
-            setIsSubmitting(false);
-            setIsSubmitted(true);
+
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_FORM;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+            if (serviceId && templateId && publicKey) {
+                try {
+                    await emailjs.send(serviceId, templateId, formData, publicKey);
+                    console.log("Form Submitted Successfully");
+                    setIsSubmitting(false);
+                    setIsSubmitted(true);
+                } catch (error) {
+                    console.error("Error sending email:", error);
+                    alert("There was an error sending your request. Please try again.");
+                    setIsSubmitting(false);
+                }
+            } else {
+                // Fallback for local testing without keys
+                console.log("Form Submitted (Demo):", formData);
+                await new Promise((resolve) => setTimeout(resolve, 1500));
+                setIsSubmitting(false);
+                setIsSubmitted(true);
+            }
         }
     };
 
     const inputClasses = (error) => `
-    w-full px-6 py-3 rounded-full
+    w-full px-6 py-4 rounded-xl
     bg-black text-gray-100
     border
     ${error ? "border-red-500 focus:ring-red-400" : "border-gray-700 focus:border-[#2563EB] focus:ring-[#2563EB]/40"}
     focus:ring-2
     focus:outline-none
     transition-all
-    placeholder-gray-400
+    placeholder-transparent
+    peer
   `;
 
     const labelClasses = "block text-sm font-medium text-gray-300 mb-2";
@@ -108,21 +192,18 @@ const RequestDemo = () => {
                     alt="Demo Illustration"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-center px-10 backdrop-blur-sm">
-                    <h2 className="text-[#2563EB] text-3xl md:text-4xl font-bold mb-4 leading-snug">
-
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-center items-center text-center px-10 backdrop-blur-sm">
+                    <h2 className="text-[#2563EB] text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                        Request a demo
                     </h2>
-                    <p className="text-gray-300 text-base md:text-lg max-w-md">
-
+                    <p className="text-gray-300 text-lg md:text-xl max-w-md">
+                        Fill the form and our team will reach out to schedule a session.
                     </p>
-
                 </div>
             </div>
 
             {/* Right Form Section */}
-            <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center">
-                <h2 className="text-3xl text-[#2563EB] font-semibold mb-2 mt-6">Request a demo</h2>
-                <p className="text-gray-400 mb-6 text-sm">Fill the form and our team will reach out to schedule a session.</p>
+            <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center pt-20 lg:pt-10">
 
                 <motion.form
                     onSubmit={handleSubmit}
@@ -132,43 +213,111 @@ const RequestDemo = () => {
                     transition={{ duration: 0.5 }}
                 >
                     {/* Name & Email */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Full Name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className={inputClasses(errors.name)}
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email Address"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className={inputClasses(errors.email)}
-                        />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="relative">
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="Full Name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                className={inputClasses(errors.name)}
+                            />
+                            <label
+                                htmlFor="name"
+                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                                    peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
+                                    peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
+                                    ${formData.name ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
+                            >
+                                Full Name *
+                            </label>
+                            {errors.name && <p className="text-red-500 text-xs mt-1 ml-4">{errors.name}</p>}
+                        </div>
+
+                        <div className="relative">
+                            <div className="flex items-center gap-3">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email Address"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    className={`${inputClasses(errors.email)} ${isEmailVerified ? "bg-gray-900 border-green-500/50" : ""}`}
+                                    disabled={isEmailVerified}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={handleVerifyClick}
+                                    disabled={isEmailVerified}
+                                    className={`flex-shrink-0 text-sm font-semibold py-3 px-4 rounded-xl transition-all duration-300 whitespace-nowrap ${isEmailVerified
+                                        ? "bg-green-600/20 text-green-400 border border-green-500/30 cursor-not-allowed"
+                                        : "bg-[#2563EB] text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"
+                                        }`}
+                                >
+                                    {isEmailVerified ? "✓ Verified" : "Verify"}
+                                </button>
+                                <label
+                                    htmlFor="email"
+                                    className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                                        peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
+                                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
+                                        ${formData.email ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
+                                >
+                                    Email Address *
+                                </label>
+                            </div>
+                            {errors.email && <p className="text-red-500 text-xs mt-1 ml-4">{errors.email}</p>}
+                        </div>
                     </div>
 
                     {/* Phone & Company */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            type="tel"
-                            name="phoneNumber"
-                            placeholder="Phone Number"
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            className={inputClasses(errors.phoneNumber)}
-                        />
-                        <input
-                            type="text"
-                            name="companyName"
-                            placeholder="Company Name"
-                            value={formData.companyName}
-                            onChange={handleChange}
-                            className={inputClasses(errors.companyName)}
-                        />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="relative">
+                            <input
+                                type="tel"
+                                name="phoneNumber"
+                                id="phoneNumber"
+                                placeholder="Phone Number"
+                                value={formData.phoneNumber}
+                                onChange={handleChange}
+                                className={inputClasses(errors.phoneNumber)}
+                            />
+                            <label
+                                htmlFor="phoneNumber"
+                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                                    peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
+                                    peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
+                                    ${formData.phoneNumber ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
+                            >
+                                Phone Number *
+                            </label>
+                            {errors.phoneNumber && <p className="text-red-500 text-xs mt-1 ml-4">{errors.phoneNumber}</p>}
+                        </div>
+
+                        <div className="relative">
+                            <input
+                                type="text"
+                                name="companyName"
+                                id="companyName"
+                                placeholder="Company Name"
+                                value={formData.companyName}
+                                onChange={handleChange}
+                                className={inputClasses(errors.companyName)}
+                            />
+                            <label
+                                htmlFor="companyName"
+                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                                    peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
+                                    peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
+                                    ${formData.companyName ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
+                            >
+                                Company Name *
+                            </label>
+                            {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-4">{errors.companyName}</p>}
+                        </div>
                     </div>
 
                     {/* Industry Dropdown */}
@@ -181,23 +330,32 @@ const RequestDemo = () => {
                             onChange={handleChange}
                             options={[
                                 { value: "Motor Claims", label: "Motor Claims" },
-                                { value: "Consignment & Appraisals", label: "Consignment & Appraisals" },
+                                { value: "Chartered Engineering", label: "Chartered Engineering" },
                             ]}
                             placeholder="Select Industry"
                         />
                     </div>
 
                     {/* Message */}
-                    <div>
-                        <label className={labelClasses}>Message</label>
+                    <div className="relative">
                         <textarea
                             name="message"
+                            id="message"
                             rows="4"
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="How can we help you?"
-                            className="w-full px-6 py-5 rounded-2xl border border-gray-700 bg-black text-gray-100 focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] resize-none"
+                            className="peer w-full px-6 py-5 rounded-2xl border border-gray-700 bg-black text-gray-100 focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] resize-none placeholder-transparent"
                         />
+                        <label
+                            htmlFor="message"
+                            className={`absolute left-6 top-5 text-gray-400 transition-all duration-300 pointer-events-none 
+                                peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
+                                peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
+                                ${formData.message ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
+                        >
+                            How can we help you?
+                        </label>
                     </div>
 
                     {/* Checkbox */}
@@ -241,6 +399,50 @@ const RequestDemo = () => {
                     </button>
                 </motion.form>
             </div>
+
+            {/* OTP Popup */}
+            {isPopupVisible && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="bg-gray-900 text-white p-8 rounded-3xl shadow-2xl border border-white/10 w-full max-w-sm"
+                    >
+                        <h3 className="text-2xl font-bold mb-2">Verify Your Email</h3>
+                        <p className="text-gray-400 mb-6 text-sm">
+                            Enter the 6-digit code sent to <span className="text-blue-400 break-all">{formData.email}</span>
+                        </p>
+
+                        <form onSubmit={handleOtpSubmit} className="space-y-4">
+                            <input
+                                type="text"
+                                value={otp}
+                                onChange={(e) => setOtp(e.target.value)}
+                                maxLength="6"
+                                className="w-full text-center tracking-[0.5em] bg-black border border-gray-700 focus:border-[#2563EB] outline-none py-4 rounded-2xl text-white text-xl font-bold"
+                                placeholder="000000"
+                                autoFocus
+                            />
+                            {otpError && <p className="text-red-400 text-sm text-center font-medium">{otpError}</p>}
+                            <div className="flex gap-3 pt-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setIsPopupVisible(false)}
+                                    className="flex-1 px-4 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors text-white font-semibold"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="flex-1 px-4 py-3 rounded-xl bg-[#2563EB] hover:bg-blue-700 transition-colors text-white font-bold shadow-lg shadow-blue-500/20"
+                                >
+                                    Verify
+                                </button>
+                            </div>
+                        </form>
+                    </motion.div>
+                </div>
+            )}
         </div>
     );
 };

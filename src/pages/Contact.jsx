@@ -37,7 +37,7 @@ function Contact() {
         gsap.fromTo(formRef.current.children, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 0.4 });
       }
     });
-    
+
     // Attempt to autoplay video with fallback
     if (videoRef.current) {
       const playVideo = async () => {
@@ -49,7 +49,7 @@ function Contact() {
       };
       playVideo();
     }
-    
+
     return () => ctx.revert();
   }, []);
 
@@ -104,7 +104,7 @@ function Contact() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
+
   const handleVerifyClick = async () => {
     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email.trim())) {
       setErrors({ ...errors, email: "Please enter a valid email to verify." });
@@ -118,16 +118,29 @@ function Contact() {
     setIsPopupVisible(true);
 
     try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_OTP_TEMPLATE_ID",
-        {
-          to_email: formData.email,
-          otp: newOtp,
-        },
-        "YOUR_USER_ID"
-      );
-      alert(`OTP sent to ${formData.email}. (For demo, OTP is: ${newOtp})`);
+      // Simulate "sending" state
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OTP;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            to_email: formData.email,
+            otp: newOtp,
+          },
+          publicKey
+        );
+        alert(`OTP sent to ${formData.email}.`);
+      } else {
+        console.warn("EmailJS is not configured. Please check your environment variables.");
+        // For testing purposes, we might still want to see the OTP in console if keys are missing
+        console.log("Generated OTP:", newOtp);
+      }
     } catch (error) {
       console.error("Error sending OTP email:", error);
       alert("Failed to send OTP. Please try again.");
@@ -137,7 +150,7 @@ function Contact() {
 
   const handleOtpSubmit = (e) => {
     e.preventDefault();
-    if (otp === generatedOtp) {
+    if (otp.trim() === generatedOtp.trim()) {
       setIsEmailVerified(true);
       setIsPopupVisible(false);
       setOtpError("");
@@ -150,7 +163,7 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    
+
     // Check if the form is valid and the email is verified
     if (validateForm()) {
       if (!isEmailVerified) {
@@ -158,44 +171,52 @@ function Contact() {
         return;
       }
 
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID").then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          alert( "Message Sent Successfully! Thank you for contacting us. We've received your inquiry, and our team will review it shortly. You can expect a response from us within 24 hours. If you need immediate assistance, please call us at +91-9990547098.");
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: "",
-            companyName: "",
-            message: "",
-          });
-          setErrors({});
-          setIsEmailVerified(false);
-        },
-        (error) => {
-          console.error("Error sending email:", error);
-          alert("There was an error sending your message. Please try again.");
-        }
-      );
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_FORM;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        emailjs.send(serviceId, templateId, formData, publicKey).then(
+          (result) => {
+            console.log("Email sent successfully:", result.text);
+            alert("Message Sent Successfully! Thank you for contacting us. We've received your inquiry, and our team will review it shortly. You can expect a response from us within 24 hours. If you need immediate assistance, please call us at +91-9990547098.");
+            setFormData({
+              firstName: "",
+              lastName: "",
+              email: "",
+              phoneNumber: "",
+              companyName: "",
+              message: "",
+            });
+            setErrors({});
+            setIsEmailVerified(false);
+          },
+          (error) => {
+            console.error("Error sending email:", error);
+            alert("There was an error sending your message. Please try again.");
+          }
+        );
+      } else {
+        alert("Email service is not configured. Please contact support.");
+      }
     }
   };
 
   return (
-    <div 
+    <div
       className="relative min-h-screen text-white overflow-hidden pt-20 lg:pt-24"
       style={{
         letterSpacing: "-0.01em",
       }}
     >
       {/* Background Image */}
-    <div
-      className="absolute inset-0 -z-10 bg-cover bg-center"
-  style={{ backgroundImage: `url(${carBg})` }}
-    >
-      {/* Soft overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
-    </div>
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${carBg})` }}
+      >
+        {/* Soft overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
 
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -235,22 +256,22 @@ function Contact() {
 
                 <div>
                   <p className="text-sm text-gray-400">Address</p>
-                  <p className="text-white">416, Sector 1, Vasundhara,<br/>Ghaziabad - 201012 Delhi NCR</p>
+                  <p className="text-white">416, Sector 1, Vasundhara,<br />Ghaziabad - 201012 Delhi NCR</p>
                 </div>
 
               </div>
               <div className="flex space-x-4 pt-4">
-                <a 
-                  href="https://www.linkedin.com/company/techkrate/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/company/techkrate/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:bg-white/20 transition-all duration-300"
                 >
                   <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
                 </a>
-                <a 
-                  href="https://www.youtube.com/@techkrate4281" 
-                  target="_blank" 
+                <a
+                  href="https://www.youtube.com/@techkrate4281"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-white/20 transition-all duration-300"
                 >
@@ -270,15 +291,13 @@ function Contact() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
-                    className={`peer w-full bg-white text-gray-900 border ${
-                  errors.firstName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                } outline-none px-4 py-3 rounded-lg shadow-sm transition`}
-                    placeholder=" "
+                    className={`peer w-full bg-white text-gray-900 border ${errors.firstName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                      } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent`}
+                    placeholder="First Name"
                     required
                   />
-                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                    formData.firstName ? "-top-5 text-sm text-blue-400" : ""
-                  }`}>
+                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.firstName ? "-top-5 text-sm text-blue-600" : ""
+                    }`}>
                     First Name *
                   </label>
                   {errors.firstName && <p className="text-red-400 text-xs mt-1">{errors.firstName}</p>}
@@ -289,14 +308,13 @@ function Contact() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className={`peer w-full bg-white text-gray-900 border ${
-                    errors.lastName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                  } outline-none px-4 py-3 rounded-lg shadow-sm transition`}
+                    className={`peer w-full bg-white text-gray-900 border ${errors.lastName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                      } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent`}
+                    placeholder="Last Name"
                     required
                   />
-                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                    formData.lastName ? "-top-5 text-sm text-blue-400" : ""
-                  }`}>
+                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.lastName ? "-top-5 text-sm text-blue-600" : ""
+                    }`}>
                     Last Name *
                   </label>
                   {errors.lastName && <p className="text-red-400 text-xs mt-1">{errors.lastName}</p>}
@@ -310,10 +328,9 @@ function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`peer w-full bg-white text-gray-900 border ${
-                      errors.email ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                    } outline-none px-4 py-3 rounded-lg shadow-sm transition`}
-                    placeholder=" "
+                    className={`peer w-full bg-white text-gray-900 border ${errors.email ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                      } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent`}
+                    placeholder="Email Address"
                     required
                     disabled={isEmailVerified}
                   />
@@ -321,20 +338,18 @@ function Contact() {
                     type="button"
                     onClick={handleVerifyClick}
                     disabled={isEmailVerified}
-                    className={`flex-shrink-0 text-sm font-semibold py-2 px-4 rounded-lg transition-all duration-300 whitespace-nowrap ${
-                      isEmailVerified
-                        ? "bg-green-600 text-white cursor-not-allowed"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
+                    className={`flex-shrink-0 text-sm font-semibold py-2 px-4 rounded-lg transition-all duration-300 whitespace-nowrap ${isEmailVerified
+                      ? "bg-green-600 text-white cursor-not-allowed"
+                      : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
                   >
                     {isEmailVerified ? "✓ Verified" : "Verify"}
                   </button>
+                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.email ? "-top-5 text-sm text-blue-600" : ""
+                    }`}>
+                    Email *
+                  </label>
                 </div>
-                <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                  formData.email ? "-top-5 text-sm text-blue-400" : ""
-                }`}>
-                  Email *
-                </label>
                 {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
               </div>
 
@@ -345,13 +360,11 @@ function Contact() {
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
-              className={`peer w-full bg-white text-gray-900 border ${
-                  errors.phoneNumber ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                } outline-none px-4 py-3 rounded-lg shadow-sm transition`}                    placeholder=" "
+                    className={`peer w-full bg-white text-gray-900 border ${errors.phoneNumber ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                      } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent`} placeholder="Phone Number"
                   />
-                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                    formData.phoneNumber ? "-top-5 text-sm text-blue-400" : ""
-                  }`}>
+                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.phoneNumber ? "-top-5 text-sm text-blue-600" : ""
+                    }`}>
                     Phone Number (Optional)
                   </label>
                   {errors.phoneNumber && <p className="text-red-400 text-xs mt-1">{errors.phoneNumber}</p>}
@@ -362,15 +375,13 @@ function Contact() {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleInputChange}
-                    className={`peer w-full bg-white text-gray-900 border ${
-                    errors.companyName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                  } outline-none px-4 py-3 rounded-lg shadow-sm transition`}
-                    placeholder=" "
+                    className={`peer w-full bg-white text-gray-900 border ${errors.companyName ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                      } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent`}
+                    placeholder="Company Name"
                     required
                   />
-                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                    formData.companyName ? "-top-5 text-sm text-blue-400" : ""
-                  }`}>
+                  <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.companyName ? "-top-5 text-sm text-blue-600" : ""
+                    }`}>
                     Company Name *
                   </label>
                   {errors.companyName && <p className="text-red-400 text-xs mt-1">{errors.companyName}</p>}
@@ -382,15 +393,13 @@ function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`peer w-full bg-white text-gray-900 border ${
-                    errors.message ? "border-red-500" : "border-gray-300 focus:border-blue-500"
-                  } outline-none px-4 py-3 rounded-lg shadow-sm transition`}
-                  placeholder=" "
+                  className={`peer w-full bg-white text-gray-900 border ${errors.message ? "border-red-500" : "border-gray-300 focus:border-blue-500"
+                    } outline-none px-4 py-3 rounded-lg shadow-sm transition placeholder-transparent min-h-[120px]`}
+                  placeholder="Message"
                   required
                 ></textarea>
-                <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-400 ${
-                  formData.message ? "-top-5 text-sm text-blue-400" : ""
-                }`}>
+                <label className={`absolute left-3 top-3 text-gray-400 transition-all duration-300 pointer-events-none peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-600 peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-blue-600 ${formData.message ? "-top-5 text-sm text-blue-600" : ""
+                  }`}>
                   Message *
                 </label>
                 {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
@@ -415,6 +424,7 @@ function Contact() {
             <p className="text-gray-400 mb-6">
               Enter the 6-digit code sent to <span className="text-blue-400">{formData.email}</span>
             </p>
+
             <form onSubmit={handleOtpSubmit} className="space-y-4">
               <input
                 type="text"
