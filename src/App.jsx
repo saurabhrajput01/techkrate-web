@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 import SolutionsPage from "./pages/Solutions";
 import Home from "./pages/Home";
-import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import Login from "./components/Login";
@@ -34,7 +33,6 @@ function AppContent({ isAuthenticated, setIsAuthenticated }) {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/solutions" element={<SolutionsPage />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/moval" element={<Product1 />} />
         <Route path="/cars" element={<Product2 />} />
