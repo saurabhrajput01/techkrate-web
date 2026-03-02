@@ -31,8 +31,8 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mt-6">
               {[
                 { Icon: FaLinkedinIn, link: "https://www.linkedin.com/company/techkrate/" },
-               
-                
+
+
                 { Icon: FaYoutube, link: "https://www.youtube.com/@techkrate4281" },
               ].map(({ Icon, link }, i) => (
                 <a
@@ -63,7 +63,7 @@ export default function Footer() {
                 <li><Link to="/moval" className="text-gray-400 hover:text-white text-sm">Moval</Link></li>
                 <li><Link to="/cars" className="text-gray-400 hover:text-white text-sm">CARS</Link></li>
 
-                <li><Link to="/contact" className="text-gray-400 hover:text-white text-sm">Request Demo</Link></li>
+                <li><Link to="/request-demo" className="text-gray-400 hover:text-white text-sm">Request Demo</Link></li>
               </ul>
             </div>
 
