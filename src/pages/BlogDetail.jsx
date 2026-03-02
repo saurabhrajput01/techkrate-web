@@ -90,33 +90,10 @@ const BlogDetail = () => {
                         </div>
 
                         {/* Blog Content */}
-                        <article
-                            className="
-                                prose prose-lg max-w-none
-                                text-gray-100
-                                prose-headings:text-white
-                                prose-p:text-gray-300
-                                prose-strong:text-white
-                                prose-li:text-gray-300
-                                prose-a:text-[#2563EB]
-                                prose-blockquote:text-gray-100
-                                prose-p:leading-[1.85]
-                                prose-p:text-[18px]
-                                prose-h2:text-2xl
-                                prose-h2:mt-16
-                                prose-h3:mt-10
-                                prose-img:rounded-2xl
-                                prose-img:shadow-lg
-                                prose-blockquote:border-l-4
-                                prose-blockquote:border-[#2563EB]
-                                prose-blockquote:bg-[#2563EB]/10
-                                prose-blockquote:px-6
-                                prose-blockquote:py-4
-                                prose-blockquote:rounded-r-xl
-                            "
-                            dangerouslySetInnerHTML={{ __html: marked(blogPost.content) }}
-                        />
-
+<article
+  className="blog-content text-gray-300 text-[18px] leading-[1.9]"
+  dangerouslySetInnerHTML={{ __html: marked(blogPost.content) }}
+/>
                         {/* End Marker */}
                         <div className="mt-20 flex flex-col items-center gap-4">
                             <div className="h-px w-32 bg-gray-700"></div>

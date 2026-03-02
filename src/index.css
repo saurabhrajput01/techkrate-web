@@ -298,3 +298,49 @@ h3.heading-md {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.blog-content h1 {
+  font-size: 40px;
+}
+
+.blog-content h2 {
+  font-size: 30px;
+}
+
+.blog-content h3 {
+  font-size: 24px;
+}
+
+/* Paragraph styling */
+.blog-content p {
+  color: #9ca3af; /* gray-400 */
+  margin-bottom: 16px;
+}
+
+/* Make sub part inside heading grey */
+.blog-content h2 span,
+.blog-content h3 span {
+  color: #9ca3af;
+  font-size: 0.9em;
+}
+
+/* Strong text */
+.blog-content strong {
+  color: white;
+}
+
+/* Links */
+.blog-content a {
+  color: #2563EB;
+}
