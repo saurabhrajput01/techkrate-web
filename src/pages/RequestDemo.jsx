@@ -203,9 +203,7 @@ const RequestDemo = () => {
             </div>
 
             {/* Right Form Section */}
-            <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center pt-20 lg:pt-10">
-
-                <motion.form
+        <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center pt-[110px] lg:pt-[120px]">                <motion.form
                     onSubmit={handleSubmit}
                     className="space-y-4 w-full"
                     initial={{ opacity: 0, x: 20 }}
