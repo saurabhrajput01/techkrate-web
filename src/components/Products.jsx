@@ -28,23 +28,25 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
       {/* Content */}
       <div className="relative h-full flex flex-col p-5 md:p-8 text-white">
 
-        {/* Top Section */}
+         {/* Top Section */}
         <div className="flex items-center justify-between">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight break-words">
             {name}
           </h3>
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full  flex items-center justify-center">
+
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center">
             <img
               src={logo}
-              alt={`${name} logo`}
-              className=" md:w-20 md:h-25 object-contain"
+              alt={name}
+              className="w-8 h-8 md:w-12 md:h-12 object-contain"
             />
           </div>
         </div>
 
+
         {/* Description */}
         <div className="my-4">
-          <p className="text-sm md:text-xl text-gray-200 max-w-full md:max-w-lg leading-relaxed">
+          <p className="text-sm md:text-xl text-gray-200 max-w-full md:max-w- leading-relaxed">
             {description}
           </p>
         </div>
@@ -104,7 +106,7 @@ const Solutions = () => {
             logo={MovalLogo}
             background={MovalBG}
             to="/moval"
-            description="An Al-powered cloud platform revolutionizing motor surveys through seamless automation & intelligent data analysis."
+            description="MOVAL is a comprehensive digital platform built exclusively for insurance surveyors, enabling you to manage claims, conduct vehicle assessments, and generate reports from anywhere. Trusted by 100+ insurance professionals across India, MOVAL empowers corporate surveyors, independent surveyors, DSPs to work smarter and completely office-free."
           />
 
           <SolutionCard
