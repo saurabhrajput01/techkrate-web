@@ -460,7 +460,7 @@ Leading Techkrate
 
     {/* Main Quote */}
     <h2 className="
-      text-[40px] md:text-[40px]
+      text-[15px] md:text-[40px]
       font-light
       leading-[1.1]
       tracking-[-0.02em]

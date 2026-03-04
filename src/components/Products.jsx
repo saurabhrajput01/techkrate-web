@@ -14,7 +14,7 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative group overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-[16/9] transition-all duration-300"
+      className="relative group overflow-hidden rounded-2xl min-h-[380px] sm:min-h-[400px] lg:min-h-0 lg:aspect-[16/9] transition-all duration-300 flex flex-col"
     >
       {/* Background */}
       <div
@@ -28,7 +28,7 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
       {/* Content */}
       <div className="relative h-full flex flex-col p-5 md:p-8 text-white">
 
-         {/* Top Section */}
+        {/* Top Section */}
         <div className="flex items-center justify-between">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-Helix tracking-tight break-words">
             {name}
@@ -45,8 +45,8 @@ const SolutionCard = ({ name, logo, description, background, to }) => {
 
 
         {/* Description */}
-        <div className="my-4">
-          <p className="text-sm md:text-xl text-gray-200 max-w-full md:max-w- leading-relaxed">
+        <div className="my-4 flex-grow">
+          <p className="text-base lg:text-lg text-gray-200 leading-relaxed line-clamp- sm:line-clamp-none">
             {description}
           </p>
         </div>
