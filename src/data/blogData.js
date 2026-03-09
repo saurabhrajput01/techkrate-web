@@ -6,7 +6,7 @@ export const articles = [
     category: "Compliance",
     imageUrl: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1200&auto=format&fit=crop",
     author: "Moval Editorial Team",
-    date: "2024-03-01",
+    date: "2026-03-01",
     content: `
 
 ## Introduction
@@ -31,11 +31,11 @@ This certificate is a mandatory requirement under India's Foreign Trade Policy (
 
 The Directorate General of Foreign Trade (DGFT) mandates a CE Certificate for the following reasons:
 
-- To verify that the imported machinery has a minimum residual life of 5 years  
-- To confirm that the equipment meets Indian safety and environmental standards  
-- To prevent the import of outdated, hazardous, or sub-standard equipment  
-- To protect domestic industries from unfair competition via cheap, worn-out imports  
-- To ensure the importer gets value for their investment  
+1. To verify that the imported machinery has a minimum residual life of 5 years  
+2. To confirm that the equipment meets Indian safety and environmental standards  
+3. To prevent the import of outdated, hazardous, or sub-standard equipment  
+4. To protect domestic industries from unfair competition via cheap, worn-out imports  
+5. To ensure the importer gets value for their investment  
 
 ---
 
@@ -155,19 +155,19 @@ By positioning yourself as a knowledgeable and reliable professional in this dom
 
 Stay informed. Stay certified. Build your expertise with Moval — India's platform for professional Motor Surveyors.
 
-Published by Moval | Motor Surveyor Platform | www.moval.in
+
 
 `
   },
-{
-  id: "digital-shift-motor-surveys-offline-to-online",
-  title: "The Digital Shift: Why Motor Surveys Are Moving from Offline to Online",
-  secondTitle: "How Cloud-Based Platforms Are Transforming Motor Survey Operations",
-  category: "Software",
-  imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
-  author: "Moval Editorial Team",
-  date: "2026-02-27",
-  content: `
+  {
+    id: "digital-shift-motor-surveys-offline-to-online",
+    title: "The Digital Shift: Why Motor Surveys Are Moving from Offline to Online",
+    secondTitle: "How Cloud-Based Platforms Are Transforming Motor Survey Operations",
+    category: "Software",
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+    author: "Moval Editorial Team",
+    date: "2026-03-01",
+    content: `
 
 ## Introduction
 
@@ -268,20 +268,20 @@ If your business is still operating offline survey software, the question is no 
 
 Interested in learning how Moval’s online motor survey platform can transform your operations? Get in touch with our team today.
 
-Published by Moval | Motor Surveyor Platform | www.moval.in
+
 
 `
-},
-  
-{
-  id: "dsp-revolution-government-insurance-claims",
-  title: "The DSP Revolution: How Government Insurance Companies Are Transforming Claims Processing",
-  secondTitle: "A Paradigm Shift in the Making",
-  category: "Insurance",
-  imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop",
-  author: "Moval Editorial Team",
-  date: "2026-03-05",
-  content: `
+  },
+
+  {
+    id: "dsp-revolution-government-insurance-claims",
+    title: "The DSP Revolution: How Government Insurance Companies Are Transforming Claims Processing",
+    secondTitle: "A Paradigm Shift in the Making",
+    category: "Insurance",
+    imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop",
+    author: "Moval Editorial Team",
+    date: "2026-03-01",
+    content: `
 
 ## A Paradigm Shift in the Making
 
@@ -417,8 +417,8 @@ Whether DSPs consistently deliver on this promise at scale will define the succe
 
 For queries related to your insurance claims or the DSP process applicable to your policy, contact your insurer's customer service portal or your nearest branch office.
 
-Published by Moval | Motor Surveyor Platform | www.moval.in
+
 
 `
-},
+  },
 ];

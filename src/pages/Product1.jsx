@@ -85,7 +85,7 @@ const MovalPage = () => {
         "
       >
         Automated damage assessment, smart PDF extraction, IRDA compliance,
-        and complete end-to-end claims automation for insurance companies.
+        and complete end-to-end claims automation for individual & Corporate Surveyors and DSPs.
       </p>
 
       {/* Button */}

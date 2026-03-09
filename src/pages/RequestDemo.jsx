@@ -38,8 +38,8 @@ const RequestDemo = () => {
         if (!formData.name) newErrors.name = "Name is required";
         if (!formData.companyName) newErrors.companyName = "Company name is required";
         if (!formData.phoneNumber) newErrors.phoneNumber = "Phone number is required";
-        else if (!/^\d+$/.test(formData.phoneNumber))
-            newErrors.phoneNumber = "Invalid phone number";
+        else if (!/^\d{10}$/.test(formData.phoneNumber))
+            newErrors.phoneNumber = "Phone number must be exactly 10 digits";
 
         if (!formData.industry) newErrors.industry = "Please select an industry";
 
@@ -49,9 +49,16 @@ const RequestDemo = () => {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        let newValue = type === "checkbox" ? checked : value;
+
+        if (name === "phoneNumber") {
+            newValue = newValue.replace(/\D/g, "");
+            if (newValue.length > 10) return;
+        }
+
         setFormData({
             ...formData,
-            [name]: type === "checkbox" ? checked : value,
+            [name]: newValue,
         });
         if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
     };
@@ -203,199 +210,199 @@ const RequestDemo = () => {
             </div>
 
             {/* Right Form Section */}
-        <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center pt-[110px] lg:pt-[120px]">                <motion.form
-                    onSubmit={handleSubmit}
-                    className="space-y-4 w-full"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {/* Name & Email */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="relative">
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                placeholder="Full Name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className={inputClasses(errors.name)}
-                            />
-                            <label
-                                htmlFor="name"
-                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+            <div className="w-full lg:w-1/2 bg-black p-10 flex flex-col justify-center pt-[110px] lg:pt-[120px]">                <motion.form
+                onSubmit={handleSubmit}
+                className="space-y-4 w-full"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                {/* Name & Email */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative">
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className={inputClasses(errors.name)}
+                        />
+                        <label
+                            htmlFor="name"
+                            className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
                                     peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
                                     peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
                                     ${formData.name ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
-                            >
-                                Full Name *
-                            </label>
-                            {errors.name && <p className="text-red-500 text-xs mt-1 ml-4">{errors.name}</p>}
-                        </div>
+                        >
+                            Full Name *
+                        </label>
+                        {errors.name && <p className="text-red-500 text-xs mt-1 ml-4">{errors.name}</p>}
+                    </div>
 
-                        <div className="relative">
-                            <div className="flex items-center gap-3">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email Address"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className={`${inputClasses(errors.email)} ${isEmailVerified ? "bg-gray-900 border-green-500/50" : ""}`}
-                                    disabled={isEmailVerified}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={handleVerifyClick}
-                                    disabled={isEmailVerified}
-                                    className={`flex-shrink-0 text-sm font-semibold py-3 px-4 rounded-xl transition-all duration-300 whitespace-nowrap ${isEmailVerified
-                                        ? "bg-green-600/20 text-green-400 border border-green-500/30 cursor-not-allowed"
-                                        : "bg-[#2563EB] text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"
-                                        }`}
-                                >
-                                    {isEmailVerified ? "✓ Verified" : "Verify"}
-                                </button>
-                                <label
-                                    htmlFor="email"
-                                    className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                    <div className="relative">
+                        <div className="flex items-center gap-3">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Email Address"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className={`${inputClasses(errors.email)} ${isEmailVerified ? "bg-gray-900 border-green-500/50" : ""}`}
+                                disabled={isEmailVerified}
+                            />
+                            <button
+                                type="button"
+                                onClick={handleVerifyClick}
+                                disabled={isEmailVerified}
+                                className={`flex-shrink-0 text-sm font-semibold py-3 px-4 rounded-xl transition-all duration-300 whitespace-nowrap ${isEmailVerified
+                                    ? "bg-green-600/20 text-green-400 border border-green-500/30 cursor-not-allowed"
+                                    : "bg-[#2563EB] text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"
+                                    }`}
+                            >
+                                {isEmailVerified ? "✓ Verified" : "Verify"}
+                            </button>
+                            <label
+                                htmlFor="email"
+                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
                                         peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
                                         peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
                                         ${formData.email ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
-                                >
-                                    Email Address *
-                                </label>
-                            </div>
-                            {errors.email && <p className="text-red-500 text-xs mt-1 ml-4">{errors.email}</p>}
+                            >
+                                Email Address *
+                            </label>
                         </div>
+                        {errors.email && <p className="text-red-500 text-xs mt-1 ml-4">{errors.email}</p>}
                     </div>
+                </div>
 
-                    {/* Phone & Company */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="relative">
-                            <input
-                                type="tel"
-                                name="phoneNumber"
-                                id="phoneNumber"
-                                placeholder="Phone Number"
-                                value={formData.phoneNumber}
-                                onChange={handleChange}
-                                className={inputClasses(errors.phoneNumber)}
-                            />
-                            <label
-                                htmlFor="phoneNumber"
-                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                {/* Phone & Company */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative">
+                        <input
+                            type="tel"
+                            name="phoneNumber"
+                            id="phoneNumber"
+                            placeholder="Phone Number"
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            className={inputClasses(errors.phoneNumber)}
+                        />
+                        <label
+                            htmlFor="phoneNumber"
+                            className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
                                     peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
                                     peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
                                     ${formData.phoneNumber ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
-                            >
-                                Phone Number *
-                            </label>
-                            {errors.phoneNumber && <p className="text-red-500 text-xs mt-1 ml-4">{errors.phoneNumber}</p>}
-                        </div>
+                        >
+                            Phone Number *
+                        </label>
+                        {errors.phoneNumber && <p className="text-red-500 text-xs mt-1 ml-4">{errors.phoneNumber}</p>}
+                    </div>
 
-                        <div className="relative">
-                            <input
-                                type="text"
-                                name="companyName"
-                                id="companyName"
-                                placeholder="Company Name"
-                                value={formData.companyName}
-                                onChange={handleChange}
-                                className={inputClasses(errors.companyName)}
-                            />
-                            <label
-                                htmlFor="companyName"
-                                className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
+                    <div className="relative">
+                        <input
+                            type="text"
+                            name="companyName"
+                            id="companyName"
+                            placeholder="Company Name"
+                            value={formData.companyName}
+                            onChange={handleChange}
+                            className={inputClasses(errors.companyName)}
+                        />
+                        <label
+                            htmlFor="companyName"
+                            className={`absolute left-6 top-4 text-gray-400 transition-all duration-300 pointer-events-none 
                                     peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
                                     peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
                                     ${formData.companyName ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
-                            >
-                                Company Name *
-                            </label>
-                            {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-4">{errors.companyName}</p>}
-                        </div>
+                        >
+                            Company Name *
+                        </label>
+                        {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-4">{errors.companyName}</p>}
                     </div>
+                </div>
 
-                    {/* Industry Dropdown */}
-                    <div>
-                        <label className={labelClasses}></label>
-                        <CustomDropdown
-                            label="Industry"
-                            name="industry"
-                            value={formData.industry}
-                            onChange={handleChange}
-                            options={[
-                                { value: "Motor Claims", label: "Motor Claims" },
-                                { value: "Chartered Engineering", label: "Chartered Engineering" },
-                            ]}
-                            placeholder="Select Industry"
-                        />
-                    </div>
+                {/* Industry Dropdown */}
+                <div>
+                    <label className={labelClasses}></label>
+                    <CustomDropdown
+                        label="Industry"
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
+                        options={[
+                            { value: "Motor Claims", label: "Motor Claims" },
+                            { value: "Chartered Engineering", label: "Chartered Engineering" },
+                        ]}
+                        placeholder="Select Industry"
+                    />
+                </div>
 
-                    {/* Message */}
-                    <div className="relative">
-                        <textarea
-                            name="message"
-                            id="message"
-                            rows="4"
-                            value={formData.message}
-                            onChange={handleChange}
-                            placeholder="How can we help you?"
-                            className="peer w-full px-6 py-5 rounded-2xl border border-gray-700 bg-black text-gray-100 focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] resize-none placeholder-transparent"
-                        />
-                        <label
-                            htmlFor="message"
-                            className={`absolute left-6 top-5 text-gray-400 transition-all duration-300 pointer-events-none 
+                {/* Message */}
+                <div className="relative">
+                    <textarea
+                        name="message"
+                        id="message"
+                        rows="4"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="How can we help you?"
+                        className="peer w-full px-6 py-5 rounded-2xl border border-gray-700 bg-black text-gray-100 focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] resize-none placeholder-transparent"
+                    />
+                    <label
+                        htmlFor="message"
+                        className={`absolute left-6 top-5 text-gray-400 transition-all duration-300 pointer-events-none 
                                 peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#2563EB] peer-focus:bg-black peer-focus:px-2
                                 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#2563EB] peer-[:not(:placeholder-shown)]:bg-black peer-[:not(:placeholder-shown)]:px-2
                                 ${formData.message ? "-top-2.5 left-4 text-xs text-[#2563EB] bg-black px-2" : ""}`}
-                        >
-                            How can we help you?
-                        </label>
-                    </div>
+                    >
+                        How can we help you?
+                    </label>
+                </div>
 
+                {/* Checkbox */}
+                <div className="flex items-center">
                     {/* Checkbox */}
-                    <div className="flex items-center">
-                        {/* Checkbox */}
 
-                        {/* Privacy & Consent Section */}
-                        <div className="flex flex-col gap-4 mt-4 text-gray-300 text-sm">
-                            <p>
-                                Techkrate is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your account and to provide the products and services you requested from us.
-                            </p>
+                    {/* Privacy & Consent Section */}
+                    <div className="flex flex-col gap-4 mt-4 text-gray-300 text-sm">
+                        <p>
+                            Techkrate is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your account and to provide the products and services you requested from us.
+                        </p>
 
-                            <div className="flex items-start gap-3">
-                                <input
-                                    type="checkbox"
-                                    id="agree"
-                                    name="agree"
-                                    checked={formData.agree}
-                                    onChange={handleChange}
-                                    className="mt-1 h-5 w-5 text-[#2563EB] border-gray-600 rounded focus:ring-[#2563EB] bg-black"
-                                />
-                                <label htmlFor="agree" className="text-gray-300 leading-relaxed">
-                                    I agree to receive other communications from <span className="font-semibold">Techkrate</span>.
-                                </label>
-                            </div>
-
-                            <p className="text-gray-400 text-xs leading-snug">
-                                By clicking submit below, you consent to allow <span className="font-semibold">Techkrate</span> to store and process the personal information submitted above to provide you the content requested.
-                            </p>
+                        <div className="flex items-start gap-3">
+                            <input
+                                type="checkbox"
+                                id="agree"
+                                name="agree"
+                                checked={formData.agree}
+                                onChange={handleChange}
+                                className="mt-1 h-5 w-5 text-[#2563EB] border-gray-600 rounded focus:ring-[#2563EB] bg-black"
+                            />
+                            <label htmlFor="agree" className="text-gray-300 leading-relaxed">
+                                I agree to receive other communications from <span className="font-semibold">Techkrate</span>.
+                            </label>
                         </div>
 
-
+                        <p className="text-gray-400 text-xs leading-snug">
+                            By clicking submit below, you consent to allow <span className="font-semibold">Techkrate</span> to store and process the personal information submitted above to provide you the content requested.
+                        </p>
                     </div>
 
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        className="w-full py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-colors shadow-lg"
-                    >
-                        {isSubmitting ? "Submitting..." : "Request Demo"}
-                    </button>
-                </motion.form>
+
+                </div>
+
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    className="w-full py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-colors shadow-lg"
+                >
+                    {isSubmitting ? "Submitting..." : "Request Demo"}
+                </button>
+            </motion.form>
             </div>
 
             {/* OTP Popup */}

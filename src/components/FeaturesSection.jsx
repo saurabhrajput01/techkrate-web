@@ -5,7 +5,7 @@ const features = [
   {
     title: "AI-Based ILA Generation",
     points: [
-      "CAPTURE PHOTOS — Photograph the damaged vehicle with your smartphone using the Moval App. No special equipment needed..",
+      "CAPTURE PHOTOS — Photograph the damaged vehicle with your smartphone using the Moval App or Motor Survey links. No special equipment needed..",
       "AI DETECTS DAMAGE — AI identifies all scratches, dents, and cracks. Damage marked with colored boxes..",
       "IDENTIFY PARTS — The system automatically recognises affected components (bumper, hood, door, fender, etc.).",
       "GENERATE ILA — Creates a complete report using Moval's parts rate charts - part pricing, labour costs, and total estimate ready in minutes."
@@ -17,11 +17,11 @@ const features = [
       "ADVANCED EXTRACTION TECHNOLOGY — that reads and processes estimates and bills from Hyundai, KIA, TATA, Mahindra, and Maruti Suzuki — revolutionising how you handle manufacturer data..",
       "DIRECT IMPORT — Drop manufacturer estimates and bills directly into your system — no more manual retyping.",
       "SMART MAPPING — Intelligent recognition automatically identifies part numbers, descriptions, prices, and quantities. Configure once per manufacturer, and the system remembers your preferences forever.",
-      "INSTANT RESULTS — What took 2-3 hours of manual entry now happens in 30 seconds with zero transcription errors."
+      "INSTANT RESULTS — What took 2-3 hours of manual entry now happens in few minuted with zero typing errors."
     ]
   },
   {
-    title: "Built For Damage Service Providers",
+    title: "Built For Digital Service Providers",
     points: [
       "GET INSTANT AI-POWERED DAMAGE DETECTION — with visual markers on every scratch, dent, and crack.",
       "RECEIVE AUTOMATIC PART IDENTIFICATION — for all affected components.",
