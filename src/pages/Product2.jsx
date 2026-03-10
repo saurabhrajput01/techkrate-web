@@ -56,7 +56,26 @@ const CARSPage = () => {
     title: "Auto Depreciation & Market Valuation",
     description:
       "Automatically calculates machine value using age-wise depreciation norms, with CE review and confirmation."
+  },
+  {
+    icon: FileSignature,
+    title: "Excel-Based Bulk Import",
+    description:
+      "Office staff can upload a pre-formatted Excel file to import multiple machinery details directly into the system, eliminating repetitive manual entry and reducing errors."
+  },
+  {
+    icon: ShieldCheck,
+    title: "QR Code on Every Certificate",
+    description:
+      "Every issued CE certificate includes a unique QR code that allows customs officers to instantly verify certificate details and raise queries directly through the platform."
+  },
+  {
+    icon: Cloud,
+    title: "Machinery Photograph Upload & Auto-Alignment",
+    description:
+      "Photographs of each machine can be uploaded and automatically formatted into a structured photo annexure within the generated CE certificate."
   }
+
 ];
 
   const benefits = [
@@ -260,7 +279,6 @@ const CARSPage = () => {
 </section>
 
 
-      {/* Why Choose CARS Section */}
 
       {/* WHY CHOOSE CARS — PREMIUM SECTION */}
 <section className="bg-black py-16 lg:py-24 relative overflow-hidden">
@@ -354,11 +372,37 @@ const CARSPage = () => {
     Smart Operations Platform
   </h3>
 
-  <p className="text-gray-400 mt-4 max-w-xs mx-auto">
-    Centralized dashboards, secure workflows and scalable infrastructure
-    built for enterprise-level assessment management.
-  </p>
+ <div className="mt-6 grid grid-cols-2 gap-2 max-w-xs mx-auto text-xs text-gray-400">
 
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    Multi-Office 
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    Approval-Controlled 
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    Admin-Governed Master Data
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    Auto Valuation
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    QR-Enabled 
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition">
+    Expiry-Controlled Consignee Links
+  </span>
+
+  <span className="px-3 py-1.5 text-center border border-white/10 rounded-md bg-white/[0.02] hover:border-[#2563EB]/40 hover:text-white transition col-span-2">
+    DGFT & FTP Compliance
+  </span>
+
+</div>
 </motion.div>
       </div>
 
@@ -394,116 +438,109 @@ const CARSPage = () => {
 </section>
 
 
-      {/* USE CASES — MOVAL PREMIUM STYLE */}
-      <section className="relative bg-black py-20 lg:py-28 overflow-hidden">
+ {/* //use case section */}
+<section className="relative bg-black py-20 lg:py-28 overflow-hidden">
 
-        {/* Blue glow background */}
-        <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
-        </div>
+{/* glow */}
+<div className="absolute inset-0 flex justify-center pointer-events-none">
+  <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
+</div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+<div className="relative max-w-[1400px] mx-auto px-6">
 
-          {/* SECTION HEADER */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
+{/* HEADER */}
+<div className="text-center mb-20">
 
-            <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
-              Use Cases
-            </span>
+<span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
+Platform Highlights
+</span>
 
-            <h2 className="text-[32px] md:text-[44px] lg:text-[48px] font-semibold text-white leading-[1.15]">
-              Transform Assessment Workflows with
-              <span className="text-[#2563EB]"> CARS Platform</span>
-            </h2>
+<h2 className="text-[34px] md:text-[46px] lg:text-[52px] font-semibold text-white leading-[1.1]">
+CARS <span className="text-[#2563EB]">Highlights</span>
+</h2>
 
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              Built for insurance professionals, surveyors and assessment companies to streamline operations with AI automation.
-            </p>
+<p className="text-gray-400 mt-4 max-w-2xl mx-auto text-[16px]">
+Key capabilities that streamline machinery valuation, certification, and customs verification.
+</p>
 
-          </motion.div>
+</div>
 
+{/* FLOW */}
+<div className="relative">
 
-          {/* CONTENT GRID */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+{/* timeline line */}
+<div className="hidden xl:block absolute left-0 right-0 top-10 h-[2px] bg-[#2563EB]/30"></div>
 
-            {/* LEFT IMAGE */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
+<div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
 
-              {/* glow behind image */}
-              <div className="absolute w-[500px] h-[500px] bg-[#2563EB] opacity-20 blur-[140px] rounded-full"></div>
+{[
+{
+title:"Auto-Calculated Valuation",
+desc:"Current market value is computed automatically using age-wise depreciation norms ensuring consistency across certificates."
+},
+{
+title:"Excel Import — No Bulk Data Entry",
+desc:"Multi-machine consignment data can be imported directly from Excel saving time and reducing processing errors."
+},
+{
+title:"QR Code — Real-Time",
+desc:"Customs officers can scan the QR code on any issued certificate for instant verification and validation."
+},
+{
+title:"Customs Query",
+desc:"Customs can raise a query instantly which reaches the Chartered Engineer in real time for faster resolution."
+},
+{
+title:"Auto-Aligned Photograph Annexure",
+desc:"Machine photographs are automatically formatted and appended as a structured annexure in the certificate."
+},
+{
+title:"Auto-Generated Expiry Link",
+desc:"Secure time-limited sharing link automatically generated for consignee certificate access."
+}
+].map((item,index)=>(
 
-              <img
-                src={UseCaseBG}
-                alt="Use cases"
-                className="relative z-10 rounded-2xl border border-white/10"
-              />
+<div key={index} className="flex flex-col items-center group">
 
-            </motion.div>
+{/* circle */}
+<div className="w-20 h-20 rounded-full border border-[#2563EB]/40 bg-[#0B0F19]
+flex items-center justify-center text-[#2563EB] text-lg font-semibold
+group-hover:bg-[#2563EB] group-hover:text-white transition mb-6">
+{index+1}
+</div>
 
+{/* card */}
+<div className="flex flex-col w-full min-h-[200px] bg-white/5 backdrop-blur-md
+border border-white/10 rounded-xl p-6
+hover:border-[#2563EB]/60
+hover:shadow-[0_0_20px_rgba(37,99,235,0.25)]
+transition-all duration-300">
 
-            {/* RIGHT CONTENT */}
-            <div className="space-y-10">
+{/* accent line */}
+<div className="w-10 h-[2px] bg-[#2563EB] mx-auto mb-4"></div>
 
-              {[
-                {
-                  title: "Insurance Surveyors",
-                  desc: "Manage multiple surveyors, assignments, and reports from a unified intelligent dashboard."
-                },
-                {
-                  title: "Loss Assessors",
-                  desc: "Track assessments across locations while ensuring compliance and operational efficiency."
-                },
-                {
-                  title: "Assessment Companies",
-                  desc: "Scale operations with centralized analytics, automation and secure cloud infrastructure."
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.15 }}
-                  className="flex items-start gap-5 group"
-                >
+{/* heading center */}
+<h3 className="text-white font-semibold text-[17px] leading-snug mb-3 text-center">
+{item.title}
+</h3>
 
-                  {/* Icon circle */}
-                  <div className="w-14 h-14 rounded-xl bg-[#2563EB]/20 flex items-center justify-center shrink-0 group-hover:bg-[#2563EB] transition">
-                    <CheckCircle className="w-7 h-7 text-[#2563EB] group-hover:text-white" />
-                  </div>
+{/* justified description */}
+<p className="text-gray-400 text-[15px] leading-relaxed text-justify tracking-[0.2px] flex-grow">
+{item.desc}
+</p>
 
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 group-hover:text-[#2563EB] transition">
-                      {item.title}
-                    </h3>
+</div>
 
-                    <p className="text-gray-400 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
+</div>
 
-                </motion.div>
-              ))}
+))}
 
-            </div>
+</div>
 
-          </div>
+</div>
 
-        </div>
-      </section>
-
-
-
+</div>
+</section>
 
       {/* CTA Section */}
       {/* CTA Section — CARS PREMIUM MATCH THEME */}
