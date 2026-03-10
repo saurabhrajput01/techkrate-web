@@ -479,11 +479,11 @@ title:"Auto-Calculated Valuation",
 desc:"Current market value is computed automatically using age-wise depreciation norms ensuring consistency across certificates."
 },
 {
-title:"Excel Import — No Bulk Data Entry",
+title:"Excel Import No Bulk Data Entry",
 desc:"Multi-machine consignment data can be imported directly from Excel saving time and reducing processing errors."
 },
 {
-title:"QR Code — Real-Time",
+title:"QR Code Real-Time",
 desc:"Customs officers can scan the QR code on any issued certificate for instant verification and validation."
 },
 {
@@ -491,7 +491,7 @@ title:"Customs Query",
 desc:"Customs can raise a query instantly which reaches the Chartered Engineer in real time for faster resolution."
 },
 {
-title:"Auto-Aligned Photograph Annexure",
+title:"Auto-Aligned Photograph",
 desc:"Machine photographs are automatically formatted and appended as a structured annexure in the certificate."
 },
 {
