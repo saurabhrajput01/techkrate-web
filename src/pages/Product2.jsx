@@ -521,15 +521,14 @@ transition-all duration-300">
 <div className="w-10 h-[2px] bg-[#2563EB] mx-auto mb-4"></div>
 
 {/* heading */}
-<h3 className="text-white font-semibold text-[17px] leading-snug mb-3 text-center">
+{/* heading */}
+<h3 className="text-white font-semibold text-[17px] leading-[1.35] mb-3 text-center line-clamp-2 min-h-[44px]">
 {item.title}
 </h3>
 
-{/* description */}
-<p className="text-gray-400 text-[15px] leading-relaxed text-center flex-grow">
+<p className="text-gray-400 text-[15px] leading-[1.7] text-left max-w-[260px] mx-auto flex-grow">
 {item.desc}
 </p>
-
 </div>
 
 </div>
@@ -542,6 +541,7 @@ transition-all duration-300">
 
 </div>
 </section>
+
       {/* CTA Section */}
       {/* CTA Section — CARS PREMIUM MATCH THEME */}
       <section className="relative bg-black py-28 px-6 lg:px-8 overflow-hidden">
