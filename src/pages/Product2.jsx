@@ -439,17 +439,17 @@ const CARSPage = () => {
 
 
  {/* //use case section */}
-<section className="relative bg-black py-20 lg:py-28 overflow-hidden">
+<section className="relative bg-black py-24 lg:py-32 overflow-hidden">
 
-{/* glow */}
+{/* glow background */}
 <div className="absolute inset-0 flex justify-center pointer-events-none">
-  <div className="w-[900px] h-[900px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
+  <div className="w-[1000px] h-[1000px] bg-[#2563EB] opacity-10 blur-[220px] rounded-full"></div>
 </div>
 
 <div className="relative max-w-[1400px] mx-auto px-6">
 
 {/* HEADER */}
-<div className="text-center mb-20">
+<div className="text-center mb-24">
 
 <span className="inline-block px-4 py-1.5 bg-[#2563EB]/20 text-[#2563EB] text-sm font-medium rounded-full mb-4">
 Platform Highlights
@@ -459,7 +459,7 @@ Platform Highlights
 CARS <span className="text-[#2563EB]">Highlights</span>
 </h2>
 
-<p className="text-gray-400 mt-4 max-w-2xl mx-auto text-[16px]">
+<p className="text-gray-400 mt-4 max-w-2xl mx-auto text-[16px] leading-relaxed">
 Key capabilities that streamline machinery valuation, certification, and customs verification.
 </p>
 
@@ -469,7 +469,7 @@ Key capabilities that streamline machinery valuation, certification, and customs
 <div className="relative">
 
 {/* timeline line */}
-<div className="hidden xl:block absolute left-0 right-0 top-10 h-[2px] bg-[#2563EB]/30"></div>
+<div className="hidden xl:block absolute left-0 right-0 top-10 h-[2px] bg-gradient-to-r from-transparent via-[#2563EB]/40 to-transparent"></div>
 
 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
 
@@ -500,32 +500,33 @@ desc:"Secure time-limited sharing link automatically generated for consignee cer
 }
 ].map((item,index)=>(
 
-<div key={index} className="flex flex-col items-center group">
+<div key={index} className="flex flex-col items-center group h-full">
 
 {/* circle */}
 <div className="w-20 h-20 rounded-full border border-[#2563EB]/40 bg-[#0B0F19]
 flex items-center justify-center text-[#2563EB] text-lg font-semibold
-group-hover:bg-[#2563EB] group-hover:text-white transition mb-6">
+group-hover:bg-[#2563EB] group-hover:text-white
+group-hover:scale-110 transition-all duration-300 mb-6">
 {index+1}
 </div>
 
 {/* card */}
-<div className="flex flex-col w-full min-h-[200px] bg-white/5 backdrop-blur-md
+<div className="flex flex-col h-full w-full bg-white/5 backdrop-blur-md
 border border-white/10 rounded-xl p-6
 hover:border-[#2563EB]/60
-hover:shadow-[0_0_20px_rgba(37,99,235,0.25)]
+hover:shadow-[0_0_25px_rgba(37,99,235,0.35)]
 transition-all duration-300">
 
 {/* accent line */}
 <div className="w-10 h-[2px] bg-[#2563EB] mx-auto mb-4"></div>
 
-{/* heading center */}
+{/* heading */}
 <h3 className="text-white font-semibold text-[17px] leading-snug mb-3 text-center">
 {item.title}
 </h3>
 
-{/* justified description */}
-<p className="text-gray-400 text-[15px] leading-relaxed text-justify tracking-[0.2px] flex-grow">
+{/* description */}
+<p className="text-gray-400 text-[15px] leading-relaxed text-center flex-grow">
 {item.desc}
 </p>
 
@@ -541,7 +542,6 @@ transition-all duration-300">
 
 </div>
 </section>
-
       {/* CTA Section */}
       {/* CTA Section — CARS PREMIUM MATCH THEME */}
       <section className="relative bg-black py-28 px-6 lg:px-8 overflow-hidden">
